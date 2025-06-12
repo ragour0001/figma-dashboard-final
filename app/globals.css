@@ -426,8 +426,6 @@ a {
 .resources-search-button-text {
   color: #fff;
   text-align: center;
-  leading-trim: both;
-  text-edge: cap;
   font-family:
     "Inter",
     -apple-system,
@@ -566,6 +564,7 @@ a {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
   overflow: hidden;
   color: #006b5f;
   text-overflow: ellipsis;
@@ -1716,6 +1715,11 @@ a {
 
 .store-badge {
   height: 39px;
+  flex-shrink: 0;
+}
+
+.positive-img {
+  height: 140px;
   flex-shrink: 0;
 }
 
@@ -3441,8 +3445,6 @@ a {
 .search-button-text {
   color: #fff;
   text-align: center;
-  leading-trim: both;
-  text-edge: cap;
   font-family:
     Inter,
     -apple-system,
@@ -3589,6 +3591,7 @@ a {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
   padding: 8px 14px;
   align-items: center;
   gap: 4px;
@@ -5553,10 +5556,6 @@ a {
   box-shadow: 0px 4px 12px 0px rgba(65, 65, 65, 0.12);
 }
 
-.goal-chip.more {
-  background: #eaeaea;
-}
-
 .goal-emoji {
   width: 33px;
   height: 33px;
@@ -5827,7 +5826,7 @@ a {
 
 .card-content h3 {
   color: white;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 38px;
   margin-bottom: 10px;
@@ -7612,10 +7611,40 @@ a {
 .therapist-card-content {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
-  gap: 26px;
-  align-self: stretch;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.start-now-btn {
+  display: flex;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  background: #006B5F;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.start-now-btn:hover {
+  background: #005A4F;
 }
 
 .therapist-info {
@@ -7674,47 +7703,6 @@ a {
   line-height: 24px;
   letter-spacing: 0.5px;
   margin: 0;
-}
-
-.start-now-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 16px;
-  background: #006a63;
-  border: none;
-  cursor: pointer;
-}
-
-.start-now-btn .btn-content {
-  display: flex;
-  width: 123px;
-  justify-content: center;
-  align-items: center;
-}
-
-.start-now-btn .btn-text {
-  display: flex;
-  padding: 16px 5px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  flex: 1 0 0;
-}
-
-.start-now-btn .btn-label {
-  color: #fff;
-  font-family:
-    Inter,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.15px;
 }
 
 /* Responsive Design */
@@ -7951,10 +7939,6 @@ a {
   left: 179px;
 }
 
-.progress-dot:nth-child(3) {
-  left: 345px;
-}
-
 .progress-dot:nth-child(4) {
   left: 588px;
 }
@@ -8041,10 +8025,40 @@ a {
 .therapist-card-content {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
-  gap: 26px;
-  align-self: stretch;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.start-now-btn {
+  display: flex;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  background: #006B5F;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.start-now-btn:hover {
+  background: #005A4F;
 }
 
 .therapist-card-header {
@@ -8103,29 +8117,6 @@ a {
   line-height: 24px;
   letter-spacing: 0.5px;
   margin: 0;
-}
-
-.start-now-btn {
-  display: flex;
-  width: 123px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 16px;
-  background: #006a63;
-  padding: 16px 5px;
-  border: none;
-  cursor: pointer;
-  color: #fff;
-  font-family:
-    Inter,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.15px;
 }
 
 /* Care Plan Section Styles */
@@ -8426,14 +8417,14 @@ a {
   display: flex;
   width: 431px;
   height: 75px;
-  padding: 12px 12px 12px 16px;
+  padding: 10px 12px 12px 16px;
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
   border-radius: 10px;
   background: #f1f6fb;
   position: absolute;
-  bottom: 133px;
+  bottom: 20px;
   left: 16px;
 }
 
@@ -13260,19 +13251,21 @@ a {
 
 /* Updated Progress Page Styles */
 .progress-page-main {
-  flex: 1;
-  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
   background: #fff;
-  overflow-y: auto;
 }
 
 .progress-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 53px;
-  max-width: 1123px;
   width: 100%;
+  max-width: 100%;
+  padding: 40px;
+  gap: 32px;
+  flex: 1;
 }
 
 /* Wellness Journey Banner */
@@ -15001,11 +14994,41 @@ a {
 
 .therapist-card-content {
   display: flex;
-  padding: 20px;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  align-self: stretch;
+  justify-content: space-between;
+  min-height: 200px;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.start-now-btn {
+  display: flex;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  background: #006B5F;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.start-now-btn:hover {
+  background: #005A4F;
 }
 
 .therapist-profile-section {
@@ -15017,6 +15040,7 @@ a {
 
 .therapist-info {
   display: flex;
+  width: fit-content;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;

@@ -578,7 +578,13 @@ export default function MainContent() {
         </div>
 
         <div className="purple-image">
-          <div className="illustration-placeholder"></div>
+          {/* <div className="illustration-placeholder"> */}
+          <img                
+                src="/assets/images/Positive_thinking-rafiki.png"      
+                alt="Download on App Store"
+                className="positive-img"
+              />
+          {/* </div> */}
         </div>
       </div>
 
