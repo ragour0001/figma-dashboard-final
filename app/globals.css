@@ -35,8 +35,8 @@ a {
 
 /* My Care Plan Styles */
 .my-care-plan {
-  flex: 1;
-  padding: 40px 40px;
+  flex: 1 1;
+  /* padding: 40px 40px; */
   background: #fff;
   overflow-y: auto;
 }
@@ -10712,8 +10712,8 @@ a {
   gap: 8px;
   padding: 12px;
   border-radius: 10px;
-  border: 1px solid #e9eff2;
-  background: #f8f8fb;
+  /* border: 1px solid #e9eff2; */
+  /* background: #f8f8fb; */
   margin-top: 15px;
 }
 
@@ -14513,7 +14513,7 @@ a {
 /* TherapistCoach Page Styles */
 .therapist-coach-page {
   flex: 1;
-  padding: 40px;
+  /* padding: 40px; */
   background: #fff;
   overflow-y: auto;
 }
