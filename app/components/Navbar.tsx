@@ -80,10 +80,10 @@ export default function Navbar() {
           </div>
 
           <div className="profile-section">
-            <div className="profile-info">
-              <div className="avatar">
+          <div className="avatar">
                 <span>J</span>
               </div>
+            <div className="profile-info">              
               <div className="user-details">
                 <div className="user-name">Johnathon Doe</div>
                 <div className="user-role">Admin</div>

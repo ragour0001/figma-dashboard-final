@@ -1208,6 +1208,7 @@ a {
     0px 3px 0px 0px rgba(0, 0, 0, 0.15);
   position: relative;
   margin-top: 40px;
+  margin-left: 20px;
 }
 
 .resources-cta-content {
@@ -4348,7 +4349,7 @@ a {
 .settings-content {
   display: flex;
   width: 100%;
-  max-width: 1070px;
+  /* max-width: 1070px; */
   padding: 18px 0px;
   flex-direction: column;
   align-items: flex-start;
@@ -7899,7 +7900,7 @@ a {
   display: flex;
   width: 1123px;
   max-width: calc(100% - 80px);
-  padding: 40px 0 0 40px;
+  padding: 40px 0 0 0px;
   flex-direction: column;
   align-items: flex-start;
   gap: 35px;
@@ -11458,7 +11459,7 @@ a {
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
-  margin: 18px 0 32px 0;
+  /* margin: 18px 0 32px 0; */
 }
 
 .settings-main {
@@ -12501,7 +12502,7 @@ a {
 @media (max-width: 1200px) {
   .my-care-plan-content {
     width: 100%;
-    padding: 40px 20px 0 20px;
+    padding: 40px 20px 0 0px;
   }
 
   .care-plan-cards-grid {
@@ -12569,7 +12570,7 @@ a {
   display: flex;
   width: 1123px;
   max-width: calc(100% - 80px);
-  padding: 40px 0 0 40px;
+  padding: 40px 0 0 0px;
   flex-direction: column;
   align-items: flex-start;
   gap: 53px;
@@ -14604,7 +14605,7 @@ a {
   flex-direction: column;
   align-items: flex-start;
   gap: 53px;
-  max-width: 1123px;
+  /* max-width: 1123px; */
   width: 100%;
 }
 
