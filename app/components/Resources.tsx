@@ -14,7 +14,7 @@ export default function Resources() {
     <div className="resources-page">
       <div className="resources-main-content">
         {/* Header Section */}
-        <div className="resources-header-section">
+        {/* <div className="resources-header-section"> */}
           <div className="resources-container">
             <div className="resources-content-wrapper">
               <div className="resources-header-content">
@@ -461,7 +461,7 @@ export default function Resources() {
               </div>
             </div>
           </div>
-        </div>
+        {/* </div> */}
 
         {/* CTA Banner */}
         <div className="resources-cta-banner">
