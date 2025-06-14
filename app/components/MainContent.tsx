@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 export default function MainContent() {
+  const [activeTab, setActiveTab] = useState("recommendation");
+
+  const handleTabClick = (tab: string) => {
+    setActiveTab(tab);
+  };
+
   return (
     <main className="main-content">
       {/* Breadcrumb and Welcome */}
@@ -592,131 +600,166 @@ export default function MainContent() {
       <div className="goals-section">
         <div className="section-header">
           <div className="tabs">
-            <div className="tab">Recommendation</div>
+            <div 
+              className={`tab ${activeTab === "recommendation" ? "active" : ""}`}
+              onClick={() => handleTabClick("recommendation")}
+            >
+              Recommendation
+            </div>
             <div className="tab-separator">|</div>
-            <div className="tab">My Progress</div>
+            <div 
+              className={`tab ${activeTab === "my-progress" ? "active" : ""}`}
+              onClick={() => handleTabClick("my-progress")}
+            >
+              My Progress
+            </div>
             <div className="tab-separator">|</div>
-            <div className="tab active">My Goals</div>
+            <div 
+              className={`tab ${activeTab === "my-goals" ? "active" : ""}`}
+              onClick={() => handleTabClick("my-goals")}
+            >
+              My Goals
+            </div>
           </div>
         </div>
 
-        <div className="goals-content">
-          <div className="goals-header">
-            <h3>Select up to 3 goals</h3>
-            <div className="goals-actions">
-              <div className="search-box">
-                <svg
-                  className="search-icon"
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill="none"
-                >
+        {activeTab === "recommendation" && (
+          <div className="progress-content">
+            <div className="goals-header">
+            <h3>Recommendations</h3>
+            </div>
+            <p>Your personalized recommendations will appear here.</p>
+          </div>
+        )}
+
+        {activeTab === "my-progress" && (
+          <div className="progress-content">
+            <div className="goals-header">
+            <h3>My Progress</h3>
+            </div>
+            <p>Track your progress and achievements here.</p>
+          </div>
+        )}
+
+        {activeTab === "my-goals" && (
+          <div className="goals-content">
+            <div className="goals-header">
+              <h3>Select up to 3 goals</h3>
+              <div className="goals-actions">
+                <div className="search-box">
+                  <svg
+                    className="search-icon"
+                    width="24"
+                    height="25"
+                    viewBox="0 0 24 25"
+                    fill="none"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M11.0998 5.29996C7.62052 5.29996 4.79996 8.12052 4.79996 11.5998C4.79996 15.0792 7.62052 17.8997 11.0998 17.8997C14.5792 17.8997 17.3997 15.0792 17.3997 11.5998C17.3997 8.12052 14.5792 5.29996 11.0998 5.29996ZM3 11.5998C3 7.12642 6.62642 3.5 11.0998 3.5C15.5733 3.5 19.1997 7.12642 19.1997 11.5998C19.1997 16.0733 15.5733 19.6997 11.0998 19.6997C6.62642 19.6997 3 16.0733 3 11.5998Z"
+                      fill="#CCCCCC"
+                    />
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M15.5488 16.0488C15.9002 15.6973 16.4701 15.6973 16.8215 16.0488L20.7364 19.9637C21.0879 20.3151 21.0879 20.885 20.7364 21.2364C20.385 21.5879 19.8151 21.5879 19.4637 21.2364L15.5488 17.3215C15.1973 16.9701 15.1973 16.4002 15.5488 16.0488Z"
+                      fill="#CCCCCC"
+                    />
+                  </svg>
+                  <span>Search</span>
+                </div>
+                <button className="done-btn">Done</button>
+              </div>
+            </div>
+
+            <div className="goals-grid">
+              <div className="goal-chip">
+                <div className="goal-emoji">😌</div>
+                <span>Manage stress</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">😊</div>
+                <span>Boost mood & feel positive</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">💤</div>
+                <span>Sleep better</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">🔋</div>
+                <span>Prevent burnout</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">😟</div>
+                <span>Manage anxiety</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">🎯</div>
+                <span>Improve focus & productivity</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">🤝</div>
+                <span>Strengthen personal or work relationships</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">💪</div>
+                <span>Build self-confidence</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">⚖️</div>
+                <span>Improve work-life balance</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">🧘</div>
+                <span>Feel calm</span>
+              </div>
+              <div className="goal-chip more">
+                <svg width="17" height="5" viewBox="0 0 17 5" fill="none">
                   <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M11.0998 5.29996C7.62052 5.29996 4.79996 8.12052 4.79996 11.5998C4.79996 15.0792 7.62052 17.8997 11.0998 17.8997C14.5792 17.8997 17.3997 15.0792 17.3997 11.5998C17.3997 8.12052 14.5792 5.29996 11.0998 5.29996ZM3 11.5998C3 7.12642 6.62642 3.5 11.0998 3.5C15.5733 3.5 19.1997 7.12642 19.1997 11.5998C19.1997 16.0733 15.5733 19.6997 11.0998 19.6997C6.62642 19.6997 3 16.0733 3 11.5998Z"
-                    fill="#CCCCCC"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M15.5488 16.0488C15.9002 15.6973 16.4701 15.6973 16.8215 16.0488L20.7364 19.9637C21.0879 20.3151 21.0879 20.885 20.7364 21.2364C20.385 21.5879 19.8151 21.5879 19.4637 21.2364L15.5488 17.3215C15.1973 16.9701 15.1973 16.4002 15.5488 16.0488Z"
-                    fill="#CCCCCC"
+                    d="M2.06641 4.5C1.51641 4.5 1.04557 4.30417 0.653906 3.9125C0.26224 3.52083 0.0664062 3.05 0.0664062 2.5C0.0664062 1.95 0.26224 1.47917 0.653906 1.0875C1.04557 0.695833 1.51641 0.5 2.06641 0.5C2.61641 0.5 3.08724 0.695833 3.47891 1.0875C3.87057 1.47917 4.06641 1.95 4.06641 2.5C4.06641 3.05 3.87057 3.52083 3.47891 3.9125C3.08724 4.30417 2.61641 4.5 2.06641 4.5ZM8.06641 4.5C7.51641 4.5 7.04557 4.30417 6.65391 3.9125C6.26224 3.52083 6.06641 3.05 6.06641 2.5C6.06641 1.95 6.26224 1.47917 6.65391 1.0875C7.04557 0.695833 7.51641 0.5 8.06641 0.5C8.61641 0.5 9.08724 0.695833 9.47891 1.0875C9.87057 1.47917 10.0664 1.95 10.0664 2.5C10.0664 3.05 9.87057 3.52083 9.47891 3.9125C9.08724 4.30417 8.61641 4.5 8.06641 4.5ZM14.0664 4.5C13.5164 4.5 13.0456 4.30417 12.6539 3.9125C12.2622 3.52083 12.0664 3.05 12.0664 2.5C12.0664 1.95 12.2622 1.47917 12.6539 1.0875C13.0456 0.695833 13.5164 0.5 14.0664 0.5C14.6164 0.5 15.0872 0.695833 15.4789 1.0875C15.8706 1.47917 16.0664 1.95 16.0664 2.5C16.0664 3.05 15.8706 3.52083 15.4789 3.9125C15.0872 4.30417 14.6164 4.5 14.0664 4.5Z"
+                    fill="#00201C"
                   />
                 </svg>
-                <span>Search</span>
+                <span>More</span>
               </div>
-              <button className="done-btn">Done</button>
             </div>
-          </div>
 
-          <div className="goals-grid">
-            <div className="goal-chip">
-              <div className="goal-emoji">😌</div>
-              <span>Manage stress</span>
-            </div>
-            <div className="goal-chip">
-              <div className="goal-emoji">😊</div>
-              <span>Boost mood & feel positive</span>
-            </div>
-            <div className="goal-chip">
-              <div className="goal-emoji">💤</div>
-              <span>Sleep better</span>
-            </div>
-            <div className="goal-chip">
-              <div className="goal-emoji">🔋</div>
-              <span>Prevent burnout</span>
-            </div>
-            <div className="goal-chip">
-              <div className="goal-emoji">😟</div>
-              <span>Manage anxiety</span>
-            </div>
-            <div className="goal-chip">
-              <div className="goal-emoji">🎯</div>
-              <span>Improve focus & productivity</span>
-            </div>
-            <div className="goal-chip">
-              <div className="goal-emoji">🤝</div>
-              <span>Strengthen personal or work relationships</span>
-            </div>
-            <div className="goal-chip">
-              <div className="goal-emoji">💪</div>
-              <span>Build self-confidence</span>
-            </div>
-            <div className="goal-chip">
-              <div className="goal-emoji">⚖️</div>
-              <span>Improve work-life balance</span>
-            </div>
-            <div className="goal-chip">
-              <div className="goal-emoji">🧘</div>
-              <span>Feel calm</span>
-            </div>
-            <div className="goal-chip more">
-              <svg width="17" height="5" viewBox="0 0 17 5" fill="none">
+            <div className="assessment-warning">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path
-                  d="M2.06641 4.5C1.51641 4.5 1.04557 4.30417 0.653906 3.9125C0.26224 3.52083 0.0664062 3.05 0.0664062 2.5C0.0664062 1.95 0.26224 1.47917 0.653906 1.0875C1.04557 0.695833 1.51641 0.5 2.06641 0.5C2.61641 0.5 3.08724 0.695833 3.47891 1.0875C3.87057 1.47917 4.06641 1.95 4.06641 2.5C4.06641 3.05 3.87057 3.52083 3.47891 3.9125C3.08724 4.30417 2.61641 4.5 2.06641 4.5ZM8.06641 4.5C7.51641 4.5 7.04557 4.30417 6.65391 3.9125C6.26224 3.52083 6.06641 3.05 6.06641 2.5C6.06641 1.95 6.26224 1.47917 6.65391 1.0875C7.04557 0.695833 7.51641 0.5 8.06641 0.5C8.61641 0.5 9.08724 0.695833 9.47891 1.0875C9.87057 1.47917 10.0664 1.95 10.0664 2.5C10.0664 3.05 9.87057 3.52083 9.47891 3.9125C9.08724 4.30417 8.61641 4.5 8.06641 4.5ZM14.0664 4.5C13.5164 4.5 13.0456 4.30417 12.6539 3.9125C12.2622 3.52083 12.0664 3.05 12.0664 2.5C12.0664 1.95 12.2622 1.47917 12.6539 1.0875C13.0456 0.695833 13.5164 0.5 14.0664 0.5C14.6164 0.5 15.0872 0.695833 15.4789 1.0875C15.8706 1.47917 16.0664 1.95 16.0664 2.5C16.0664 3.05 15.8706 3.52083 15.4789 3.9125C15.0872 4.30417 14.6164 4.5 14.0664 4.5Z"
-                  fill="#00201C"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M10.8429 4.30333C11.1961 4.10447 11.5947 4 12 4C12.4053 4 12.8039 4.10447 13.1571 4.30333C13.5103 4.5022 13.8063 4.78874 14.0165 5.13531L14.0188 5.13904L20.684 16.2662C20.89 16.6228 20.9988 17.0272 21 17.439C21.0011 17.8508 20.8944 18.2558 20.6905 18.6136C20.4866 18.9713 20.1925 19.2695 19.8376 19.4783C19.4827 19.6872 19.0792 19.7994 18.6674 19.804L18.6588 19.8041L5.33257 19.804C4.92077 19.7995 4.51734 19.6872 4.16241 19.4783C3.80748 19.2695 3.51342 18.9713 3.30949 18.6136C3.10555 18.2558 2.99886 17.8508 3.00001 17.439C3.00116 17.0272 3.11013 16.6229 3.31606 16.2662L3.32236 16.2553L9.98348 5.1353C10.1937 4.78873 10.4897 4.5022 10.8429 4.30333Z"
+                  fill="#E94545"
                 />
               </svg>
-              <span>More</span>
+              <span>Kindly Take the Assessment to track your process</span>
+              <svg
+                className="close-icon"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+              >
+                <path
+                  d="M15 5L5 15"
+                  stroke="black"
+                  strokeOpacity="0.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M5 5L15 15"
+                  stroke="black"
+                  strokeOpacity="0.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </div>
           </div>
-
-          <div className="assessment-warning">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M10.8429 4.30333C11.1961 4.10447 11.5947 4 12 4C12.4053 4 12.8039 4.10447 13.1571 4.30333C13.5103 4.5022 13.8063 4.78874 14.0165 5.13531L14.0188 5.13904L20.684 16.2662C20.89 16.6228 20.9988 17.0272 21 17.439C21.0011 17.8508 20.8944 18.2558 20.6905 18.6136C20.4866 18.9713 20.1925 19.2695 19.8376 19.4783C19.4827 19.6872 19.0792 19.7994 18.6674 19.804L18.6588 19.8041L5.33257 19.804C4.92077 19.7995 4.51734 19.6872 4.16241 19.4783C3.80748 19.2695 3.51342 18.9713 3.30949 18.6136C3.10555 18.2558 2.99886 17.8508 3.00001 17.439C3.00116 17.0272 3.11013 16.6229 3.31606 16.2662L3.32236 16.2553L9.98348 5.1353C10.1937 4.78873 10.4897 4.5022 10.8429 4.30333Z"
-                fill="#E94545"
-              />
-            </svg>
-            <span>Kindly Take the Assessment to track your process</span>
-            <svg
-              className="close-icon"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-            >
-              <path
-                d="M15 5L5 15"
-                stroke="black"
-                strokeOpacity="0.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M5 5L15 15"
-                stroke="black"
-                strokeOpacity="0.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-        </div>
+        )}
       </div>
 
       {/* Micro Learnings Section */}
