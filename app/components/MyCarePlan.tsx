@@ -138,9 +138,15 @@ const CarePlanSection: React.FC<CarePlanSectionProps> = () => {
                 </h3>
               </div>
               <div className="referral-icon">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <img                
+                  src="/assets/images/hand_shake_image.png" 
+                  alt="Handshake"
+                  // className="positive-img"
+                />
+               
+                {/* <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                   <rect width="48" height="48" rx="12" fill="#FFD700" />
-                </svg>
+                </svg> */}
               </div>
             </div>
             <div className="referral-code-section">
