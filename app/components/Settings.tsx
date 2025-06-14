@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Profile from "./Profile";
+import Password from "./Password";
 
 export default function Settings() {
   const [activeTab, setActiveTab] = useState("My Details");
@@ -481,18 +483,8 @@ export default function Settings() {
             {activeTab === "My Details" && renderMyDetailsTab()}
             {activeTab === "Email Notifications" &&
               renderEmailNotificationsTab()}
-            {activeTab === "Profile" && (
-              <div className="settings-placeholder">
-                <h3>Profile Tab</h3>
-                <p>Profile tab content will be implemented here.</p>
-              </div>
-            )}
-            {activeTab === "Password" && (
-              <div className="settings-placeholder">
-                <h3>Password Tab</h3>
-                <p>Password tab content will be implemented here.</p>
-              </div>
-            )}
+            {activeTab === "Profile" && <Profile />}
+            {activeTab === "Password" && <Password />}
           </div>
         </div>
       </div>
