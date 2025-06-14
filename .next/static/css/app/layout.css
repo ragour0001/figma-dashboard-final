@@ -43724,7 +43724,7 @@ a {
 
 .profile-toggle-switch {
   display: flex;
-  width: 52px;
+  width: 62px;
   height: 32px;
   padding: 2px 4px;
   justify-content: flex-end;
@@ -43737,6 +43737,8 @@ a {
 
 .profile-toggle-switch.active {
   background: #006b5f;
+  padding-right: 20px;
+  padding-bottom: 8px;
 }
 
 .profile-toggle-track {
