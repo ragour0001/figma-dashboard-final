@@ -12,6 +12,7 @@ import Progress from "./components/Progress";
 import MicroLearnings from "./components/MicroLearnings";
 import Resources from "./components/Resources";
 import Settings from "./components/Settings";
+import Profile from "./components/Profile";
 import NeedHelp from "./components/NeedHelp";
 
 export default function Home() {
@@ -42,6 +43,8 @@ export default function Home() {
         return <Resources />;
       case "settings":
         return <Settings />;
+      case "profile":
+        return <Profile />;
       case "need-help":
         return <NeedHelp />;
       default:
