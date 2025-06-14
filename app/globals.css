@@ -7639,6 +7639,14 @@ a {
   padding-top: 20px;
 }
 
+.mycare-plan-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 20px;
+  margin-left: 70vw;
+}
+
 .start-now-btn {
   display: flex;
   padding: 10px 16px;
@@ -44167,8 +44175,8 @@ a {
     Roboto,
     Helvetica,
     sans-serif;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
   line-height: 15.085px;
   letter-spacing: -0.54px;
   margin: 0;
@@ -44890,6 +44898,7 @@ a {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: 5px;
 }
 
 .warning-icon-text {
@@ -45723,13 +45732,15 @@ a {
 
 .session-details {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 45px;
+  width: 100%;
 }
 
 .session-time-section {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 45px;
   color: #54577a;
   font-family:
@@ -45742,6 +45753,7 @@ a {
   font-style: normal;
   font-weight: 500;
   line-height: 132.199%;
+  width: 100%;
 }
 
 .session-time-header {
@@ -45788,6 +45800,9 @@ a {
 }
 
 .session-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   color: #fff;
   font-family:
     Inter,
@@ -45799,6 +45814,7 @@ a {
   font-style: normal;
   font-weight: 400;
   line-height: 132.199%;
+  width: 100%;
 }
 
 .session-remarks {
@@ -45845,8 +45861,8 @@ a {
   margin: 0;
 }
 
-/* Search and Filters */
-.search-filters-section {
+/* Search and Filters Therapist */
+.search-filters-section-therapist {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45855,26 +45871,28 @@ a {
   align-self: stretch;
 }
 
-.search-container {
+.search-container-therapist {
   display: flex;
   align-items: center;
   gap: 24px;
   align-self: stretch;
 }
 
-.search-field {
+.search-field-therapist {
   display: flex;
   height: 44px;
   padding: 8px 16px 8px 12px;
   align-items: center;
   gap: 12px;
+  align-self: stretch;
   flex: 1 0 0;
   border-radius: 8px;
   border: 1px solid #ccd8df;
   background: #fefefe;
+  max-width: 100%;
 }
 
-.search-input {
+.search-input-therapist {
   color: #999;
   font-family:
     Inter,
@@ -45892,12 +45910,12 @@ a {
   flex: 1;
 }
 
-.search-input::placeholder {
+.search-input-therapist::placeholder {
   color: #999;
 }
 
-.filter-button {
-  display: flex;
+.filter-button-therapist {
+  display: flex; 
   padding: 8px;
   align-items: center;
   gap: 13px;
@@ -46211,16 +46229,17 @@ a {
     Roboto,
     Helvetica,
     sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 15.085px;
   letter-spacing: -0.54px;
 }
 
 .session-time-info {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 16px;
   color: #54577a;
   font-family:
@@ -46233,6 +46252,7 @@ a {
   font-style: normal;
   font-weight: 500;
   line-height: 132.199%;
+  width: 100%;
 }
 
 .session-time {
@@ -46581,9 +46601,11 @@ a {
     Roboto,
     Helvetica,
     sans-serif;
-  font-size: 9px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   line-height: 12px;
+  align-self: stretch;
+  padding-top: 3vh;
 }
 
 .join-now-mobile {

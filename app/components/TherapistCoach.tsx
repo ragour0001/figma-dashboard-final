@@ -45,7 +45,8 @@ function TherapistCard({
   return (
     <div className="therapist-card">
       <div className="therapist-card-image">
-        <img src={imageUrl} alt={name} />
+        {/* <img src={imageUrl} alt={name} /> */}
+        <img src="/assets/images/dr-image.png" alt={name} />
         <div className="availability-badge">
           <div className="availability-dot"></div>
           <span>Available Today</span>
@@ -165,9 +166,9 @@ function SearchAndFilters() {
   };
 
   return (
-    <div className="search-filters-section">
-      <div className="search-container">
-        <div className="search-field">
+    <div className="search-filters-section-therapist">
+      <div className="search-container-therapist">
+        <div className="search-field-therapist">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path
               fillRule="evenodd"
@@ -185,9 +186,9 @@ function SearchAndFilters() {
           <input
             type="text"
             placeholder="Search By Names, Specialization or Lannguage"
-            className="search-input"
+            className="search-input-therapist"
           />
-          <button className="filter-button">
+          <button className="filter-button-therapist">
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
               <path
                 d="M1.19193 14.6022L0.417969 13.8283L6.58943 7.66471L3.13443 6.82971L6.6888 4.61346L6.37964 0.435547L9.58297 3.12471L13.4388 1.56055L11.8746 5.42909L14.5846 8.61971L10.4067 8.31055L8.19839 11.8858L7.35547 8.43076L1.19193 14.6022ZM1.62151 4.50117L0.417969 3.29763L1.62151 2.0943L2.82505 3.29763L1.62151 4.50117ZM11.7017 14.5814L10.4982 13.3778L11.7017 12.1743L12.9051 13.3778L11.7017 14.5814Z"
@@ -335,7 +336,8 @@ function NewPlatformSection() {
           <div className="phone-showcase">
             <div className="phone-mockup phone-1">
               <div className="phone-screen">
-                <div className="phone-content">
+              <img src="/assets/images/mobile-img-first.png" alt="phone-1" />
+                {/* <div className="phone-content">
                   <div className="phone-logo">
                     <div className="refill-logo"></div>
                   </div>
@@ -369,16 +371,17 @@ function NewPlatformSection() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
             <div className="phone-mockup phone-2">
               <div className="phone-screen">
-                <div className="refill-health-logo">
+              <img src="/assets/images/mobile-img-second.png" alt="phone-2" />
+                {/* <div className="refill-health-logo">
                   <div className="logo-circle">R</div>
                   <span>RefillHealth</span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

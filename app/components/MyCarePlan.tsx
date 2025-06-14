@@ -76,7 +76,9 @@ const TherapistMatchingCard: React.FC<TherapistMatchingCardProps> = () => {
             </p>
           </div>
         </div>
-        <button className="start-now-btn">Start Now</button>
+        <div className="mycare-plan-button-container">
+          <button className="start-now-btn">Start Now</button>
+        </div>
       </div>
     </div>
   );
