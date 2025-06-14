@@ -3112,7 +3112,7 @@ a {
 .thank-you-modal {
   display: flex;
   width: 527px;
-  height: 670px;
+  height: 50%;
   padding: 52px 22px;
   flex-direction: column;
   align-items: center;
@@ -34179,9 +34179,9 @@ a {
 
 .thank-you-modal {
   display: flex;
-  width: 527px;
-  height: 670px;
-  padding: 52px 22px;
+  width: 55%;
+  height: 60vh;
+  /* padding: 52px 22px; */
   flex-direction: column;
   align-items: center;
   gap: 37px;
@@ -34221,11 +34221,12 @@ a {
   align-items: center;
   gap: 37px;
   width: 100%;
+  height: 26%;
 }
 
 .thank-you-illustration {
-  width: 482.029px;
-  height: 337.28px;
+  width: 60%;
+  height: 30%;
   flex-shrink: 0;
   border-radius: 0px 0px 15px 15px;
   display: flex;
