@@ -763,117 +763,182 @@ export default function MainContent() {
       </div>
 
       {/* Micro Learnings Section */}
-      <div className="micro-learnings">
-        <div className="section-header">
-          <h2>Micro Learnings</h2>
-          <p>
-            short reads designed to support your well-being. Complete your
-            assessment to get personalized suggestions.
-          </p>
-        </div>
-
-        <div className="learning-cards">
-          <div className="learning-card">
-            <div className="card-header">
-              <h3>What is Microlearning?</h3>
-              <div className="external-link">
-                <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
-                    fill="#00C7B2"
-                  />
-                </svg>
-              </div>
-            </div>
-
-            <div className="card-tags">
-              <span className="tag">Beginner</span>
-              <span className="tag">Overview</span>
-              <span className="tag">2-min read</span>
-            </div>
-
-            <p className="card-description">
-              Microlearning offers quick, focused reads to help you manage
-              mental health one step at a time.
-            </p>
-
-            <div className="card-actions">
-              <button className="take-look-btn">Take a Look</button>
-              <button className="assessment-btn">
-                Take assessment to Personalize
-              </button>
+      <div className="micro-learnings-main-section">
+          <div className="section-header">
+            <div className="section-title">Micro Learnings</div>
+            <div className="section-description">
+              short reads designed to support your well-being. Complete your
+              assessment to get personalized suggestions.
             </div>
           </div>
 
-          <div className="learning-card">
-            <div className="card-header">
-              <h3>Why Short Reads Help</h3>
-              <div className="external-link">
-                <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
-                    fill="#00C7B2"
-                  />
-                </svg>
+          <div className="learning-cards-container">
+            {/* Card 1: What is Microlearning? */}
+            <div className="learning-card">
+              <div className="card-container">
+                <div className="card-sub-container">
+                  <div className="card-content-wrapper">
+                    <div className="card-content-section">
+                      <div className="card-title-wrapper">
+                        <div className="card-title-row">
+                          <div className="card-name">
+                            What is Microlearning?
+                          </div>
+                          <div className="card-button">
+                            <svg
+                              className="card-arrow-icon"
+                              width="26"
+                              height="26"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
+                                fill="#00C7B2"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="card-tags-container">
+                          <div className="card-tags-sub-container">
+                            <div className="card-tag">Beginner</div>
+                            <div className="card-tag-group">
+                              <div className="card-tag">Overview</div>
+                              <div className="card-tag-read">2-min read</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="card-name-description">
+                        Microlearning offers quick, focused reads to help you
+                        manage mental health one step at a time.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card-actions-section">
+                    <div className="card-actions-wrapper">
+                      <button className="take-look-button">Take a Look</button>
+                      <button className="take-assessment-button">
+                        Take assessment to Personalize
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="card-tags">
-              <span className="tag">Beginner</span>
-              <span className="tag">Motivation</span>
-              <span className="tag">2-min read</span>
-            </div>
-
-            <p className="card-description">
-              Learn how bite-sized articles reduce overwhelm and help you make
-              steady progress.
-            </p>
-
-            <div className="card-actions">
-              <button className="take-look-btn">Take a Look</button>
-              <button className="assessment-btn">
-                Take assessment to Personalize
-              </button>
-            </div>
-          </div>
-
-          <div className="learning-card">
-            <div className="card-header">
-              <h3>Personalize Your Learning</h3>
-              <div className="external-link">
-                <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
-                    fill="#00C7B2"
-                  />
-                </svg>
+            {/* Card 2: Why Short Reads Help */}
+            <div className="learning-card">
+              <div className="card-container">
+                <div className="card-sub-container">
+                  <div className="card-content-wrapper">
+                    <div className="card-content-section">
+                      <div className="card-title-wrapper">
+                        <div className="card-title-row">
+                          <div className="card-name">Why Short Reads Help</div>
+                          <div className="card-button">
+                            <svg
+                              className="card-arrow-icon"
+                              width="26"
+                              height="26"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
+                                fill="#00C7B2"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="card-tags-container">
+                          <div className="card-tags-sub-container">
+                            <div className="card-tag">Beginner</div>
+                            <div className="card-tag-group">
+                              <div className="card-tag">Motivation</div>
+                              <div className="card-tag-read">2-min read</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="card-name-description">
+                        Learn how bite-sized articles reduce overwhelm and help
+                        you make steady progress.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card-actions-section">
+                    <div className="card-actions-wrapper">
+                      <button className="take-look-button">Take a Look</button>
+                      <button className="take-assessment-button">
+                        Take assessment to Personalize
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="card-tags">
-              <span className="tag">Interactive</span>
-              <span className="tag">Overview</span>
-              <span className="tag">2-min read</span>
-            </div>
-
-            <p className="card-description">
-              Get tailored recommendations by taking a short assessment.
-            </p>
-
-            <div className="card-actions">
-              <button className="take-look-btn">Take a Look</button>
-              <button className="assessment-btn">
-                Take assessment to Personalize
-              </button>
+            {/* Card 3: Personalize Your Learning */}
+            <div className="learning-card">
+              <div className="card-container">
+                <div className="card-sub-container">
+                  <div className="card-content-wrapper">
+                    <div className="card-content-section">
+                      <div className="card-title-wrapper">
+                        <div className="card-title-row">
+                          <div className="card-name">
+                            Personalize Your Learning
+                          </div>
+                          <div className="card-button">
+                            <svg
+                              className="card-arrow-icon"
+                              width="26"
+                              height="26"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
+                                fill="#00C7B2"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="card-tags-container">
+                          <div className="card-tags-sub-container">
+                            <div className="card-tag">Interactive</div>
+                            <div className="card-tag-group">
+                              <div className="card-tag">Overview</div>
+                              <div className="card-tag-read">2-min read</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="card-name-description">
+                        Get tailored recommendations by taking a short
+                        assessment.          
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card-actions-section">
+                    <div className="card-actions-wrapper">
+                      <button className="take-look-button">Take a Look</button>
+                      <button className="take-assessment-button">
+                        Take assessment to Personalize
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
       </div>
 
       {/* Care Plan Section */}

@@ -176,8 +176,8 @@ export default function Resources() {
                 {/* Article Card 1 */}
                 <div className="resources-blog-card">
                   <div className="resources-blog-card-content">
-                    <img
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=406&h=240&fit=crop&crop=face"
+                    <img                
+                      src="/assets/images/article_image.png"
                       alt="Article"
                       className="resources-article-image"
                     />
@@ -216,7 +216,7 @@ export default function Resources() {
                       <div className="resources-article-footer">
                         <div className="resources-author-group">
                           <img
-                            src="https://images.unsplash.com/photo-1494790108755-2616b612b789?w=40&h=40&fit=crop&crop=face"
+                            src="/assets/images/Avatar.png"
                             alt="Author"
                             className="resources-author-avatar"
                           />
@@ -252,7 +252,7 @@ export default function Resources() {
                 <div className="resources-podcast-card">
                   <div className="resources-podcast-card-content">
                     <img
-                      src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=230&h=180&fit=crop"
+                      src="/assets/images/podcast_image.png"
                       alt="Podcast"
                       className="resources-podcast-image"
                     />
@@ -320,7 +320,7 @@ export default function Resources() {
                 <div className="resources-blog-card">
                   <div className="resources-blog-card-content">
                     <img
-                      src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=406&h=240&fit=crop"
+                      src="/assets/images/article_2_image.png"
                       alt="Article"
                       className="resources-article-image"
                     />
@@ -359,7 +359,7 @@ export default function Resources() {
                       <div className="resources-article-footer">
                         <div className="resources-author-group">
                           <img
-                            src="https://images.unsplash.com/photo-1494790108755-2616b612b789?w=40&h=40&fit=crop&crop=face"
+                            src="/assets/images/Avatar.png"
                             alt="Author"
                             className="resources-author-avatar"
                           />
@@ -394,7 +394,12 @@ export default function Resources() {
                 {/* Video Card */}
                 <div className="resources-video-card">
                   <div className="resources-video-card-content">
-                    <div className="resources-video-thumbnail">
+                  <img
+                      src="/assets/images/video_image.png"
+                      alt="Podcast"
+                      className="resources-video-image"
+                    />
+                    {/* <div className="resources-video-thumbnail">
                       <div className="resources-video-play-overlay">
                         <svg
                           className="resources-video-play-button"
@@ -409,7 +414,7 @@ export default function Resources() {
                           />
                         </svg>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="resources-video-content">
                       <div className="resources-video-header">
                         <div className="resources-video-top-row">
@@ -441,7 +446,7 @@ export default function Resources() {
                       <div className="resources-video-footer">
                         <div className="resources-author-group">
                           <img
-                            src="https://images.unsplash.com/photo-1494790108755-2616b612b789?w=40&h=40&fit=crop&crop=face"
+                            src="/assets/images/Avatar.png"
                             alt="Author"
                             className="resources-author-avatar"
                           />
