@@ -18,7 +18,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className="nav-center">
+      {/* <div className="nav-center">
         <div className="search-container">
           <div className="search-bar">
             <div className="search-content">
@@ -42,9 +42,43 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="nav-right">
+        <div className="resources-search-field-header">
+          <div className="resources-search-field-inner-header">
+            <div className="resources-search-content-header">
+              <svg
+                className="resources-search-icon-header"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M11.0998 5.04996C7.62052 5.04996 4.79996 7.87052 4.79996 11.3498C4.79996 14.8292 7.62052 17.6497 11.0998 17.6497C14.5792 17.6497 17.3997 14.8292 17.3997 11.3498C17.3997 7.87052 14.5792 5.04996 11.0998 5.04996ZM3 11.3498C3 6.87642 6.62642 3.25 11.0998 3.25C15.5733 3.25 19.1997 6.87642 19.1997 11.3498C19.1997 15.8233 15.5733 19.4497 11.0998 19.4497C6.62642 19.4497 3 15.8233 3 11.3498Z"
+                  fill="#CCCCCC"
+                />
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M15.5488 15.7988C15.9002 15.4473 16.4701 15.4473 16.8215 15.7988L20.7364 19.7137C21.0879 20.0651 21.0879 20.635 20.7364 20.9864C20.385 21.3379 19.8151 21.3379 19.4637 20.9864L15.5488 17.0715C15.1973 16.7201 15.1973 16.1502 15.5488 15.7988Z"
+                  fill="#CCCCCC"
+                />
+              </svg>
+              <input
+                type="text"
+                placeholder="What are you looking for?"
+                className="resources-search-input"
+                value=""
+              // value={searchQuery}
+              // onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
         <div className="nav-icons">
           <div className="notification-icon">
             <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
