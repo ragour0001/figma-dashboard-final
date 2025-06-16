@@ -33,6 +33,69 @@ interface TherapistCardProps {
   imageUrl: string;
 }
 
+function getBookingUrl(name: string) {
+  // Remove common titles
+  const cleanName = name.replace(/^(Dr\\.|Mr\\.|Ms\\.|Mrs\\.)\\s+/i, "");
+  // Split into parts
+  const parts = cleanName.trim().split(" ");
+  // Use first and last name (if more than 2 parts, use first and last)
+  const firstName = parts[1];
+  const lastName = parts.length > 1 ? parts[parts.length - 1] : "";
+  // Format for URL
+  const urlName = [firstName, lastName].filter(Boolean).join("+");
+  // Generate email (using last name, lowercased)
+  const email = firstName ? `${firstName.toLowerCase()}@refillhealth.com` : "";
+  // Construct URL
+  return `https://bookings.refillhealth.com/refilladmin/30min?name=${urlName}&email=${encodeURIComponent(email)}`;
+}
+
+function BookingModal({ open, onClose, url }: { open: boolean; onClose: () => void; url: string }) {
+  if (!open) return null;
+  return (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100vw',
+      height: '100vh',
+      background: 'rgba(0,0,0,0.5)',
+      zIndex: 1000,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}>
+      <div style={{
+        background: '#fff',
+        borderRadius: '12px',
+        maxWidth: '90vw',
+        maxHeight: '90vh',
+        width: '800px',
+        height: '80vh',
+        boxShadow: '0 2px 16px rgba(0,0,0,0.2)',
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+      }}>
+        <button onClick={onClose} style={{
+          position: 'absolute',
+          top: 12,
+          right: 16,
+          background: 'transparent',
+          border: 'none',
+          fontSize: 24,
+          cursor: 'pointer',
+          zIndex: 2,
+        }}>&times;</button>
+        <iframe
+          src={url}
+          title="Book Now"
+          style={{ flex: 1, width: '100%', height: '100%', border: 'none', borderRadius: '12px' }}
+        />
+      </div>
+    </div>
+  );
+}
+
 function TherapistCard({
   name,
   title,
@@ -42,6 +105,9 @@ function TherapistCard({
   sessionDay,
   imageUrl,
 }: TherapistCardProps) {
+  const [modalOpen, setModalOpen] = useState(false);
+  const bookingUrl = getBookingUrl(name);
+  // const bookingUrl = "https://bookings.refillhealth.com/refilladmin/30min?name=Sudheer+Reddy&email=sudheer%40refillhealth.com";
   return (
     <div className="therapist-card">
       <div className="therapist-card-image">
@@ -86,10 +152,17 @@ function TherapistCard({
                 <span className="session-day">{sessionDay}</span>
               </div>
             </div>
-            <button className="book-now-btn">Book Now</button>
+            {/* <button className="book-now-btn" onClick={() => setModalOpen(true)}>Book Now</button> */}
+            <button
+              className="book-now-btn"
+              onClick={() => window.open(bookingUrl, '_blank', 'noopener,noreferrer')}
+            >
+              Book Now
+            </button>
           </div>
         </div>
       </div>
+      <BookingModal open={modalOpen} onClose={() => setModalOpen(false)} url={bookingUrl} />
     </div>
   );
 }
@@ -332,12 +405,17 @@ function NewPlatformSection() {
           </div>
         </div>
 
-        <div className="phone-mockups">
+        <div className="phone-1-phone-2">
+        <img src="/assets/images/mobile-img-first.png" alt="phone-1" />
+        <img src="/assets/images/mobile-img-second.png" alt="phone-1" />
+        </div>
+
+        {/* <div className="phone-mockups">
           <div className="phone-showcase">
             <div className="phone-mockup phone-1">
               <div className="phone-screen">
               <img src="/assets/images/mobile-img-first.png" alt="phone-1" />
-                {/* <div className="phone-content">
+                <div className="phone-content">
                   <div className="phone-logo">
                     <div className="refill-logo"></div>
                   </div>
@@ -371,21 +449,21 @@ function NewPlatformSection() {
                       </div>
                     </div>
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
 
             <div className="phone-mockup phone-2">
               <div className="phone-screen">
               <img src="/assets/images/mobile-img-second.png" alt="phone-2" />
-                {/* <div className="refill-health-logo">
+                <div className="refill-health-logo">
                   <div className="logo-circle">R</div>
                   <span>RefillHealth</span>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
