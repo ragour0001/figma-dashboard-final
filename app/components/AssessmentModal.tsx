@@ -28,9 +28,9 @@ export default function AssessmentModal({ open, onClose }: AssessmentModalProps)
       justifyContent: 'center',
     }}>
       <div style={{
-        background: '#fff',
+        background: '#FFF6F6',
         borderRadius: '16px',
-        width: '600px',
+        width: '800px',
         maxWidth: '95vw',
         boxShadow: '0 2px 16px rgba(0,0,0,0.15)',
         padding: '32px 32px 24px 32px',
