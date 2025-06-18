@@ -45,7 +45,7 @@ export default function Home() {
       case "need-help":
         return <NeedHelp />;
       default:
-        return <MainContent />;
+        return <MainContent onSectionChange={handleSectionChange} />;
     }
   };
 

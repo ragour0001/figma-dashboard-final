@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AssessmentModal from "./AssessmentModal";
 
-export default function MainContent() {
+export default function MainContent({ onSectionChange }: { onSectionChange?: (section: string) => void }) {
   const [activeTab, setActiveTab] = useState("recommendation");
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -527,7 +527,9 @@ export default function MainContent() {
                       lineHeight: "20px",
                       letterSpacing: "0.1px",
                       position: "relative",
+                      cursor: "pointer"
                     }}
+                    onClick={() => onSectionChange?.("goals-assessment")}
                   >
                     Complete your Assessment
                   </div>

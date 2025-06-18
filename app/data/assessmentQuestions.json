@@ -523,5 +523,115 @@
       "Often",
       "Very Often"
     ]
+  },
+  {
+    "id": 53,
+    "question": "I see myself as someone who is reserved.",
+    "options": [
+      "Disagree strongly",
+      "Disagree a little",
+      "Neither agree nor disagree",
+      "Agree a little",
+      "Agree strongly"
+    ]
+  },
+  {
+    "id": 54,
+    "question": "I see myself as someone who is generally trusting.",
+    "options": [
+      "Disagree strongly",
+      "Disagree a little",
+      "Neither agree nor disagree",
+      "Agree a little",
+      "Agree strongly"
+    ]
+  },
+  {
+    "id": 55,
+    "question": "I see myself as someone who tends to be lazy.",
+    "options": [
+      "Disagree strongly",
+      "Disagree a little",
+      "Neither agree nor disagree",
+      "Agree a little",
+      "Agree strongly"
+    ]
+  },
+  {
+    "id": 56,
+    "question": "I see myself as someone who is relaxed, handles stress well.",
+    "options": [
+      "Disagree strongly",
+      "Disagree a little",
+      "Neither agree nor disagree",
+      "Agree a little",
+      "Agree strongly"
+    ]
+  },
+  {
+    "id": 57,
+    "question": "I see myself as someone who has few artistic interests.",
+    "options": [
+      "Disagree strongly",
+      "Disagree a little",
+      "Neither agree nor disagree",
+      "Agree a little",
+      "Agree strongly"
+    ]
+  },
+  {
+    "id": 58,
+    "question": "I see myself as someone who is outgoing, sociable.",
+    "options": [
+      "Disagree strongly",
+      "Disagree a little",
+      "Neither agree nor disagree",
+      "Agree a little",
+      "Agree strongly"
+    ]
+  },
+  {
+    "id": 59,
+    "question": "I see myself as someone who tends to find fault with others.",
+    "options": [
+      "Disagree strongly",
+      "Disagree a little",
+      "Neither agree nor disagree",
+      "Agree a little",
+      "Agree strongly"
+    ]
+  },
+  {
+    "id": 60,
+    "question": "I see myself as someone who does a thorough job.",
+    "options": [
+      "Disagree strongly",
+      "Disagree a little",
+      "Neither agree nor disagree",
+      "Agree a little",
+      "Agree strongly"
+    ]
+  },
+  {
+    "id": 61,
+    "question": "I see myself as someone who gets nervous easily.",
+    "options": [
+      "Disagree strongly",
+      "Disagree a little",
+      "Neither agree nor disagree",
+      "Agree a little",
+      "Agree strongly"
+    ]
+  },
+  {
+    "id": 62,
+    "question": "I see myself as someone who has an active imagination.",
+    "options": [
+      "Disagree strongly",
+      "Disagree a little",
+      "Neither agree nor disagree",
+      "Agree a little",
+      "Agree strongly"
+    ]
   }
 ]  

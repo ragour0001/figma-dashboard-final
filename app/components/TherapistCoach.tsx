@@ -46,7 +46,10 @@ function getBookingUrl(name: string) {
   // Generate email (using last name, lowercased)
   const email = firstName ? `${firstName.toLowerCase()}@refillhealth.com` : "";
   // Construct URL
-  return `https://bookings.refillhealth.com/refilladmin/30min?name=${urlName}&email=${encodeURIComponent(email)}`;
+  // https://bookings.refillhealth.com/priya.sharmatherapist/the-clarity-hour
+ // https://bookings.refillhealth.com/sreeja/therapy-session
+  return `https://bookings.refillhealth.com/sreeja/therapy-session?name=${urlName}&email=${encodeURIComponent(email)}`;
+  // return `https://bookings.refillhealth.com/refilladmin/30min?name=${urlName}&email=${encodeURIComponent(email)}`;
 }
 
 function BookingModal({ open, onClose, url }: { open: boolean; onClose: () => void; url: string }) {
