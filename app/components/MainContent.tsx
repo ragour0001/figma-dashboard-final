@@ -34,23 +34,6 @@ export default function MainContent() {
         <h1 className="welcome-title">
           Good Morning, <span className="name">Shalini</span>
         </h1>
-        {/* <button
-          style={{
-            marginTop: 12,
-            background: '#006B5F',
-            color: '#fff',
-            border: 'none',
-            borderRadius: 8,
-            padding: '10px 22px',
-            fontWeight: 600,
-            fontSize: 16,
-            cursor: 'pointer',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
-          }}
-          onClick={() => setModalOpen(true)}
-        >
-          Complete your Assessment
-        </button> */}
       </div>
 
       {/* Getting Started Card - Figma Design */}
@@ -512,7 +495,7 @@ export default function MainContent() {
                 position: "relative",
               }}
             >
-              {/* <div
+              <div
                 style={{
                   display: "flex",
                   justifyContent: "center",
@@ -549,24 +532,24 @@ export default function MainContent() {
                     Complete your Assessment
                   </div>
                 </div>
-              </div> */}
-               <button
-          style={{
-            marginTop: 12,
-            background: '#006B5F',
-            color: '#fff',
-            border: 'none',
-            borderRadius: 8,
-            padding: '10px 22px',
-            fontWeight: 600,
-            fontSize: 16,
-            cursor: 'pointer',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
-          }}
-          onClick={() => setModalOpen(true)}
-        >
-          Complete your Assessment
-        </button>
+              </div>
+              {/* <button
+                style={{
+                  marginTop: 12,
+                  background: '#006B5F',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: 8,
+                  padding: '10px 22px',
+                  fontWeight: 600,
+                  fontSize: 16,
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+                }}
+                onClick={() => setModalOpen(true)}
+              >
+                Complete your Assessment
+              </button> */}
             </div>
           </div>
         </div>
