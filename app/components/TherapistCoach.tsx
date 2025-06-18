@@ -152,7 +152,9 @@ function TherapistCard({
                 <span className="session-day">{sessionDay}</span>
               </div>
             </div>
+            {/* Pop up button */}
             <button className="book-now-btn" onClick={() => setModalOpen(true)}>Book Now</button>
+            {/* Redirect to new tab button */}
             <button
               className="book-now-btn"
               onClick={() => window.open(bookingUrl, '_blank', 'noopener,noreferrer')}
