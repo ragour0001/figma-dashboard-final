@@ -158,12 +158,12 @@ function TherapistCard({
             {/* Pop up button */}
             <button className="book-now-btn" onClick={() => setModalOpen(true)}>Book Now</button>
             {/* Redirect to new tab button */}
-            <button
+            {/* <button
               className="book-now-btn"
               onClick={() => window.open(bookingUrl, '_blank', 'noopener,noreferrer')}
             >
               Book Now
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

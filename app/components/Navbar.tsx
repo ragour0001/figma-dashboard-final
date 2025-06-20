@@ -72,9 +72,6 @@ export default function Navbar() {
                 type="text"
                 placeholder="What are you looking for?"
                 className="resources-search-input"
-                value=""
-              // value={searchQuery}
-              // onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
           </div>

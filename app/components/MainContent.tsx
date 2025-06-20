@@ -1,9 +1,34 @@
 import { useState } from "react";
 import AssessmentModal from "./AssessmentModal";
+import GoalCard from "./GoalCard";
 
 export default function MainContent({ onSectionChange }: { onSectionChange?: (section: string) => void }) {
   const [activeTab, setActiveTab] = useState("recommendation");
   const [modalOpen, setModalOpen] = useState(false);
+  const [goalSet, setGoalSet] = useState(false);
+  const goals = [
+    {
+      emoji: "😌",
+      title: "Manage stress",
+      color: "#EDFFEF",
+      lockColor: "#006B5F",
+      isLocked: true,
+    },
+    {
+      emoji: "💤",
+      title: "Sleep better",
+      color: "#FFF2EC",
+      lockColor: "#FF5100",
+      isLocked: true,
+    },
+    {
+      emoji: "🧘",
+      title: "Feel calm",
+      color: "#F4F2FF",
+      lockColor: "#781FD1",
+      isLocked: true,
+    },
+  ];
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
@@ -32,9 +57,135 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
           <span className="breadcrumb-item active">Home</span>
         </div>
         <h1 className="welcome-title">
-          Good Morning, <span className="name">Shalini</span>
+          Good Morning, Shalini
+          {/* <span className="name">Shalini</span> */}
         </h1>
       </div>
+
+      {/* Initial My Goals Section */}
+      {!goalSet && (
+        <div className="goals-section">
+          <div className="goals-content">
+            <div className="goals-header">
+              <h3>Select up to 3 goals</h3>
+              <div className="goals-actions">
+                <div className="search-box">
+                  <svg
+                    className="search-icon"
+                    width="24"
+                    height="25"
+                    viewBox="0 0 24 25"
+                    fill="none"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M11.0998 5.29996C7.62052 5.29996 4.79996 8.12052 4.79996 11.5998C4.79996 15.0792 7.62052 17.8997 11.0998 17.8997C14.5792 17.8997 17.3997 15.0792 17.3997 11.5998C17.3997 8.12052 14.5792 5.29996 11.0998 5.29996ZM3 11.5998C3 7.12642 6.62642 3.5 11.0998 3.5C15.5733 3.5 19.1997 7.12642 19.1997 11.5998C19.1997 16.0733 15.5733 19.6997 11.0998 19.6997C6.62642 19.6997 3 16.0733 3 11.5998Z"
+                      fill="#CCCCCC"
+                    />
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M15.5488 16.0488C15.9002 15.6973 16.4701 15.6973 16.8215 16.0488L20.7364 19.9637C21.0879 20.3151 21.0879 20.885 20.7364 21.2364C20.385 21.5879 19.8151 21.5879 19.4637 21.2364L15.5488 17.3215C15.1973 16.9701 15.1973 16.4002 15.5488 16.0488Z"
+                      fill="#CCCCCC"
+                    />
+                  </svg>
+                  <span>Search</span>
+                </div>
+                <button className="done-btn" onClick={() => setGoalSet(true)}>Done</button>
+              </div>
+            </div>
+            <div className="goals-grid">
+              <div className="goal-chip">
+                <div className="goal-emoji">😌</div>
+                <span>Manage stress</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">😊</div>
+                <span>Boost mood & feel positive</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">💤</div>
+                <span>Sleep better</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">🔋</div>
+                <span>Prevent burnout</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">😟</div>
+                <span>Manage anxiety</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">🎯</div>
+                <span>Improve focus & productivity</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">🤝</div>
+                <span>Strengthen personal or work relationships</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">💪</div>
+                <span>Build self-confidence</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">⚖️</div>
+                <span>Improve work-life balance</span>
+              </div>
+              <div className="goal-chip">
+                <div className="goal-emoji">🧘</div>
+                <span>Feel calm</span>
+              </div>
+              <div className="goal-chip more">
+                <svg width="17" height="5" viewBox="0 0 17 5" fill="none">
+                  <path
+                    d="M2.06641 4.5C1.51641 4.5 1.04557 4.30417 0.653906 3.9125C0.26224 3.52083 0.0664062 3.05 0.0664062 2.5C0.0664062 1.95 0.26224 1.47917 0.653906 1.0875C1.04557 0.695833 1.51641 0.5 2.06641 0.5C2.61641 0.5 3.08724 0.695833 3.47891 1.0875C3.87057 1.47917 4.06641 1.95 4.06641 2.5C4.06641 3.05 3.87057 3.52083 3.47891 3.9125C3.08724 4.30417 2.61641 4.5 2.06641 4.5ZM8.06641 4.5C7.51641 4.5 7.04557 4.30417 6.65391 3.9125C6.26224 3.52083 6.06641 3.05 6.06641 2.5C6.06641 1.95 6.26224 1.47917 6.65391 1.0875C7.04557 0.695833 7.51641 0.5 8.06641 0.5C8.61641 0.5 9.08724 0.695833 9.47891 1.0875C9.87057 1.47917 10.0664 1.95 10.0664 2.5C10.0664 3.05 9.87057 3.52083 9.47891 3.9125C9.08724 4.30417 8.61641 4.5 8.06641 4.5ZM14.0664 4.5C13.5164 4.5 13.0456 4.30417 12.6539 3.9125C12.2622 3.52083 12.0664 3.05 12.0664 2.5C12.0664 1.95 12.2622 1.47917 12.6539 1.0875C13.0456 0.695833 13.5164 0.5 14.0664 0.5C14.6164 0.5 15.0872 0.695833 15.4789 1.0875C15.8706 1.47917 16.0664 1.95 16.0664 2.5C16.0664 3.05 15.8706 3.52083 15.4789 3.9125C15.0872 4.30417 14.6164 4.5 14.0664 4.5Z"
+                    fill="#00201C"
+                  />
+                </svg>
+                <span>More</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Initial Your Goal has been Set */}
+      {goalSet && (
+        <div className="goals-status-container">
+          <div className="goals-status-header">
+            <div>
+              <div className="goals-status-info">
+                <h3 className="goals-status-title">
+                  Yayyyy,, Your Goal has been Set
+                </h3>
+              </div>
+              <div className="reset-goals-container">
+                <button className="reset-goals-btn" onClick={() => setGoalSet(false)}>
+                  <div className="btn-content">
+                    <span className="btn-text">Reset Goals</span>
+                  </div>
+                </button>
+                <p className="reset-goals-text">
+                  You can Reset your Goals after 14 Days
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="goals-cards-container">
+            {goals.map((goal, index) => (
+              <GoalCard
+                key={index}
+                emoji={goal.emoji}
+                title={goal.title}
+                color={goal.color}
+                lockColor={goal.lockColor}
+                isLocked={goal.isLocked}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Getting Started Card - Figma Design */}
       <div
@@ -608,17 +759,17 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         <div className="purple-image">
           {/* <div className="illustration-placeholder"> */}
-          <img                
-                src="/assets/images/Positive_thinking-rafiki.png"      
-                alt="Download on App Store"
-                className="positive-img"
-              />
+          <img
+            src="/assets/images/Positive_thinking-rafiki.png"
+            alt="Download on App Store"
+            className="positive-img"
+          />
           {/* </div> */}
         </div>
       </div>
 
-      {/* My Goals Section */}
-      <div className="goals-section">
+            {/* My Goals Section */}
+            <div className="goals-section">
         <div className="section-header">
           <div className="tabs">
             <div 
@@ -782,184 +933,184 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
           </div>
         )}
       </div>
-
+      
       {/* Micro Learnings Section */}
       <div className="micro-learnings-main-section">
-          <div className="section-header">
-            <div className="section-title">Micro Learnings</div>
-            <div className="section-description">
-              short reads designed to support your well-being. Complete your
-              assessment to get personalized suggestions.
-            </div>
+        <div className="section-header">
+          <div className="section-title">Micro Learnings</div>
+          <div className="section-description">
+            short reads designed to support your well-being. Complete your
+            assessment to get personalized suggestions.
           </div>
+        </div>
 
-          <div className="learning-cards-container">
-            {/* Card 1: What is Microlearning? */}
-            <div className="learning-card">
-              <div className="card-container">
-                <div className="card-sub-container">
-                  <div className="card-content-wrapper">
-                    <div className="card-content-section">
-                      <div className="card-title-wrapper">
-                        <div className="card-title-row">
-                          <div className="card-name">
-                            What is Microlearning?
-                          </div>
-                          <div className="card-button">
-                            <svg
-                              className="card-arrow-icon"
-                              width="26"
-                              height="26"
-                              viewBox="0 0 26 26"
-                              fill="none"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
-                                fill="#00C7B2"
-                              />
-                            </svg>
-                          </div>
+        <div className="learning-cards-container">
+          {/* Card 1: What is Microlearning? */}
+          <div className="learning-card">
+            <div className="card-container">
+              <div className="card-sub-container">
+                <div className="card-content-wrapper">
+                  <div className="card-content-section">
+                    <div className="card-title-wrapper">
+                      <div className="card-title-row">
+                        <div className="card-name">
+                          What is Microlearning?
                         </div>
-                        <div className="card-tags-container">
-                          <div className="card-tags-sub-container">
-                            <div className="card-tag">Beginner</div>
-                            <div className="card-tag-group">
-                              <div className="card-tag">Overview</div>
-                              <div className="card-tag-read">2-min read</div>
-                            </div>
-                          </div>
+                        <div className="card-button">
+                          <svg
+                            className="card-arrow-icon"
+                            width="26"
+                            height="26"
+                            viewBox="0 0 26 26"
+                            fill="none"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              clipRule="evenodd"
+                              d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
+                              fill="#00C7B2"
+                            />
+                          </svg>
                         </div>
                       </div>
-                      <div className="card-name-description">
-                        Microlearning offers quick, focused reads to help you
-                        manage mental health one step at a time.
+                      <div className="card-tags-container">
+                        <div className="card-tags-sub-container">
+                          <div className="card-tag">Beginner</div>
+                          <div className="card-tag-group">
+                            <div className="card-tag">Overview</div>
+                            <div className="card-tag-read">2-min read</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="card-actions-section">
-                    <div className="card-actions-wrapper">
-                      <button className="take-look-button">Take a Look</button>
-                      <button className="take-assessment-button">
-                        Take assessment to Personalize
-                      </button>
+                    <div className="card-name-description">
+                      Microlearning offers quick, focused reads to help you
+                      manage mental health one step at a time.
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Card 2: Why Short Reads Help */}
-            <div className="learning-card">
-              <div className="card-container">
-                <div className="card-sub-container">
-                  <div className="card-content-wrapper">
-                    <div className="card-content-section">
-                      <div className="card-title-wrapper">
-                        <div className="card-title-row">
-                          <div className="card-name">Why Short Reads Help</div>
-                          <div className="card-button">
-                            <svg
-                              className="card-arrow-icon"
-                              width="26"
-                              height="26"
-                              viewBox="0 0 26 26"
-                              fill="none"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
-                                fill="#00C7B2"
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                        <div className="card-tags-container">
-                          <div className="card-tags-sub-container">
-                            <div className="card-tag">Beginner</div>
-                            <div className="card-tag-group">
-                              <div className="card-tag">Motivation</div>
-                              <div className="card-tag-read">2-min read</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="card-name-description">
-                        Learn how bite-sized articles reduce overwhelm and help
-                        you make steady progress.
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card-actions-section">
-                    <div className="card-actions-wrapper">
-                      <button className="take-look-button">Take a Look</button>
-                      <button className="take-assessment-button">
-                        Take assessment to Personalize
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3: Personalize Your Learning */}
-            <div className="learning-card">
-              <div className="card-container">
-                <div className="card-sub-container">
-                  <div className="card-content-wrapper">
-                    <div className="card-content-section">
-                      <div className="card-title-wrapper">
-                        <div className="card-title-row">
-                          <div className="card-name">
-                            Personalize Your Learning
-                          </div>
-                          <div className="card-button">
-                            <svg
-                              className="card-arrow-icon"
-                              width="26"
-                              height="26"
-                              viewBox="0 0 26 26"
-                              fill="none"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
-                                fill="#00C7B2"
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                        <div className="card-tags-container">
-                          <div className="card-tags-sub-container">
-                            <div className="card-tag">Interactive</div>
-                            <div className="card-tag-group">
-                              <div className="card-tag">Overview</div>
-                              <div className="card-tag-read">2-min read</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="card-name-description">
-                        Get tailored recommendations by taking a short
-                        assessment.          
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card-actions-section">
-                    <div className="card-actions-wrapper">
-                      <button className="take-look-button">Take a Look</button>
-                      <button className="take-assessment-button">
-                        Take assessment to Personalize
-                      </button>
-                    </div>
+                <div className="card-actions-section">
+                  <div className="card-actions-wrapper">
+                    <button className="take-look-button">Take a Look</button>
+                    <button className="take-assessment-button">
+                      Take assessment to Personalize
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Card 2: Why Short Reads Help */}
+          <div className="learning-card">
+            <div className="card-container">
+              <div className="card-sub-container">
+                <div className="card-content-wrapper">
+                  <div className="card-content-section">
+                    <div className="card-title-wrapper">
+                      <div className="card-title-row">
+                        <div className="card-name">Why Short Reads Help</div>
+                        <div className="card-button">
+                          <svg
+                            className="card-arrow-icon"
+                            width="26"
+                            height="26"
+                            viewBox="0 0 26 26"
+                            fill="none"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              clipRule="evenodd"
+                              d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
+                              fill="#00C7B2"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="card-tags-container">
+                        <div className="card-tags-sub-container">
+                          <div className="card-tag">Beginner</div>
+                          <div className="card-tag-group">
+                            <div className="card-tag">Motivation</div>
+                            <div className="card-tag-read">2-min read</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="card-name-description">
+                      Learn how bite-sized articles reduce overwhelm and help
+                      you make steady progress.
+                    </div>
+                  </div>
+                </div>
+                <div className="card-actions-section">
+                  <div className="card-actions-wrapper">
+                    <button className="take-look-button">Take a Look</button>
+                    <button className="take-assessment-button">
+                      Take assessment to Personalize
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: Personalize Your Learning */}
+          <div className="learning-card">
+            <div className="card-container">
+              <div className="card-sub-container">
+                <div className="card-content-wrapper">
+                  <div className="card-content-section">
+                    <div className="card-title-wrapper">
+                      <div className="card-title-row">
+                        <div className="card-name">
+                          Personalize Your Learning
+                        </div>
+                        <div className="card-button">
+                          <svg
+                            className="card-arrow-icon"
+                            width="26"
+                            height="26"
+                            viewBox="0 0 26 26"
+                            fill="none"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              clipRule="evenodd"
+                              d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
+                              fill="#00C7B2"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="card-tags-container">
+                        <div className="card-tags-sub-container">
+                          <div className="card-tag">Interactive</div>
+                          <div className="card-tag-group">
+                            <div className="card-tag">Overview</div>
+                            <div className="card-tag-read">2-min read</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="card-name-description">
+                      Get tailored recommendations by taking a short
+                      assessment.
+                    </div>
+                  </div>
+                </div>
+                <div className="card-actions-section">
+                  <div className="card-actions-wrapper">
+                    <button className="take-look-button">Take a Look</button>
+                    <button className="take-assessment-button">
+                      Take assessment to Personalize
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Care Plan Section */}

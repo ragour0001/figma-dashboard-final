@@ -29,7 +29,7 @@ export default function Home() {
   const renderContent = () => {
     switch (activeSection) {
       case "goals-assessment":
-        return <GoalsAssessment />;
+        return <GoalsAssessment onSectionChange={handleSectionChange} />;
       case "my-care-plan":
         return <MyCarePlan />;
       case "therapist-coach":

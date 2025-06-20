@@ -7224,13 +7224,6 @@ align-self: stretch; */
   cursor: pointer;
 }
 
-.assessment-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-self: stretch;
-}
-
 .dashboard-btn {
   display: flex;
   height: 48px;
@@ -7336,11 +7329,13 @@ align-self: stretch; */
 
 .goals-status-container {
   display: flex;
-  width: 100%;
-  max-width: 927px;
+  /* width: 100%;
+  max-width: 100%; */
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
+  align-self: stretch;
+  margin-bottom: 5vh;
 }
 
 .goals-status-header {
@@ -7452,13 +7447,19 @@ align-self: stretch; */
 }
 
 .goals-cards-container {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
   gap: 10px;
   align-self: stretch;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0;
+  align-self: stretch;
 }
 
 .goal-card {
@@ -16282,10 +16283,6 @@ a {
   line-height: 135%;
 }
 
-.name {
-  font-weight: 700;
-}
-
 /* Getting Started Card */
 .getting-started-card {
   display: flex;
@@ -18341,13 +18338,6 @@ a {
   cursor: pointer;
 }
 
-.assessment-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-self: stretch;
-}
-
 .dashboard-btn {
   display: flex;
   height: 48px;
@@ -18449,15 +18439,6 @@ a {
   font-weight: 600;
   line-height: 135%;
   margin: 0;
-}
-
-.goals-status-container {
-  display: flex;
-  width: 100%;
-  max-width: 927px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
 }
 
 .goals-status-header {
@@ -18566,16 +18547,6 @@ a {
   font-weight: 400;
   line-height: 18px;
   margin: 0;
-}
-
-.goals-cards-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  gap: 10px;
-  align-self: stretch;
-  flex-wrap: wrap;
 }
 
 .goal-card {
@@ -25089,10 +25060,6 @@ a {
   line-height: 135%;
 }
 
-.name {
-  font-weight: 700;
-}
-
 /* Getting Started Card */
 .getting-started-card {
   display: flex;
@@ -27148,13 +27115,6 @@ a {
   cursor: pointer;
 }
 
-.assessment-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-self: stretch;
-}
-
 .dashboard-btn {
   display: flex;
   height: 48px;
@@ -27256,15 +27216,6 @@ a {
   font-weight: 600;
   line-height: 135%;
   margin: 0;
-}
-
-.goals-status-container {
-  display: flex;
-  width: 100%;
-  max-width: 927px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
 }
 
 .goals-status-header {
@@ -27373,16 +27324,6 @@ a {
   font-weight: 400;
   line-height: 18px;
   margin: 0;
-}
-
-.goals-cards-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  gap: 10px;
-  align-self: stretch;
-  flex-wrap: wrap;
 }
 
 .goal-card {
@@ -36210,10 +36151,6 @@ a {
   line-height: 135%;
 }
 
-.name {
-  font-weight: 700;
-}
-
 /* Getting Started Card */
 .getting-started-card {
   display: flex;
@@ -38271,9 +38208,9 @@ a {
 
 .assessment-actions {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-self: stretch;
+  justify-content: space-around;
+  align-items: flex-end;
+  align-self: flex-end;
 }
 
 .dashboard-btn {
@@ -38283,8 +38220,9 @@ a {
   align-items: center;
   border-radius: 12px;
   border: 1px solid #bec9c6;
-  background: transparent;
+  background: #006a63;
   cursor: pointer;
+  margin-left: 2vw;
 }
 
 .dashboard-btn .btn-content {
@@ -38297,7 +38235,7 @@ a {
 }
 
 .dashboard-btn .btn-text {
-  color: #3f4947;
+  color: #fff;
   font-family:
     Inter,
     -apple-system,
@@ -38377,15 +38315,6 @@ a {
   font-weight: 600;
   line-height: 135%;
   margin: 0;
-}
-
-.goals-status-container {
-  display: flex;
-  width: 100%;
-  max-width: 927px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
 }
 
 .goals-status-header {
@@ -38494,16 +38423,6 @@ a {
   font-weight: 400;
   line-height: 18px;
   margin: 0;
-}
-
-.goals-cards-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  gap: 10px;
-  align-self: stretch;
-  flex-wrap: wrap;
 }
 
 .goal-card {

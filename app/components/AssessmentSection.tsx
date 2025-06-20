@@ -2,22 +2,36 @@
 
 import RadioButton from "./RadioButton";
 import ProgressBar from "./ProgressBar";
+import { useRouter } from "next/navigation";
 
 interface AssessmentSectionProps {
+  question: string;
+  options: string[];
+  questionNumber: number;
+  totalQuestions: number;
   selectedOption: string;
   setSelectedOption: (option: string) => void;
+  onNext: () => void;
+  onPrevious: () => void;
+  isFirst: boolean;
+  isLast: boolean;
+  onSectionChange?: (section: string) => void;
 }
 
 export default function AssessmentSection({
+  question,
+  options,
+  questionNumber,
+  totalQuestions,
   selectedOption,
   setSelectedOption,
+  onNext,
+  onPrevious,
+  isFirst,
+  isLast,
+  onSectionChange,
 }: AssessmentSectionProps) {
-  const options = [
-    "Not at all",
-    "Several days",
-    "More than half the days",
-    "Nearly every day",
-  ];
+  const router = useRouter();
 
   return (
     <div className="assessment-section">
@@ -65,15 +79,14 @@ export default function AssessmentSection({
 
         <div className="assessment-progress-container">
           <div className="assessment-progress-header">
-            <h3 className="progress-title">Let's Cross the Finish Line</h3>
-            <ProgressBar progress={80} />
-            <p className="progress-step">Question set 3 of 20</p>
+            <h3 className="progress-title">You're just getting started – Let's kick off your Wellness Journey!</h3>
+            <ProgressBar progress={Math.round((questionNumber / totalQuestions) * 100)} />
+            <p className="progress-step">Question set {questionNumber} of {totalQuestions}</p>
           </div>
 
           <div className="assessment-question-section">
             <h3 className="question-title">
-              Over The last Two weeks How often have you felt Nervous , anxious
-              or on edge?
+              {question}
             </h3>
 
             <div className="radio-options">
@@ -83,6 +96,7 @@ export default function AssessmentSection({
                     value={option}
                     checked={selectedOption === option}
                     onChange={setSelectedOption}
+                    name={`assessment-question-${questionNumber}`}
                   />
                   <label className="radio-label">{option}</label>
                 </div>
@@ -91,16 +105,53 @@ export default function AssessmentSection({
           </div>
 
           <div className="assessment-actions">
-            <button className="dashboard-btn">
+            <button
+              type="button"
+              className="dashboard-btn"
+              onClick={() => onSectionChange?.("home")}
+              // disabled={!selectedOption}
+            >
               <div className="btn-content">
                 <span className="btn-text">Take Me to Dashboard</span>
               </div>
             </button>
-            <button className="previous-btn">
-              <div className="btn-content">
-                <span className="btn-text">Previous Question</span>
-              </div>
-            </button>
+            {/* Hide Previous button if on first question */}
+            {questionNumber > 1 && (
+              <button
+                type="button"
+                className="dashboard-btn previous-btn"
+                onClick={onPrevious}
+              >
+                <div className="btn-content">
+                  <span className="btn-text">Previous Question</span>
+                </div>
+              </button>
+            )}
+            {/* Hide Next button if on last question */}
+            {!isLast && (
+              <button
+                type="button"
+                className="dashboard-btn"
+                onClick={onNext}
+                disabled={!selectedOption}
+              >
+                <div className="btn-content">
+                  <span className="btn-text">Next Question</span>
+                </div>
+              </button>
+            )}
+            {/* Show Dashboard button only on last question */}
+            {/* {isLast && (
+              <button
+                type="button"
+                className="dashboard-btn"
+                onClick={() => onSectionChange?.("home")}
+              >
+                <div className="btn-content">
+                  <span className="btn-text">Take Me to Dashboard</span>
+                </div>
+              </button>
+            )} */}
           </div>
         </div>
       </div>
