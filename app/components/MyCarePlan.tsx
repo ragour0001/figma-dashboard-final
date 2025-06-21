@@ -94,8 +94,7 @@ const CarePlanSection: React.FC<CarePlanSectionProps> = () => {
         <p className="care-plan-description">
           To get personalized self-care actions, complete your first assessment.
           <br />
-          Your plan will be generated based on your mental health goals and
-          responses.
+          Your plan will be generated based on your mental health goals and responses.
         </p>
       </div>
 
