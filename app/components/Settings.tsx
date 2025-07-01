@@ -428,7 +428,662 @@ export default function Settings() {
   );
 
   return (
-    <div className="settings-page">
+    <>
+      <style>{`
+        .settings-page {
+          display: flex;
+          width: 100%;
+          min-height: 100vh;
+          flex-direction: column;
+          align-items: flex-start;
+          background: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+        }
+
+        .settings-content {
+          display: flex;
+          width: 100%;
+          padding-bottom: 181px;
+          flex-direction: column;
+          align-items: flex-start;
+          background: #fff;
+          position: relative;
+          min-height: 100vh;
+        }
+
+        .settings-header {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+          align-self: stretch;
+          position: relative;
+        }
+
+        .page-container {
+          display: flex;
+          padding: 0px 32px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+          align-self: stretch;
+          position: relative;
+        }
+
+        .settings-title {
+          align-self: stretch;
+          color: #181d27;
+          font-family: Inter;
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 38px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+          margin: 0;
+        }
+
+        .settings-main {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 32px;
+          align-self: stretch;
+          position: relative;
+        }
+
+        .breadcrumb-nav {
+          display: flex;
+          align-items: center;
+          align-content: center;
+          gap: 8px;
+          align-self: stretch;
+          flex-wrap: wrap;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          position: relative;
+          padding: 0 32px;
+        }
+
+        .breadcrumb-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          position: relative;
+        }
+
+        .breadcrumb-button {
+          display: flex;
+          padding: 4px 8px;
+          justify-content: center;
+          align-items: center;
+          gap: 4px;
+          position: relative;
+          background: none;
+          border: none;
+          cursor: pointer;
+          border-radius: 8px;
+          transition: all 0.2s ease;
+        }
+
+        .breadcrumb-button:hover {
+          background: rgba(0, 107, 95, 0.05);
+        }
+
+        .breadcrumb-button.active .breadcrumb-text {
+          color: #1c1c1c;
+          font-weight: 600;
+        }
+
+        .breadcrumb-text {
+          align-self: stretch;
+          text-align: center;
+          font-family: Inter;
+          font-size: 18px;
+          font-style: normal;
+          line-height: 135%;
+          position: relative;
+          color: rgba(28, 28, 28, 0.4);
+          font-weight: 400;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          border-radius: 8px;
+        }
+
+        .breadcrumb-separator {
+          color: rgba(28, 28, 28, 0.2);
+          font-feature-settings: "ss01" on, "cv01" on, "cv11" on;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+          position: relative;
+          margin: 0 4px;
+        }
+
+        .settings-tab-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 32px;
+          align-self: stretch;
+          position: relative;
+          padding: 0 32px;
+        }
+
+        .settings-my-details {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 32px;
+          align-self: stretch;
+          position: relative;
+        }
+
+        .settings-profile-header {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          align-self: stretch;
+          position: relative;
+        }
+
+        .settings-profile-background {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          align-self: stretch;
+          position: relative;
+          height: 240px;
+        }
+
+        .settings-profile-gradient {
+          width: 100%;
+          height: 240px;
+          flex-shrink: 0;
+          background: linear-gradient(45deg, #a6c0fe 0%, #ffeaf6 100%);
+          position: absolute;
+          left: 0px;
+          top: 0px;
+        }
+
+        .settings-profile-content {
+          display: flex;
+          padding: 0px 32px;
+          align-items: flex-start;
+          gap: 24px;
+          align-self: stretch;
+          position: relative;
+          margin-top: -80px;
+          z-index: 2;
+        }
+
+        .settings-profile-avatar-large {
+          display: flex;
+          width: 160px;
+          height: 160px;
+          padding: 40px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 200px;
+          border: 4px solid #fff;
+          background: #f9f5ff;
+          box-shadow: 0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03);
+          position: relative;
+          flex-shrink: 0;
+        }
+
+        .settings-profile-info {
+          display: flex;
+          padding-top: 64px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+          flex: 1 0 0;
+          position: relative;
+        }
+
+        .settings-profile-details {
+          display: flex;
+          align-items: flex-start;
+          gap: 16px;
+          align-self: stretch;
+          position: relative;
+        }
+
+        .settings-profile-name {
+          color: #181d27;
+          font-family: Inter;
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 38px;
+          position: relative;
+          align-self: stretch;
+          margin: 0;
+        }
+
+        .settings-profile-email {
+          align-self: stretch;
+          color: #535862;
+          font-family: Inter;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px;
+          position: relative;
+          margin: 4px 0 0 0;
+        }
+
+        .settings-form-section {
+          display: flex;
+          align-items: flex-start;
+          gap: 32px;
+          align-self: stretch;
+          position: relative;
+        }
+
+        .settings-form-header {
+          display: flex;
+          width: 280px;
+          flex-direction: column;
+          align-items: flex-start;
+          position: relative;
+        }
+
+        .settings-form-title {
+          align-self: stretch;
+          color: #414651;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 20px;
+          position: relative;
+          margin: 0;
+        }
+
+        .settings-form-subtitle {
+          align-self: stretch;
+          color: #535862;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+          position: relative;
+          margin: 0;
+        }
+
+        .settings-form-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          flex: 1 0 0;
+          align-self: stretch;
+          border-radius: 12px;
+          border: 1px solid #ebeff2;
+          position: relative;
+        }
+
+        .settings-form-content {
+          display: flex;
+          padding: 24px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+          align-self: stretch;
+          background: #fff;
+          position: relative;
+        }
+
+        .settings-form-row {
+          display: flex;
+          align-items: flex-start;
+          gap: 24px;
+          align-self: stretch;
+          position: relative;
+        }
+
+        .settings-input-field {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          flex: 1 0 0;
+          position: relative;
+        }
+
+        .settings-input-label {
+          color: #414651;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          position: relative;
+          margin-bottom: 6px;
+        }
+
+        .settings-input-wrapper {
+          display: flex;
+          height: 56px;
+          flex-direction: column;
+          align-items: flex-start;
+          align-self: stretch;
+          border-radius: 4px;
+          border: 1px solid #6f7976;
+          position: relative;
+        }
+
+        .settings-input-with-icon {
+          padding-left: 0;
+        }
+
+        .settings-input-icon {
+          display: flex;
+          width: 48px;
+          height: 56px;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: 1;
+        }
+
+        .settings-input {
+          flex: 1 0 0;
+          color: #3f4947;
+          font-family: Roboto;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: 0.5px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          align-self: stretch;
+          padding: 16px;
+          border: none;
+          outline: none;
+          background: transparent;
+          border-radius: 4px;
+        }
+
+        .settings-input-padded {
+          padding-left: 48px;
+        }
+
+        .settings-input:focus {
+          outline: none;
+        }
+
+        .settings-input-wrapper:focus-within {
+          border-color: #006b5f;
+          box-shadow: 0 0 0 1px #006b5f;
+        }
+
+        .settings-upload-section {
+          display: flex;
+          align-items: flex-start;
+          gap: 20px;
+          align-self: stretch;
+          position: relative;
+        }
+
+        .settings-upload-avatar {
+          display: flex;
+          width: 64px;
+          height: 64px;
+          padding: 16px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 200px;
+          background: #f9f5ff;
+          position: relative;
+          flex-shrink: 0;
+        }
+
+        .settings-upload-area {
+          display: flex;
+          height: 172px;
+          padding: 16px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          flex: 1 0 0;
+          border-radius: 6px;
+          border: 1px dashed #006b5f;
+          background: #fff;
+          position: relative;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .settings-upload-area:hover {
+          background: #f8fffe;
+          border-color: #004d45;
+        }
+
+        .settings-upload-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          position: relative;
+        }
+
+        .settings-upload-icon {
+          display: flex;
+          width: 40px;
+          height: 40px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 100px;
+          border: 1px solid #ebeff2;
+          background: #fff;
+          position: relative;
+        }
+
+        .settings-upload-text {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+          position: relative;
+        }
+
+        .settings-upload-action {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          position: relative;
+        }
+
+        .settings-upload-link {
+          color: #006b5f;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 20px;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+
+        .settings-upload-or {
+          color: #535862;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+        }
+
+        .settings-upload-info {
+          color: #535862;
+          font-family: Inter;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18px;
+          position: relative;
+          margin: 0;
+        }
+
+        .settings-form-footer {
+          display: flex;
+          padding: 16px 24px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          align-self: stretch;
+          border-top: 1px solid #ebeff2;
+          background: #f8fafe;
+          position: relative;
+        }
+
+        .settings-form-divider {
+          height: 1px;
+          align-self: stretch;
+          background: #ebeff2;
+        }
+
+        .settings-form-actions {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 12px;
+          align-self: stretch;
+          position: relative;
+        }
+
+        .settings-btn-secondary,
+        .settings-btn-primary {
+          display: flex;
+          padding: 10px 16px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 8px;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 20px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .settings-btn-secondary {
+          border: 1px solid #ebeff2;
+          background: #fff;
+          color: #414651;
+        }
+
+        .settings-btn-secondary:hover {
+          background: #f8fafe;
+        }
+
+        .settings-btn-primary {
+          border: 1px solid #006b5f;
+          background: #006b5f;
+          color: #fff;
+        }
+
+        .settings-btn-primary:hover {
+          background: #005a4f;
+        }
+
+        .toggle-switch {
+          display: flex;
+          width: 44px;
+          height: 24px;
+          padding: 2px;
+          align-items: center;
+          border-radius: 12px;
+          background: #ebeff2;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .toggle-switch.active {
+          background: #006b5f;
+        }
+
+        .toggle-track {
+          width: 20px;
+          height: 20px;
+          border-radius: 10px;
+          background: #fff;
+          transition: all 0.2s ease;
+          transform: translateX(0);
+        }
+
+        .toggle-switch.active .toggle-track {
+          transform: translateX(20px);
+        }
+
+        .settings-section {
+          display: flex;
+          padding: 36px 28px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+          align-self: stretch;
+          border-radius: 12px;
+          border: 1px solid #ebeff2;
+          background: #fff;
+        }
+
+        .section-header {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .section-title {
+          color: #414651;
+          font-family: Roboto, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+          margin: 0;
+        }
+
+        .toggle-list {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          align-self: stretch;
+        }
+
+        .toggle-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .toggle-label {
+          color: #414651;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+        }
+      `}</style>
+      <div className="settings-page">
       <div className="settings-content">
         {/* Header Section */}
         <div className="settings-header">
@@ -489,5 +1144,6 @@ export default function Settings() {
         </div>
       </div>
     </div>
+    </>
   );
 }

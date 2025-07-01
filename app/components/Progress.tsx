@@ -434,7 +434,572 @@ function NewPlatformSection() {
 
 export default function Progress() {
   return (
-    <main className="progress-page-main">
+    <>
+      <style>{`
+        .progress-page-main {
+          display: flex;
+          width: 100%;
+          background: #fff;
+          flex-direction: column;
+        }
+
+        .progress-container {
+          display: flex;
+          width: 100%;
+          padding: 40px 0px 0px 40px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 53px;
+        }
+
+        .progress-header-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          align-self: stretch;
+        }
+
+        .progress-main-title {
+          color: #171d1b;
+          font-family: Roboto, -apple-system, Helvetica, sans-serif;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 32px;
+          letter-spacing: 0px;
+          margin: 0;
+        }
+
+        .progress-subtitle {
+          align-self: stretch;
+          color: #171d1b;
+          font-family: Inter, -apple-system, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: 0.5px;
+          margin: 0;
+        }
+
+        .wellness-banner {
+          width: 100%;
+          border-radius: 16px;
+        }
+
+        .wellness-banner-content {
+          display: flex;
+          padding: 26px 16px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 22px;
+          border-radius: 8px;
+          border: 1px solid #e94545;
+          background: #fff6f6;
+        }
+
+        .wellness-banner-header {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          align-self: stretch;
+        }
+
+        .wellness-icon {
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+        }
+
+        .wellness-title {
+          flex: 1;
+          color: #006b5f;
+          font-family: "Inter", sans-serif;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 140%;
+          margin: 0;
+        }
+
+        .progress-info-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 14px;
+          align-self: stretch;
+        }
+
+        .progress-indicator-container {
+          width: 100%;
+          max-width: 1051px;
+        }
+
+        .progress-bar-main {
+          width: 100%;
+        }
+
+        .progress-track {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .progress-dots-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          height: 20px;
+          position: relative;
+        }
+
+        .progress-dot {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background: #a8a8a8;
+          position: absolute;
+        }
+
+        .progress-dot:nth-child(1) {
+          left: 39px;
+        }
+
+        .progress-dot:nth-child(2) {
+          left: 179px;
+        }
+
+        .progress-dot:nth-child(3) {
+          left: 345px;
+        }
+
+        .progress-dot:nth-child(4) {
+          left: 588px;
+        }
+
+        .progress-percentage {
+          color: #232323;
+          font-family: "Inter", sans-serif;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 110%;
+          letter-spacing: -0.5px;
+        }
+
+        .banner-actions {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .faq-link-btn {
+          color: #006b5f;
+          font-family: "Inter", sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 140%;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+        }
+
+        .faq-link-btn:hover {
+          text-decoration: underline;
+        }
+
+        .complete-assessment-btn {
+          display: flex;
+          width: 232px;
+          height: 40px;
+          padding: 10px 16px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 12px;
+          background: #fff;
+          color: #00201c;
+          font-family: "Inter", sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+          border: none;
+          cursor: pointer;
+        }
+
+        .complete-assessment-btn:hover {
+          background: #f5f5f5;
+          transform: translateY(-1px);
+        }
+
+        .progress-insights-card {
+          display: flex;
+          padding: 24px 16px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 24px;
+          align-self: stretch;
+          border-radius: 16px;
+          border: 1px solid #e6e6e6;
+          background: #fff;
+        }
+
+        .insights-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .insights-title-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
+
+        .insights-title {
+          width: 520px;
+          color: #003a5d;
+          font-family: Inter, -apple-system, Helvetica, sans-serif;
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 135%;
+          letter-spacing: -0.44px;
+          margin: 0;
+        }
+
+        .insights-menu-btn {
+          width: 18px;
+          height: 18px;
+          cursor: pointer;
+          background: none;
+          border: none;
+        }
+
+        .insights-controls {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .tabs-section {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .insights-tabs {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          border-bottom: 1px solid #ebeff2;
+        }
+
+        .progress-tab {
+          display: flex;
+          height: 48px;
+          padding: 0px 8px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          border-bottom: 3px solid transparent;
+        }
+
+        .progress-tab-active {
+          border-bottom: 3px solid #003a5d;
+        }
+
+        .progress-tab span {
+          color: #999;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 150%;
+        }
+
+        .progress-tab-active span {
+          color: #003a5d;
+        }
+
+        .chart-controls {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .chart-type-toggles {
+          display: flex;
+          align-items: flex-start;
+          border-radius: 6px;
+          border: 1px solid rgba(0, 58, 93, 0.2);
+          background: #fff;
+        }
+
+        .chart-toggle {
+          display: flex;
+          padding: 6px;
+          align-items: center;
+          gap: 10px;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+
+        .chart-toggle.active {
+          background: #f4f4f4;
+        }
+
+        .chart-toggle:first-child {
+          border-radius: 6px 0 0 6px;
+        }
+
+        .chart-toggle:last-child {
+          border-radius: 0 6px 6px 0;
+        }
+
+        .toggle-divider {
+          width: 1px;
+          height: 24px;
+          background: #ccc;
+        }
+
+        .plan-filter {
+          display: flex;
+          height: 36px;
+          padding: 8px 12px;
+          align-items: center;
+          gap: 3px;
+          border-radius: 8px;
+          border: 1px solid rgba(0, 58, 93, 0.2);
+          background: #fefefe;
+          cursor: pointer;
+        }
+
+        .plan-filter span {
+          color: #999;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+        }
+
+        .chart-area {
+          display: flex;
+          height: 229px;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+          align-self: stretch;
+          position: relative;
+        }
+
+        .chart-y-axis {
+          position: absolute;
+          left: 0;
+          top: 21px;
+          height: 143px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 35px;
+        }
+
+        .y-label {
+          color: #999;
+          text-align: right;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 135%;
+        }
+
+        .assessment-warning-banner {
+          display: flex;
+          width: 978px;
+          height: 67px;
+          padding: 0px 12px;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 6px;
+          border: 1px solid #f5dc60;
+          background: #fffbe4;
+        }
+
+        .warning-content {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .warning-icon {
+          width: 25px;
+          height: 25px;
+          flex-shrink: 0;
+        }
+
+        .warning-text {
+          color: #5f4b00;
+          font-family: Inter, -apple-system, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+          margin: 0;
+        }
+
+        .take-assessment-btn {
+          display: flex;
+          padding: 8px 16px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 8px;
+          background: #ffbf00;
+          color: #5f4b00;
+          font-family: Inter, -apple-system, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 20px;
+          border: none;
+          cursor: pointer;
+        }
+
+        .take-assessment-btn:hover {
+          background: #e6ac00;
+          transform: translateY(-1px);
+        }
+
+        .new-platform-section {
+          height: 350px;
+          align-self: stretch;
+          position: relative;
+          border-radius: 10px;
+          background: #f6f6f6;
+        }
+
+        .platform-background {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          position: relative;
+        }
+
+        .platform-info {
+          display: flex;
+          width: 415px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 8px;
+          padding: 56px 28px;
+        }
+
+        .platform-label {
+          color: #5742a9;
+          font-family: "Inter", sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+        }
+
+        .platform-title {
+          color: #000;
+          font-family: "Lato", sans-serif;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 30px;
+          margin: 0;
+        }
+
+        .download-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          margin-top: 24px;
+        }
+
+        .download-title {
+          color: #003a5d;
+          font-family: "Inter", sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 24px;
+          margin: 0;
+        }
+
+        .download-buttons {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .app-store-btn,
+        .google-play-btn {
+          display: flex;
+          padding: 8px 12px;
+          align-items: center;
+          gap: 8px;
+          border-radius: 8px;
+          background: #000;
+          border: none;
+          cursor: pointer;
+        }
+
+        .store-btn-content {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .store-text {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .store-line1 {
+          color: #fff;
+          font-family: "Inter", sans-serif;
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 12px;
+        }
+
+        .store-line2 {
+          color: #fff;
+          font-family: "Inter", sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 16px;
+        }
+      `}</style>
+      <main className="progress-page-main">
       <div className="progress-container">
         <WellnessJourneyBanner />
         <ProgressHeader />
@@ -443,5 +1008,6 @@ export default function Progress() {
         <NewPlatformSection />
       </div>
     </main>
+    </>
   );
 }

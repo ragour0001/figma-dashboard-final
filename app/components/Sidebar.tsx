@@ -46,9 +46,233 @@ export default function Sidebar({
   }, [isExpanded, onToggle]);
 
   return (
-    <aside
-      className={`sidebar ${isExpanded ? "sidebar-expanded" : "sidebar-collapsed"}`}
-    >
+    <>
+      <style>{`
+        .sidebar {
+          display: flex;
+          width: 72px;
+          height: calc(100vh - 100px);
+          padding-top: 20px;
+          flex-direction: column;
+          align-items: center;
+          gap: 30px;
+          border-right: 1px solid rgba(0, 0, 0, 0.1);
+          background: #fff;
+          transition: width 0.3s ease, padding 0.3s ease;
+          position: fixed;
+          top: 100px;
+          left: 0;
+          z-index: 900;
+          overflow-y: auto;
+        }
+
+        .sidebar-expanded {
+          width: 250px;
+          align-items: flex-start;
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .sidebar-collapsed {
+          width: 72px;
+          align-items: center;
+        }
+
+        .sidebar-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          flex: 1 0 0;
+          align-self: stretch;
+        }
+
+        .sidebar-nav {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          flex-grow: 1;
+          align-self: stretch;
+        }
+
+        .nav-items {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+          align-self: stretch;
+        }
+
+        .nav-item {
+          display: flex;
+          width: 48px;
+          height: 48px;
+          align-items: flex-start;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.2s, width 0.3s ease;
+        }
+
+        .sidebar-expanded .nav-item {
+          width: 100%;
+        }
+
+        .nav-item.active {
+          background: #effbfa;
+        }
+
+        .nav-item:hover:not(.active) {
+          background: #f7f9fa;
+        }
+
+        .nav-item-inner {
+          display: flex;
+          width: 48px;
+          padding: 12px;
+          align-items: center;
+          gap: 12px;
+          flex-shrink: 0;
+          align-self: stretch;
+          border-radius: 12px;
+          transition: width 0.3s ease, gap 0.3s ease;
+        }
+
+        .sidebar-expanded .nav-item-inner {
+          width: 100%;
+          gap: 12px;
+          justify-content: flex-start;
+        }
+
+        .nav-label {
+          color: #666666;
+          font-size: 14px;
+          font-weight: 500;
+          white-space: nowrap;
+          opacity: 0;
+          transition: opacity 0.3s ease 0.1s;
+        }
+
+        .sidebar-expanded .nav-label {
+          opacity: 1;
+        }
+
+        .sidebar-expanded .nav-item.active .nav-label {
+          color: #006b5f;
+          font-weight: 600;
+        }
+
+        .nav-icon {
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+        }
+
+        .sidebar-footer {
+          display: flex;
+          padding: 20px 0px;
+          flex-direction: column;
+          align-items: center;
+          gap: 24px;
+          align-self: stretch;
+          transition: all 0.3s ease;
+          margin-top: auto;
+        }
+
+        .sidebar-expanded .sidebar-footer {
+          align-items: flex-start;
+        }
+
+        .profile-avatar {
+          display: flex;
+          width: 48px;
+          height: 48px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 8px;
+          background: #ebeff2;
+          transition: width 0.3s ease;
+          cursor: pointer;
+        }
+
+        .sidebar-expanded .profile-avatar {
+          width: 100%;
+          justify-content: flex-start;
+        }
+
+        .avatar-container {
+          display: flex;
+          width: 48px;
+          padding: 12px;
+          align-items: center;
+          gap: 12px;
+          flex-shrink: 0;
+          align-self: stretch;
+          border-radius: 12px;
+          transition: width 0.3s ease, gap 0.3s ease;
+        }
+
+        .sidebar-expanded .avatar-container {
+          width: 100%;
+          gap: 12px;
+          justify-content: flex-start;
+        }
+
+        .profile-icon {
+          width: 16px;
+          height: 18px;
+          flex-shrink: 0;
+        }
+
+        .sidebar-expanded-layout .content-wrapper {
+          margin-left: 250px;
+        }
+
+        .sidebar-expanded-layout .main-content {
+          max-width: calc(100vw - 250px - 333px);
+        }
+
+        @media (max-width: 1200px) {
+          .sidebar-expanded-layout .main-content {
+            max-width: calc(100vw - 250px - 280px);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .sidebar {
+            position: fixed;
+            top: 80px;
+            width: 100%;
+            height: 60px;
+            flex-direction: row;
+            padding: 10px 20px;
+            z-index: 900;
+          }
+
+          .sidebar-nav {
+            flex-direction: row;
+          }
+
+          .nav-items {
+            flex-direction: row;
+          }
+
+          .content-wrapper {
+            flex-direction: column;
+            margin-left: 0;
+            margin-top: 60px;
+            height: calc(100vh - 140px);
+          }
+
+          .main-content {
+            max-width: 100%;
+            padding: 20px;
+          }
+        }
+      `}</style>
+      <aside
+        className={`sidebar ${isExpanded ? "sidebar-expanded" : "sidebar-collapsed"}`}
+      >
       <div className="sidebar-content">
         <div className="sidebar-nav">
           <div className="nav-items">
@@ -299,5 +523,6 @@ export default function Sidebar({
         </div>
       </div>
     </aside>
+    </>
   );
 }

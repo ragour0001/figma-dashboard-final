@@ -288,7 +288,556 @@ const NewPlatformSection: React.FC<NewPlatformSectionProps> = () => {
 
 export default function MyCarePlan() {
   return (
-    <main className="my-care-plan">
+    <>
+      <style>{`
+        .my-care-plan {
+          display: flex;
+          width: 100%;
+          min-height: 100vh;
+          flex-direction: column;
+          align-items: center;
+          background: #fff;
+        }
+
+        .my-care-plan-content {
+          display: flex;
+          width: 1123px;
+          max-width: calc(100% - 80px);
+          padding: 40px 0 0 0px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 35px;
+        }
+
+        .wellness-journey-banner {
+          width: 100%;
+          border-radius: 16px;
+        }
+
+        .wellness-banner-content {
+          display: flex;
+          padding: 26px 16px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 22px;
+          border-radius: 8px;
+          border: 1px solid #e94545;
+          background: #fff6f6;
+        }
+
+        .wellness-header {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          align-self: stretch;
+        }
+
+        .wellness-icon {
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+        }
+
+        .wellness-title {
+          flex: 1;
+          color: #006b5f;
+          font-family: "Inter", sans-serif;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 140%;
+          margin: 0;
+        }
+
+        .progress-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 14px;
+          align-self: stretch;
+        }
+
+        .progress-indicator {
+          width: 100%;
+          max-width: 1051px;
+        }
+
+        .progress-indicator svg {
+          width: 100%;
+          height: 20px;
+        }
+
+        .completion-status {
+          color: #232323;
+          font-family: "Inter", sans-serif;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 110%;
+          letter-spacing: -0.5px;
+        }
+
+        .banner-actions {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .faq-link {
+          color: #006b5f;
+          font-family: "Inter", sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 140%;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+        }
+
+        .faq-link:hover {
+          text-decoration: underline;
+        }
+
+        .assessment-btn {
+          display: flex;
+          padding: 10px 16px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 12px;
+          background: #eff5f3;
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 3px 0px 0px rgba(0, 0, 0, 0.15);
+          color: #006a63;
+          font-family: "Inter", sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+          border: none;
+          cursor: pointer;
+        }
+
+        .assessment-btn:hover {
+          background: #e3f1ee;
+          transform: translateY(-1px);
+        }
+
+        .therapist-matching-card {
+          display: flex;
+          padding: 26px 34px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          align-self: stretch;
+          border-radius: 10px;
+          background: #e9efec;
+        }
+
+        .matching-card-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 26px;
+          align-self: stretch;
+        }
+
+        .matching-header {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          align-self: stretch;
+        }
+
+        .cognition-icon {
+          width: 39px;
+          height: 40px;
+          flex-shrink: 0;
+        }
+
+        .matching-text {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          flex: 1;
+        }
+
+        .matching-title {
+          color: #006b5f;
+          font-family: "Inter", sans-serif;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 140%;
+          margin: 0;
+        }
+
+        .matching-subtitle {
+          color: #171d1b;
+          font-family: "Inter", sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+          margin: 0;
+        }
+
+        .mycare-plan-button-container {
+          display: flex;
+          justify-content: flex-end;
+          align-self: stretch;
+        }
+
+        .start-now-btn {
+          display: flex;
+          padding: 10px 16px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 12px;
+          background: #eff5f3;
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+          color: #006a63;
+          font-family: "Inter", sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+          border: none;
+          cursor: pointer;
+        }
+
+        .start-now-btn:hover {
+          background: #e3f1ee;
+          transform: translateY(-1px);
+        }
+
+        .care-plan-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 30px;
+          align-self: stretch;
+        }
+
+        .care-plan-header {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 17px;
+          align-self: stretch;
+        }
+
+        .care-plan-title {
+          color: #003a5d;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 135%;
+          margin: 0;
+        }
+
+        .care-plan-description {
+          color: #171d1b;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+          margin: 0;
+          max-width: 600px;
+        }
+
+        .care-plan-cards {
+          display: flex;
+          align-items: flex-start;
+          align-content: flex-start;
+          gap: 30px;
+          flex-wrap: wrap;
+        }
+
+        .unlock-plan-card,
+        .referral-card {
+          width: 486px;
+          height: 229px;
+          border-radius: 16px;
+          border: 1px solid #e5e7e9;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .unlock-plan-card {
+          background: #101340;
+        }
+
+        .referral-card {
+          background: #ff7e1d;
+        }
+
+        .card-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(4.75px);
+          border-radius: 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 48px;
+        }
+
+        .lock-icon {
+          width: 24px;
+          height: 31px;
+          fill: #fff;
+          margin-bottom: 15px;
+        }
+
+        .unlock-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          text-align: center;
+        }
+
+        .unlock-title {
+          color: #f4fbf8;
+          font-family: Roboto, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 22px;
+          font-weight: 500;
+          line-height: 28px;
+          margin: 0;
+        }
+
+        .unlock-subtitle {
+          color: #f4fbf8;
+          text-align: center;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+          margin: 0;
+        }
+
+        .complete-assessment-btn {
+          display: flex;
+          width: 232px;
+          height: 40px;
+          padding: 0px 12px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 12px;
+          background: #fff;
+          border: none;
+          cursor: pointer;
+          color: #00201c;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+        }
+
+        .complete-assessment-btn:hover {
+          background: #f0f0f0;
+        }
+
+        .referral-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          padding: 26px 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .referral-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+
+        .referral-content {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .referral-label {
+          color: #fff;
+          font-family: Inter, sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 20px;
+        }
+
+        .referral-title {
+          color: #fff;
+          font-family: Inter, sans-serif;
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 140%;
+          margin: 0;
+          max-width: 250px;
+        }
+
+        .referral-icon img {
+          width: 48px;
+          height: 48px;
+          border-radius: 12px;
+        }
+
+        .referral-code-section {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .code-info {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .code-label {
+          color: #fff;
+          font-family: Inter, sans-serif;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 18px;
+        }
+
+        .code-display {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .copy-icon {
+          width: 20px;
+          height: 21px;
+        }
+
+        .code-text {
+          color: #fff;
+          font-family: Inter, sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 24px;
+        }
+
+        .share-invite-btn {
+          display: flex;
+          padding: 8px 16px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 8px;
+          background: #fff;
+          border: none;
+          cursor: pointer;
+          color: #ff7e1d;
+          font-family: Inter, sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 20px;
+        }
+
+        .share-invite-btn:hover {
+          background: #f0f0f0;
+        }
+
+        .new-platform-section {
+          display: flex;
+          padding: 32px;
+          flex-direction: column;
+          align-items: center;
+          gap: 32px;
+          align-self: stretch;
+          border-radius: 16px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .platform-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 24px;
+          text-align: center;
+        }
+
+        .platform-text {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          align-items: center;
+        }
+
+        .platform-label {
+          color: rgba(255, 255, 255, 0.8);
+          font-family: Inter, sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+        }
+
+        .platform-title {
+          color: #fff;
+          font-family: Inter, sans-serif;
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 135%;
+          margin: 0;
+          max-width: 600px;
+        }
+
+        .download-section {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+        }
+
+        .download-label {
+          color: rgba(255, 255, 255, 0.9);
+          font-family: Inter, sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+        }
+
+        .store-buttons {
+          display: flex;
+          gap: 16px;
+          align-items: center;
+        }
+
+        .store-badge {
+          height: 48px;
+          cursor: pointer;
+          transition: transform 0.2s ease;
+        }
+
+        .store-badge:hover {
+          transform: scale(1.05);
+        }
+      `}</style>
+      <main className="my-care-plan">
       <div className="my-care-plan-content">
         <WellnessJourneyBanner />
         <TherapistMatchingCard />
@@ -296,5 +845,6 @@ export default function MyCarePlan() {
         <NewPlatformSection />
       </div>
     </main>
+    </>
   );
 }

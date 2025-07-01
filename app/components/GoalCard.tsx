@@ -16,7 +16,108 @@ export default function GoalCard({
   isLocked,
 }: GoalCardProps) {
   return (
-    <div className="goal-card" style={{ backgroundColor: color }}>
+    <>
+      <style>{`
+        .goal-card {
+          display: flex;
+          padding: 24px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          flex: 1 0 0;
+          border-radius: 16px;
+        }
+
+        .goal-card-content {
+          display: flex;
+          align-items: center;
+          gap: 25px;
+          align-self: stretch;
+        }
+
+        .goal-info {
+          display: flex;
+          width: 169px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+        }
+
+        .goal-emoji-container {
+          width: 33.567px;
+          height: 33px;
+          position: relative;
+        }
+
+        .goal-emoji-circle {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          gap: 39px;
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          width: 34px;
+          height: 33px;
+        }
+
+        .goal-emoji {
+          color: #000;
+          font-feature-settings: "liga" off, "clig" off;
+          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          position: absolute;
+          left: 5px;
+          top: 4px;
+          width: 24px;
+          height: 24px;
+        }
+
+        .goal-title {
+          align-self: stretch;
+          color: #494949;
+          font-feature-settings: "liga" off, "clig" off;
+          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          margin: 0;
+        }
+
+        .goal-track-progress {
+          display: flex;
+          align-items: flex-start;
+          gap: 4px;
+          opacity: 0.5;
+        }
+
+        .lock-icon {
+          width: 17px;
+          height: 17px;
+          aspect-ratio: 1/1;
+          position: relative;
+        }
+
+        .track-text {
+          font-feature-settings: "liga" off, "clig" off;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+        }
+
+        .goal-timer {
+          width: 48px;
+          height: 48px;
+          opacity: 0.5;
+        }
+      `}</style>
+      <div className="goal-card" style={{ backgroundColor: color }}>
       <div className="goal-card-content">
         <div className="goal-info">
           <div className="goal-emoji-container">
@@ -113,5 +214,6 @@ export default function GoalCard({
         </div>
       </div>
     </div>
+    </>
   );
 }

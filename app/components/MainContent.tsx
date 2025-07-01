@@ -53,427 +53,2374 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
   };
 
   return (
-    <main className="main-content">
-      {/* Breadcrumb and Welcome */}
-      <div className="welcome-section">
-        <div className="breadcrumb">
-          <span className="breadcrumb-item">Global Dashboard</span>
-          <svg
-            className="breadcrumb-arrow"
-            width="6"
-            height="10"
-            viewBox="0 0 6 10"
-            fill="none"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M1.04543 9.31171C0.794381 9.06066 0.794381 8.65363 1.04543 8.40257L4.44801 5L1.04543 1.59743C0.794381 1.34638 0.794381 0.939341 1.04543 0.68829C1.29648 0.437238 1.70352 0.437238 1.95457 0.68829L5.81171 4.54543C6.06276 4.79648 6.06276 5.20352 5.81171 5.45457L1.95457 9.31171C1.70352 9.56276 1.29648 9.56276 1.04543 9.31171Z"
-              fill="#999999"
-            />
-          </svg>
-          <span className="breadcrumb-item active">Home</span>
+    <>
+      <style>{`
+        .main-content {
+          flex: 1;
+          padding: 30px 40px;
+          max-width: calc(100vw - 72px - 333px);
+          transition: max-width 0.3s ease;
+        }
+
+        .welcome-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+
+        .breadcrumb-item {
+          color: #999;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .breadcrumb-item.active {
+          color: #00201c;
+          font-weight: 500;
+        }
+
+        .breadcrumb-arrow {
+          width: 5px;
+          height: 9px;
+        }
+
+        .welcome-title {
+          color: #00201c;
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 135%;
+          margin: 0;
+        }
+
+        .goal-set-title {
+          color: #003a5d;
+          font-family: Roboto, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 32px;
+          letter-spacing: 0px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          align-self: stretch;
+          margin: 0;
+        }
+
+        .purple-section {
+          display: flex;
+          padding: 35px 20px;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 16px;
+          background: #6e62e5;
+          margin-bottom: 29px;
+        }
+
+        .purple-content {
+          display: flex;
+          width: 596px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+        }
+
+        .purple-text h2 {
+          color: #fff;
+          font-size: 32px;
+          font-weight: 600;
+          line-height: 40px;
+          letter-spacing: 0.16px;
+          margin-bottom: 10px;
+        }
+
+        .purple-text p {
+          width: 596px;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.08px;
+          padding-bottom: 10px;
+          margin: 0;
+        }
+
+        .steps-container {
+          display: flex;
+          width: 588px;
+          flex-direction: row;
+          align-items: center;
+          gap: 14px;
+          margin-top: 8px;
+        }
+
+        .steps-visual {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 6px;
+          height: 100%;
+        }
+
+        .step-indicator {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 20px;
+        }
+
+        .step-circle {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: 1px solid #b8b1ff;
+          background: #fff;
+        }
+
+        .step-circle.filled {
+          background: #b8b1ff;
+        }
+
+        .step-line {
+          width: 2px;
+          height: 24px;
+          background: #b8b1ff;
+          margin: 3px 0;
+        }
+
+        .steps-text {
+          display: flex;
+          flex-direction: column;
+          gap: 42px;
+          margin-left: 8px;
+          padding-top: 0;
+        }
+
+        .step-item {
+          color: #fff;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.09px;
+          white-space: nowrap;
+          display: flex;
+          align-items: center;
+          height: 20px;
+        }
+
+        .discover-btn {
+          display: flex;
+          padding: 10px 14px;
+          align-items: center;
+          gap: 16px;
+          border-radius: 9999px;
+          background: #2c2663;
+          border: none;
+          color: #fff;
+          font-family: "DM Sans";
+          font-size: 15px;
+          font-weight: 500;
+          cursor: pointer;
+        }
+
+        .arrow-icon {
+          display: flex;
+          width: 20px;
+          height: 20px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          background: #fff;
+        }
+
+        .purple-image {
+          width: 221px;
+          height: 196px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .positive-img {
+          height: 140px;
+          flex-shrink: 0;
+        }
+
+        .illustration-placeholder {
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #9b59b6, #e74c3c);
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 14px;
+        }
+
+        .goals-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          margin-bottom: 29px;
+        }
+
+        .goals-content {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          flex: 1 0 0;
+          align-self: stretch;
+        }
+
+        .goals-header {
+          display: flex;
+          height: 39px;
+          min-width: 200px;
+          padding: 24px;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
+          align-self: stretch;
+          border-radius: 16px;
+        }
+
+        .goals-header h3 {
+          color: #003a5d;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 18px;
+          margin: 0;
+        }
+
+        .goals-actions {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .search-box {
+          display: flex;
+          width: 406px;
+          height: 44px;
+          padding: 8px 16px 8px 12px;
+          align-items: center;
+          gap: 12px;
+          border-radius: 8px;
+          border: 1px solid #ccd8df;
+          background: #fefefe;
+        }
+
+        .search-box .search-icon {
+          width: 24px;
+          height: 24px;
+        }
+
+        .search-box span {
+          color: #999;
+          font-size: 14px;
+          font-weight: 400;
+        }
+
+        .done-btn {
+          display: flex;
+          padding: 6px 12px;
+          justify-content: center;
+          align-items: center;
+          gap: 4px;
+          border-radius: 100px;
+          background: #006a63;
+          border: none;
+          color: #fff;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+        }
+
+        .goals-grid {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          align-content: center;
+          gap: 10px;
+          align-self: stretch;
+          flex-wrap: wrap;
+          margin-top: 30px;
+        }
+
+        .goal-chip {
+          display: flex;
+          height: 53px;
+          padding: 10px 20px;
+          align-items: flex-start;
+          gap: 10px;
+          border-radius: 48px;
+          background: #fff;
+          box-shadow: 0px 2px 7px 0px rgba(65, 65, 65, 0.08);
+          cursor: pointer;
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .goal-chip:hover {
+          transform: translateY(-2px);
+          box-shadow: 0px 4px 12px 0px rgba(65, 65, 65, 0.12);
+        }
+
+        .goal-chip.more {
+          cursor: pointer;
+        }
+
+        .goal-emoji {
+          width: 33px;
+          height: 33px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 24px;
+          background: white;
+          border-radius: 50%;
+        }
+
+        .goal-chip span {
+          color: #494949;
+          font-feature-settings: "liga" off, "clig" off;
+          font-family: "Poppins";
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          display: flex;
+          align-items: center;
+          margin-top: 8px;
+        }
+
+        .goals-status-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          align-self: stretch;
+          margin-bottom: 5vh;
+        }
+
+        .goals-status-header {
+          display: flex;
+          height: 74px;
+          min-width: 200px;
+          padding: 24px 0px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          align-self: stretch;
+          border-radius: 16px;
+        }
+
+        .goals-status-header > div {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .goals-status-info {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .goals-status-title {
+          color: #003a5d;
+          font-feature-settings: "ss01" on, "cv01" on, "cv11" on;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 18px;
+          margin: 0;
+        }
+
+        .reset-goals-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 5px;
+        }
+
+        .reset-goals-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          align-self: stretch;
+          border-radius: 100px;
+          background: rgba(29, 27, 32, 0.1);
+          border: none;
+          cursor: not-allowed;
+          opacity: 0.38;
+        }
+
+        .reset-goals-btn .btn-content {
+          display: flex;
+          padding: 6px 12px;
+          justify-content: center;
+          align-items: center;
+          gap: 4px;
+        }
+
+        .reset-goals-btn .btn-text {
+          color: #161d1c;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+        }
+
+        .reset-goals-text {
+          color: #4a635e;
+          text-align: center;
+          font-feature-settings: "ss01" on, "cv01" on, "cv11" on;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18px;
+          margin: 0;
+        }
+
+        .goals-cards-container {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 16px;
+          flex: 1 0;
+          align-self: stretch;
+        }
+
+        /* Main Content Section */
+        .main-content-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 28px;
+          align-self: stretch;
+          margin-top: 5vh;
+          margin-bottom: 5vh;
+        }
+
+        /* Tab System Styles */
+        .section-header {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-end;
+          gap: -12px;
+          align-self: stretch;
+        }
+
+        .tabs {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          align-self: stretch;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .tab {
+          display: flex;
+          padding: 4px 8px;
+          justify-content: center;
+          align-items: center;
+          gap: 4px;
+          color: rgba(28, 28, 28, 0.4);
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 20px;
+          cursor: pointer;
+        }
+
+        .tab.active {
+          color: #1c1c1c;
+          font-weight: 600;
+          border-bottom: 1px solid #000;
+        }
+
+        .tab-separator {
+          color: rgba(28, 28, 28, 0.2);
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 20px;
+        }
+
+        /* Progress Content Styles */
+        .progress-content {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 40px;
+          align-self: stretch;
+        }
+
+        .main-progress-content-tab {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 40px;
+          align-self: stretch;
+          width: 1080px;
+        }
+
+        .recommendation-tab-header {
+          display: flex;
+          height: 39px;
+          padding: 24px;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+          border-radius: 16px;  
+          margin-top: 8vh;
+          margin-bottom: 20vh;
+        }
+
+        .recomm-gif {
+          height: 116px;
+          width: 116px;
+          flex-shrink: 0;
+        }
+
+        .recommendation-tab-button {
+          display: flex;
+          height: 40px;
+          padding: 0px 12px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          align-self: center;
+          border-radius: 12px;
+          background: #006a63;
+          border: none;
+          cursor: pointer;
+        }
+
+        .figma-button {
+          display: flex;
+          height: 40px;
+          padding: 0px 12px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          align-self: stretch;
+          border-radius: 12px;
+          background: #006a63;
+          border: none;
+          cursor: pointer;
+        }
+
+        .figma-button-text {
+          color: #fff;
+          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-weight: 700;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+        }
+
+        /* Assessment Warning */
+        .assessment-warning {
+          display: flex;
+          height: 68px;
+          padding: 16px 24px;
+          align-items: center;
+          gap: 12px;
+          align-self: stretch;
+          border-radius: 8px;
+          border: 1px solid #e94545;
+          background: #fff6f6;
+        }
+
+        .assessment-warning svg {
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+        }
+
+        .assessment-warning span {
+          color: #00201c;
+          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 150%;
+          flex: 1;
+        }
+
+        .assessment-warning .close-icon {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+        }
+
+        /* Care Plan Section */
+        .care-plan-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 30px;
+          align-self: stretch;
+        }
+
+        .care-plan-header {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 17px;
+        }
+
+        .care-plan-title {
+          color: #003a5d;
+          font-family: "Inter", sans-serif;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 135%;
+          margin: 0;
+        }
+
+        .care-plan-description {
+          color: #171d1b;
+          font-family: "Inter", sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+          margin: 0;
+        }
+
+        .care-plan-cards {
+          display: flex;
+          align-items: flex-start;
+          align-content: flex-start;
+          gap: 30px;
+          flex-wrap: nowrap;
+          align-self: stretch;
+        }
+
+        .unlock-plan-card {
+          width: 486px;
+          height: 229px;
+          border-radius: 16px;
+          border: 1px solid #e5e7e9;
+          background: #101340;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .card-overlay {
+          width: 100%;
+          height: 100%;
+          border-radius: 18px;
+          background: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(4.75px);
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 48px 70px;
+        }
+
+        .lock-icon {
+          position: absolute;
+          top: 14px;
+          right: 14px;
+          width: 24px;
+          height: 31px;
+        }
+
+        .unlock-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          text-align: center;
+        }
+
+        .unlock-title {
+          color: #f4fbf8;
+          font-family: "Roboto", sans-serif;
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 28px;
+          letter-spacing: 0px;
+          margin: 0;
+        }
+
+        .unlock-subtitle {
+          color: #f4fbf8;
+          text-align: center;
+          font-family: "Inter", sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+          margin: 0;
+        }
+
+        .complete-assessment-btn {
+          display: flex;
+          width: 232px;
+          height: 40px;
+          padding: 10px 16px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 12px;
+          background: #fff;
+          color: #00201c;
+          font-family: "Inter", sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+          border: none;
+          cursor: pointer;
+        }
+
+        .complete-assessment-btn:hover {
+          background: #f5f5f5;
+          transform: translateY(-1px);
+        }
+
+        .referral-card {
+          width: 464px;
+          height: 229px;
+          border-radius: 16px;
+          border: 1px solid #e5e7e9;
+          background: #ff7e1d;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .referral-overlay {
+          width: 100%;
+          height: 100%;
+          border-radius: 18px;
+          background: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(4.75px);
+          position: relative;
+          padding: 26px 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .referral-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .referral-content {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+        }
+
+        .referral-label {
+          color: #fff;
+          font-family: "Lato", sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 20px;
+        }
+
+        .referral-title {
+          width: 268px;
+          color: #fff;
+          font-family: "Lato", sans-serif;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 26px;
+          margin: 0;
+        }
+
+        .referral-icon {
+          display: flex;
+          padding: 12px;
+          align-items: center;
+          gap: 10px;
+          border-radius: 8px;
+          background: #fff;
+        }
+
+        .referral-code-section {
+          display: flex;
+          padding: 12px 12px 16px;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 10px;
+          background: #f1f6fb;
+        }
+
+        .code-info {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 4px;
+        }
+
+        .code-label {
+          color: #000;
+          font-family: "Lato", sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 18px;
+          opacity: 0.5;
+        }
+
+        .code-display {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .copy-icon {
+          width: 20px;
+          height: 20px;
+        }
+
+        .code-text {
+          color: #000;
+          font-family: "Lato", sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 18px;
+        }
+
+        .share-invite-btn {
+          display: flex;
+          padding: 10px 16px;
+          align-items: flex-start;
+          gap: 10px;
+          border-radius: 8px;
+          background: #404040;
+          color: #fff;
+          text-align: center;
+          font-family: "Lato", sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          border: none;
+          cursor: pointer;
+        }
+
+        .share-invite-btn:hover {
+          background: #333;
+          transform: translateY(-1px);
+        }
+
+        /* Micro Learnings Section */
+        .micro-learnings-main-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+          align-self: stretch;
+        }
+
+        .section-title {
+          color: #003a5d;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 135%;
+        }
+
+        .section-description {
+          color: #171d1b;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+        }
+
+        .learning-cards-container {
+          display: flex;
+          width: 1122px;
+          align-items: flex-start;
+          gap: 18px;
+        }
+
+        .learning-card {
+          display: flex;
+          padding: 24px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+          flex: 1 0 0;
+          border-radius: 16px;
+          border: 1px solid #e5e7e9;
+          background: #fff;
+        }
+
+        .card-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+          align-self: stretch;
+        }
+
+        .card-sub-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+          align-self: stretch;
+        }
+
+        .card-content-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          align-self: stretch;
+        }
+
+        .card-content-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+          align-self: stretch;
+        }
+
+        .card-title-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+          align-self: stretch;
+        }
+
+        .card-title-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .card-name {
+          color: #232323;
+          font-family: "Be Vietnam Pro", -apple-system, Helvetica, sans-serif;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 150%;
+        }
+
+        .card-button {
+          display: flex;
+          width: 30px;
+          height: 30px;
+          padding: 14px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          aspect-ratio: 1 / 1;
+          border-radius: 6px;
+          border: 1px solid #f1f1f3;
+          background: #fcfcfd;
+          cursor: pointer;
+        }
+
+        .card-arrow-icon {
+          width: 26px;
+          height: 26px;
+          flex-shrink: 0;
+        }
+
+        .card-tags-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 14px;
+          align-self: stretch;
+        }
+
+        .card-tags-sub-container {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .card-tag {
+          color: #4c4c4d;
+          font-family: "Be Vietnam Pro", -apple-system, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          display: flex;
+          padding: 8px 14px;
+          align-items: flex-start;
+          gap: 10px;
+          border-radius: 6px;
+          border: 1px solid #f1f1f3;
+          background: #fff;
+        }
+
+        .card-tag-group {
+          display: flex;
+          align-items: center;
+        }
+
+        .card-tag-read {
+          color: #4c4c4d;
+          font-family: "Be Vietnam Pro", -apple-system, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          display: flex;
+          padding: 8px 13px 8px 14px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 6px;
+        }
+
+        .card-name-description {
+          width: 279px;
+          color: #456179;
+          font-family: "Be Vietnam Pro", -apple-system, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+          display: flex;
+          align-items: center;
+          gap: 24px;
+        }
+
+        .card-actions-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+          align-self: stretch;
+        }
+
+        .card-actions-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          align-self: stretch;
+        }
+
+        .take-look-button {
+          color: #006b5f;
+          text-align: center;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 140%;
+          letter-spacing: 0.14px;
+          display: flex;
+          padding: 10px 20px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          align-self: stretch;
+          border-radius: 9999px;
+          border: 1px solid #006b5f;
+          background: #fff;
+          box-shadow: 0px 1px 2px 0px rgba(20, 28, 37, 0.04);
+          cursor: pointer;
+        }
+
+        .take-assessment-button {
+          color: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+          display: flex;
+          height: 40px;
+          justify-content: center;
+          align-items: center;
+          align-self: stretch;
+          border-radius: 100px;
+          background: #006a63;
+          border: none;
+          cursor: pointer;
+          padding: 6px 12px;
+          gap: 4px;
+        }
+
+        /* Search Filters Section for Therapist */
+        .search-filters-section-therapist {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 13px;
+          align-self: stretch;
+        }
+
+        .search-container-therapist {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          align-self: stretch;
+        }
+
+        .search-field-therapist {
+          display: flex;
+          height: 44px;
+          padding: 8px 16px 8px 12px;
+          align-items: center;
+          gap: 12px;
+          align-self: stretch;
+          flex: 1 0 0;
+          border-radius: 8px;
+          border: 1px solid #ccd8df;
+          background: #fefefe;
+          max-width: 100%;
+        }
+
+        .search-input-therapist {
+          color: #999;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+          border: none;
+          outline: none;
+          background: transparent;
+          flex: 1;
+        }
+
+        .search-input-therapist::placeholder {
+          color: #999;
+        }
+
+        .filter-button-therapist {
+          display: flex;
+          padding: 8px;
+          align-items: center;
+          gap: 13px;
+          border-radius: 38px;
+          background: #e9e9e9;
+          border: none;
+          cursor: pointer;
+        }
+
+        .filter-button-therapist span {
+          color: #00201c;
+          font-family: "Source Sans 3", -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 128.447%;
+        }
+
+        .active-filters {
+          display: flex;
+          align-items: flex-start;
+          gap: 13px;
+        }
+
+        .filter-chip {
+          display: flex;
+          height: 48px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 8px;
+          border: 1px solid #bec9c6;
+          background: #fff;
+        }
+
+        .filter-chip-label {
+          color: #3f4947;
+          text-align: center;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+          padding: 6px 8px 6px 12px;
+        }
+
+        .filter-chip-remove {
+          width: 18px;
+          height: 18px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 6px 8px 6px 0px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        /* Therapist Grid */
+        .therapist-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+          align-self: stretch;
+        }
+
+        .therapist-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+          gap: 24px;
+        }
+
+        .therapist-card {
+          display: flex;
+          width: 283px;
+          flex-direction: column;
+          align-items: flex-start;
+          border-radius: 8px;
+          border: 1px solid #f1f1f1;
+          position: relative;
+          background: #fff;
+        }
+
+        .therapist-card-image {
+          height: 180px;
+          align-self: stretch;
+          position: relative;
+          background: #f0f0f0;
+        }
+
+        .therapist-card-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 8px 8px 0 0;
+        }
+
+        .availability-badge {
+          display: flex;
+          padding: 4px 8px;
+          align-items: center;
+          gap: 4px;
+          position: absolute;
+          left: 16px;
+          top: 16px;
+          border-radius: 12px;
+          background: rgba(39, 123, 83, 0.09);
+          backdrop-filter: blur(6px);
+        }
+
+        .availability-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #277b53;
+        }
+
+        .availability-badge span {
+          color: #277b53;
+          text-align: center;
+          font-family: "Plus Jakarta Sans", -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: normal;
+        }
+
+        .therapist-card-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          min-height: 200px;
+          width: 100%;
+          padding: 16px;
+        }
+
+        .therapist-profile-section {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          align-self: stretch;
+        }
+
+        .therapist-info {
+          display: flex;
+          width: fit-content;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 4px;
+          flex: 1 0 0;
+        }
+
+        .therapist-name {
+          color: #292d32;
+          font-family: "Plus Jakarta Sans", -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          margin: 0;
+        }
+
+        .therapist-title {
+          color: #54577a;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          letter-spacing: -0.12px;
+          margin: 0;
+        }
+
+        .therapist-rating {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 2px;
+          border-radius: 8px;
+        }
+
+        .rating-value {
+          color: #ffb063;
+          font-family: "Plus Jakarta Sans", -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+
+        .therapist-details {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+          align-self: stretch;
+        }
+
+        .specializations {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+          gap: 8px;
+          flex-wrap: wrap;
+        }
+
+        .specialization-tag {
+          color: #00201c;
+          text-align: center;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 128.447%;
+          display: flex;
+          padding: 8px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 38px;
+          background: #cde8e1;
+        }
+
+        .session-booking {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .session-info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        .session-label {
+          color: #242e49;
+          font-family: "Source Sans 3", -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 15.085px;
+          letter-spacing: -0.54px;
+        }
+
+        .session-time-info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          color: #54577a;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 132.199%;
+        }
+
+        .session-time {
+          color: #54577a;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 132.199%;
+        }
+
+        .session-day {
+          color: #54577a;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 132.199%;
+        }
+
+        .book-now-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 100px;
+          background: #006a63;
+          padding: 6px 12px;
+          border: none;
+          cursor: pointer;
+          color: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+        }
+
+        /* Progress Insights Card */
+        .progress-insights-card {
+          display: flex;
+          padding: 24px 16px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 24px;
+          align-self: stretch;
+          border-radius: 16px;
+          border: 1px solid #e6e6e6;
+          background: #fff;
+        }
+
+        .insights-header {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 12px;
+          align-self: stretch;
+        }
+
+        .insights-title-section {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .insights-title {
+          width: 520px;
+          color: #003a5d;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 135%;
+          letter-spacing: -0.44px;
+          margin: 0;
+        }
+
+        .insights-menu-btn {
+          width: 18px;
+          height: 18px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+        }
+
+        .insights-controls {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .tabs-section {
+          display: flex;
+          align-items: flex-start;
+          border-bottom: 1px solid #ebeff2;
+        }
+
+        .insights-tabs {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .progress-tab {
+          display: flex;
+          height: 48px;
+          padding: 0px 8px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          border-bottom: 3px solid transparent;
+        }
+
+        .progress-tab-active {
+          border-bottom: 3px solid #003a5d;
+        }
+
+        .progress-tab span {
+          color: #999;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 150%;
+        }
+
+        .progress-tab-active span {
+          color: #003a5d;
+        }
+
+        .chart-controls {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .chart-type-toggles {
+          display: flex;
+          align-items: flex-start;
+          border-radius: 6px;
+          border: 1px solid rgba(0, 58, 93, 0.2);
+          background: #fff;
+        }
+
+        .chart-toggle {
+          display: flex;
+          padding: 6px;
+          align-items: center;
+          gap: 10px;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+
+        .chart-toggle.active {
+          background: #fff;
+        }
+
+        .chart-toggle:first-child {
+          border-radius: 6px 0 0 6px;
+        }
+
+        .chart-toggle:last-child {
+          border-radius: 0 6px 6px 0;
+          background: #f4f4f4;
+        }
+
+        .toggle-divider {
+          width: 1px;
+          height: 24px;
+          background: #ccc;
+        }
+
+        .plan-filter {
+          display: flex;
+          height: 36px;
+          padding: 8px 12px;
+          align-items: center;
+          gap: 3px;
+          border-radius: 8px;
+          border: 1px solid rgba(0, 58, 93, 0.2);
+          background: #fefefe;
+          cursor: pointer;
+        }
+
+        .plan-filter span {
+          color: #999;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+        }
+
+        /* Chart Area */
+        .chart-area {
+          display: flex;
+          height: 229px;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+          align-self: stretch;
+          position: relative;
+        }
+
+        .chart-content {
+          height: 200px;
+          align-self: stretch;
+          position: relative;
+        }
+
+        .chart-y-axis {
+          position: absolute;
+          left: 0;
+          top: 21px;
+          height: 143px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 35px;
+        }
+
+        .y-label {
+          color: #999;
+          text-align: right;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 135%;
+        }
+
+        .chart-grid {
+          position: absolute;
+          left: 50px;
+          top: 21px;
+          width: 1001px;
+          height: 143px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .grid-line {
+          width: 100%;
+          height: 1px;
+          background: #e6e6e6;
+          border: none;
+          background-image: repeating-linear-gradient(to right, #e6e6e6, #e6e6e6 2px, transparent 2px, transparent 4px);
+        }
+
+        .chart-bars-container {
+          position: absolute;
+          left: 50px;
+          top: 21px;
+          width: 1000px;
+          height: 143px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+        }
+
+        .month-bar-group {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+          flex: 1;
+        }
+
+        .bars-wrapper {
+          display: flex;
+          gap: 2px;
+          height: 100%;
+          align-items: flex-end;
+        }
+
+        .bar {
+          width: 8px;
+          min-height: 2px;
+          border-radius: 1px;
+        }
+
+        .expected-bar {
+          background: #999;
+        }
+
+        .reality-bar {
+          background: #ccc;
+        }
+
+        .month-label {
+          color: #999;
+          text-align: center;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 135%;
+          margin-top: 8px;
+        }
+
+        .chart-legend {
+          display: flex;
+          padding-left: 45px;
+          justify-content: flex-start;
+          align-items: center;
+          align-self: stretch;
+          gap: 24px;
+        }
+
+        .legend-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .legend-color {
+          width: 16px;
+          height: 4px;
+          border-radius: 2px;
+        }
+
+        .expected-color {
+          background: #999;
+        }
+
+        .reality-color {
+          background: #ccc;
+        }
+
+        .legend-item span {
+          color: #666;
+          text-align: center;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+        }
+
+        /* Assessment Warning Banner */
+        .assessment-warning-banner {
+          display: flex;
+          width: 978px;
+          height: 67px;
+          padding: 0px 12px;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 6px;
+          border: 1px solid #f5dc60;
+          background: #fffbe4;
+        }
+
+        .warning-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding: 5px;
+        }
+
+        .warning-icon-text {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .warning-icon {
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+        }
+
+        .warning-text {
+          width: 584px;
+          color: #003a5d;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 150%;
+          margin: 0;
+        }
+
+        .take-assessment-btn {
+          display: flex;
+          width: 204px;
+          height: 46px;
+          padding: 10px 16px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 12px;
+          background: #006a63;
+          color: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+          border: none;
+          cursor: pointer;
+        }
+
+        /* Platform Section */
+        .platform-section {
+          align-self: stretch;
+          position: relative;
+          background: #f6f6f6;
+          border-radius: 10px;
+          overflow: hidden;
+          min-height: 370px;
+          width: 1123px;
+        }
+
+        .main-new-platform-section {
+          align-self: stretch;
+          position: relative;
+          background: #f6f6f6;
+          border-radius: 10px;
+          overflow: hidden;
+          min-height: 370px;
+          width: 1123px;
+        }
+
+        .platform-content {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          padding: 56px 40px;
+          position: relative;
+          height: 100%;
+        }
+
+        .platform-info {
+          width: 415px;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          z-index: 2;
+        }
+
+        .platform-header {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .platform-label {
+          color: #5742a9;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+        }
+
+        .platform-title {
+          color: #232323;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 28px;
+          font-weight: 600;
+          line-height: 130%;
+          margin: 0;
+          width: 427px;
+        }
+
+        .download-section {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .download-title {
+          color: #232323;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          margin: 0;
+        }
+
+        .download-buttons {
+          display: flex;
+          gap: 18px;
+          align-items: center;
+        }
+
+        .phone-1-phone-2 {
+          position: absolute;
+          margin-left: 45vw;
+        }
+      `}</style>
+      <main className="main-content">
+        {/* Breadcrumb and Welcome */}
+        <div className="welcome-section">
+          <div className="breadcrumb">
+            <span className="breadcrumb-item">Global Dashboard</span>
+            <svg
+              className="breadcrumb-arrow"
+              width="6"
+              height="10"
+              viewBox="0 0 6 10"
+              fill="none"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M1.04543 9.31171C0.794381 9.06066 0.794381 8.65363 1.04543 8.40257L4.44801 5L1.04543 1.59743C0.794381 1.34638 0.794381 0.939341 1.04543 0.68829C1.29648 0.437238 1.70352 0.437238 1.95457 0.68829L5.81171 4.54543C6.06276 4.79648 6.06276 5.20352 5.81171 5.45457L1.95457 9.31171C1.70352 9.56276 1.29648 9.56276 1.04543 9.31171Z"
+                fill="#999999"
+              />
+            </svg>
+            <span className="breadcrumb-item active">Home</span>
+          </div>
+          <h1 className="welcome-title">
+            Good Morning, Shalini
+            {/* <span className="name">Shalini</span> */}
+          </h1>
         </div>
-        <h1 className="welcome-title">
-          Good Morning, Shalini
-          {/* <span className="name">Shalini</span> */}
+        {/*  */}
+        <h1 className="goal-set-title">
+          Start your journey, Set Your Goals.
         </h1>
-      </div>
-      {/*  */}
-      <h1 className="goal-set-title">
-        Start your journey, Set Your Goals.
-      </h1>
-      {/* Initial My Goals Section */}
-      {!goalSet && (
-        <div className="goals-section">
-          <div className="goals-content">
-            <div className="goals-header">
-              <h3>Select up to 3 goals</h3>
-              <div className="goals-actions">
-                <div className="search-box">
-                  <svg
-                    className="search-icon"
-                    width="24"
-                    height="25"
-                    viewBox="0 0 24 25"
-                    fill="none"
-                  >
+        {/* Initial My Goals Section */}
+        {!goalSet && (
+          <div className="goals-section">
+            <div className="goals-content">
+              <div className="goals-header">
+                <h3>Select up to 3 goals</h3>
+                <div className="goals-actions">
+                  <div className="search-box">
+                    <svg
+                      className="search-icon"
+                      width="24"
+                      height="25"
+                      viewBox="0 0 24 25"
+                      fill="none"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M11.0998 5.29996C7.62052 5.29996 4.79996 8.12052 4.79996 11.5998C4.79996 15.0792 7.62052 17.8997 11.0998 17.8997C14.5792 17.8997 17.3997 15.0792 17.3997 11.5998C17.3997 8.12052 14.5792 5.29996 11.0998 5.29996ZM3 11.5998C3 7.12642 6.62642 3.5 11.0998 3.5C15.5733 3.5 19.1997 7.12642 19.1997 11.5998C19.1997 16.0733 15.5733 19.6997 11.0998 19.6997C6.62642 19.6997 3 16.0733 3 11.5998Z"
+                        fill="#CCCCCC"
+                      />
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M15.5488 16.0488C15.9002 15.6973 16.4701 15.6973 16.8215 16.0488L20.7364 19.9637C21.0879 20.3151 21.0879 20.885 20.7364 21.2364C20.385 21.5879 19.8151 21.5879 19.4637 21.2364L15.5488 17.3215C15.1973 16.9701 15.1973 16.4002 15.5488 16.0488Z"
+                        fill="#CCCCCC"
+                      />
+                    </svg>
+                    <span>Search</span>
+                  </div>
+                  <button className="done-btn" onClick={() => setGoalSet(true)}>Done</button>
+                </div>
+              </div>
+              <div className="goals-grid">
+                {visibleGoals.map((goal, idx) => (
+                  <div className="goal-chip" key={goal.title + idx}>
+                    <div className="goal-emoji">{goal.emoji}</div>
+                    <span>{goal.title}</span>
+                  </div>
+                ))}
+                <div className="goal-chip more" onClick={() => setShowAllGoals((prev) => !prev)} style={{ cursor: 'pointer' }}>
+                  <svg width="17" height="5" viewBox="0 0 17 5" fill="none">
                     <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M11.0998 5.29996C7.62052 5.29996 4.79996 8.12052 4.79996 11.5998C4.79996 15.0792 7.62052 17.8997 11.0998 17.8997C14.5792 17.8997 17.3997 15.0792 17.3997 11.5998C17.3997 8.12052 14.5792 5.29996 11.0998 5.29996ZM3 11.5998C3 7.12642 6.62642 3.5 11.0998 3.5C15.5733 3.5 19.1997 7.12642 19.1997 11.5998C19.1997 16.0733 15.5733 19.6997 11.0998 19.6997C6.62642 19.6997 3 16.0733 3 11.5998Z"
-                      fill="#CCCCCC"
-                    />
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M15.5488 16.0488C15.9002 15.6973 16.4701 15.6973 16.8215 16.0488L20.7364 19.9637C21.0879 20.3151 21.0879 20.885 20.7364 21.2364C20.385 21.5879 19.8151 21.5879 19.4637 21.2364L15.5488 17.3215C15.1973 16.9701 15.1973 16.4002 15.5488 16.0488Z"
-                      fill="#CCCCCC"
+                      d="M2.06641 4.5C1.51641 4.5 1.04557 4.30417 0.653906 3.9125C0.26224 3.52083 0.0664062 3.05 0.0664062 2.5C0.0664062 1.95 0.26224 1.47917 0.653906 1.0875C1.04557 0.695833 1.51641 0.5 2.06641 0.5C2.61641 0.5 3.08724 0.695833 3.47891 1.0875C3.87057 1.47917 4.06641 1.95 4.06641 2.5C4.06641 3.05 3.87057 3.52083 3.47891 3.9125C3.08724 4.30417 2.61641 4.5 2.06641 4.5ZM8.06641 4.5C7.51641 4.5 7.04557 4.30417 6.65391 3.9125C6.26224 3.52083 6.06641 3.05 6.06641 2.5C6.06641 1.95 6.26224 1.47917 6.65391 1.0875C7.04557 0.695833 7.51641 0.5 8.06641 0.5C8.61641 0.5 9.08724 0.695833 9.47891 1.0875C9.87057 1.47917 10.0664 1.95 10.0664 2.5C10.0664 3.05 9.87057 3.52083 9.47891 3.9125C9.08724 4.30417 8.61641 4.5 8.06641 4.5ZM14.0664 4.5C13.5164 4.5 13.0456 4.30417 12.6539 3.9125C12.2622 3.52083 12.0664 3.05 12.0664 2.5C12.0664 1.95 12.2622 1.47917 12.6539 1.0875C13.0456 0.695833 13.5164 0.5 14.0664 0.5C14.6164 0.5 15.0872 0.695833 15.4789 1.0875C15.8706 1.47917 16.0664 1.95 16.0664 2.5C16.0664 3.05 15.8706 3.52083 15.4789 3.9125C15.0872 4.30417 14.6164 4.5 14.0664 4.5Z"
+                      fill="#00201C"
                     />
                   </svg>
-                  <span>Search</span>
+                  <span>{showAllGoals ? 'See less' : 'More'}</span>
                 </div>
-                <button className="done-btn" onClick={() => setGoalSet(true)}>Done</button>
               </div>
             </div>
-            <div className="goals-grid">
-              {visibleGoals.map((goal, idx) => (
-                <div className="goal-chip" key={goal.title + idx}>
-                  <div className="goal-emoji">{goal.emoji}</div>
-                  <span>{goal.title}</span>
+          </div>
+        )}
+
+        {/* Initial Your Goal has been Set */}
+        {goalSet && (
+          <div className="goals-status-container">
+            <div className="goals-status-header">
+              <div>
+                <div className="goals-status-info">
+                  <h3 className="goals-status-title">
+                    Yayyyy,, Your Goal has been Set
+                  </h3>
                 </div>
+                <div className="reset-goals-container">
+                  <button className="reset-goals-btn" onClick={() => setGoalSet(false)}>
+                    <div className="btn-content">
+                      <span className="btn-text">Reset Goals</span>
+                    </div>
+                  </button>
+                  <p className="reset-goals-text">
+                    You can Reset your Goals after 14 Days
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="goals-cards-container">
+              {goals.map((goal, index) => (
+                <GoalCard
+                  key={index}
+                  emoji={goal.emoji}
+                  title={goal.title}
+                  color={goal.color}
+                  lockColor={goal.lockColor}
+                  isLocked={goal.isLocked}
+                />
               ))}
-              <div className="goal-chip more" onClick={() => setShowAllGoals((prev) => !prev)} style={{ cursor: 'pointer' }}>
-                <svg width="17" height="5" viewBox="0 0 17 5" fill="none">
+            </div>
+          </div>
+        )}
+
+        {/* Purple Section - Still Unsure */}
+        <div className="purple-section">
+          <div className="purple-content">
+            <div className="purple-text">
+              <h2>Still unsure about what you need?</h2>
+              <p>
+                Take 3 small steps to help us match you with the right care plan
+                and support.
+              </p>
+
+              <div className="steps-container">
+                <div className="steps-visual">
+                  <div className="step-indicator active">
+                    <div className="step-circle filled"></div>
+                  </div>
+                  <div className="step-line"></div>
+                  <div className="step-indicator">
+                    <div className="step-circle"></div>
+                  </div>
+                  <div className="step-line"></div>
+                  <div className="step-indicator">
+                    <div className="step-circle"></div>
+                  </div>
+                </div>
+
+                <div className="steps-text">
+                  <div className="step-item">Set 1–3 wellness goals</div>
+                  <div className="step-item">Take a short assessment</div>
+                  <div className="step-item">
+                    Tell us your therapist preferences
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button className="discover-btn">
+              <span>Discover Yourself</span>
+              <div className="arrow-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <circle cx="10" cy="10" r="10" fill="white" />
                   <path
-                    d="M2.06641 4.5C1.51641 4.5 1.04557 4.30417 0.653906 3.9125C0.26224 3.52083 0.0664062 3.05 0.0664062 2.5C0.0664062 1.95 0.26224 1.47917 0.653906 1.0875C1.04557 0.695833 1.51641 0.5 2.06641 0.5C2.61641 0.5 3.08724 0.695833 3.47891 1.0875C3.87057 1.47917 4.06641 1.95 4.06641 2.5C4.06641 3.05 3.87057 3.52083 3.47891 3.9125C3.08724 4.30417 2.61641 4.5 2.06641 4.5ZM8.06641 4.5C7.51641 4.5 7.04557 4.30417 6.65391 3.9125C6.26224 3.52083 6.06641 3.05 6.06641 2.5C6.06641 1.95 6.26224 1.47917 6.65391 1.0875C7.04557 0.695833 7.51641 0.5 8.06641 0.5C8.61641 0.5 9.08724 0.695833 9.47891 1.0875C9.87057 1.47917 10.0664 1.95 10.0664 2.5C10.0664 3.05 9.87057 3.52083 9.47891 3.9125C9.08724 4.30417 8.61641 4.5 8.06641 4.5ZM14.0664 4.5C13.5164 4.5 13.0456 4.30417 12.6539 3.9125C12.2622 3.52083 12.0664 3.05 12.0664 2.5C12.0664 1.95 12.2622 1.47917 12.6539 1.0875C13.0456 0.695833 13.5164 0.5 14.0664 0.5C14.6164 0.5 15.0872 0.695833 15.4789 1.0875C15.8706 1.47917 16.0664 1.95 16.0664 2.5C16.0664 3.05 15.8706 3.52083 15.4789 3.9125C15.0872 4.30417 14.6164 4.5 14.0664 4.5Z"
-                    fill="#00201C"
+                    d="M10.6669 10.0001L7.55566 6.8889L8.44457 6L12.4446 10.0001L8.44457 14.0001L7.55566 13.1112L10.6669 10.0001Z"
+                    fill="black"
                   />
                 </svg>
-                <span>{showAllGoals ? 'See less' : 'More'}</span>
               </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Initial Your Goal has been Set */}
-      {goalSet && (
-        <div className="goals-status-container">
-          <div className="goals-status-header">
-            <div>
-              <div className="goals-status-info">
-                <h3 className="goals-status-title">
-                  Yayyyy,, Your Goal has been Set
-                </h3>
-              </div>
-              <div className="reset-goals-container">
-                <button className="reset-goals-btn" onClick={() => setGoalSet(false)}>
-                  <div className="btn-content">
-                    <span className="btn-text">Reset Goals</span>
-                  </div>
-                </button>
-                <p className="reset-goals-text">
-                  You can Reset your Goals after 14 Days
-                </p>
-              </div>
-            </div>
+            </button>
           </div>
 
-          <div className="goals-cards-container">
-            {goals.map((goal, index) => (
-              <GoalCard
-                key={index}
-                emoji={goal.emoji}
-                title={goal.title}
-                color={goal.color}
-                lockColor={goal.lockColor}
-                isLocked={goal.isLocked}
-              />
-            ))}
+          <div className="purple-image">
+            {/* <div className="illustration-placeholder"> */}
+            <img
+              src="/assets/images/Positive_thinking-rafiki.png"
+              alt="Download on App Store"
+              className="positive-img"
+            />
+            {/* </div> */}
           </div>
         </div>
-      )}
 
-      {/* Purple Section - Still Unsure */}
-      <div className="purple-section">
-        <div className="purple-content">
-          <div className="purple-text">
-            <h2>Still unsure about what you need?</h2>
-            <p>
-              Take 3 small steps to help us match you with the right care plan
-              and support.
-            </p>
-
-            <div className="steps-container">
-              <div className="steps-visual">
-                <div className="step-indicator active">
-                  <div className="step-circle filled"></div>
-                </div>
-                <div className="step-line"></div>
-                <div className="step-indicator">
-                  <div className="step-circle"></div>
-                </div>
-                <div className="step-line"></div>
-                <div className="step-indicator">
-                  <div className="step-circle"></div>
-                </div>
-              </div>
-
-              <div className="steps-text">
-                <div className="step-item">Set 1–3 wellness goals</div>
-                <div className="step-item">Take a short assessment</div>
-                <div className="step-item">
-                  Tell us your therapist preferences
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <button className="discover-btn">
-            <span>Discover Yourself</span>
-            <div className="arrow-icon">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <circle cx="10" cy="10" r="10" fill="white" />
-                <path
-                  d="M10.6669 10.0001L7.55566 6.8889L8.44457 6L12.4446 10.0001L8.44457 14.0001L7.55566 13.1112L10.6669 10.0001Z"
-                  fill="black"
-                />
-              </svg>
-            </div>
-          </button>
-        </div>
-
-        <div className="purple-image">
-          {/* <div className="illustration-placeholder"> */}
-          <img
-            src="/assets/images/Positive_thinking-rafiki.png"
-            alt="Download on App Store"
-            className="positive-img"
-          />
-          {/* </div> */}
-        </div>
-      </div>
-
-      {/* Getting Started Card*/}
-      {/* Progress Section */}
-      <div
-        style={{
-          display: "flex",
-          height: "177px",
-          padding: "16px",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "21px",
-          flexShrink: 0,
-          alignSelf: "stretch",
-          borderRadius: "8px",
-          border: "1px solid #E94545",
-          background: "#FFF6F6",
-          position: "relative",
-        }}
-      >
-        {/* Icon and Progress Text */}
+        {/* Getting Started Card*/}
+        {/* Progress Section */}
         <div
           style={{
             display: "flex",
+            height: "177px",
+            padding: "16px",
+            flexDirection: "column",
+            justifyContent: "center",
             alignItems: "center",
-            gap: "12px",
+            gap: "21px",
+            flexShrink: 0,
             alignSelf: "stretch",
+            borderRadius: "8px",
+            border: "1px solid #E94545",
+            background: "#FFF6F6",
             position: "relative",
           }}
         >
-          <svg
-            width="24"
-            height="25"
-            viewBox="0 0 24 25"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{
-              width: "24px",
-              height: "24px",
-              fill: "#006B5F",
-              position: "relative",
-            }}
-          >
-            <path
-              d="M12 0.5C12.4504 0.5 12.8944 0.5244 13.332 0.5732C13.4886 0.590535 13.6403 0.638552 13.7784 0.714511C13.9165 0.790469 14.0383 0.892882 14.1368 1.0159C14.2353 1.13892 14.3086 1.28014 14.3525 1.43149C14.3964 1.58284 14.4101 1.74136 14.3928 1.898C14.3755 2.05464 14.3274 2.20633 14.2515 2.34442C14.1755 2.4825 14.0731 2.60427 13.9501 2.70278C13.8271 2.80128 13.6859 2.87459 13.5345 2.91852C13.3832 2.96245 13.2246 2.97613 13.068 2.9588C11.0905 2.73757 9.09303 3.13633 7.35201 4.09991C5.61099 5.06349 4.21243 6.54427 3.34976 8.33744C2.48709 10.1306 2.20296 12.1475 2.53667 14.1092C2.87038 16.0709 3.80543 17.8805 5.21249 19.2875C6.61955 20.6946 8.42907 21.6296 10.3908 21.9633C12.3525 22.297 14.3694 22.0129 16.1626 21.1502C17.9557 20.2876 19.4365 18.889 20.4001 17.148C21.3637 15.407 21.7624 13.4095 21.5412 11.432C21.5239 11.2754 21.5376 11.1168 21.5815 10.9655C21.6254 10.8141 21.6987 10.6729 21.7972 10.5499C21.9962 10.3015 22.2857 10.1422 22.602 10.1072C22.9184 10.0722 23.2357 10.1643 23.4841 10.3632C23.6071 10.4617 23.7095 10.5835 23.7855 10.7216C23.8615 10.8597 23.9095 11.0114 23.9268 11.168C23.9748 11.6056 23.9992 12.0496 24 12.5C24 19.1276 18.6276 24.5 12 24.5C5.3724 24.5 0 19.1276 0 12.5C0 5.8724 5.3724 0.5 12 0.5ZM11.9616 7.5524C12.0407 7.86047 11.9942 8.18733 11.8325 8.46117C11.6707 8.73501 11.4068 8.93342 11.0988 9.0128C10.2526 9.23445 9.51604 9.7564 9.02645 10.4813C8.53685 11.2061 8.3277 12.0843 8.43804 12.952C8.54838 13.8198 8.97066 14.6177 9.62609 15.1969C10.2815 15.7762 11.1253 16.0972 12 16.1C12.7984 16.1003 13.5742 15.8353 14.2055 15.3465C14.8367 14.8578 15.2876 14.173 15.4872 13.4C15.5723 13.098 15.7722 12.8414 16.0442 12.685C16.3162 12.5287 16.6386 12.485 16.9423 12.5635C17.2461 12.6419 17.507 12.8362 17.6693 13.1047C17.8316 13.3732 17.8822 13.6946 17.8104 14C17.4423 15.4111 16.573 16.6399 15.365 17.4569C14.157 18.2739 12.6928 18.6231 11.2461 18.4394C9.79939 18.2557 8.46904 17.5515 7.50361 16.4585C6.53817 15.3655 6.00368 13.9583 6 12.5C5.99979 11.1697 6.44172 9.87699 7.2563 8.82521C8.07088 7.77342 9.21191 7.02218 10.5 6.6896C10.6526 6.65026 10.8115 6.64138 10.9676 6.66345C11.1236 6.68552 11.2738 6.73812 11.4095 6.81824C11.5452 6.89836 11.6639 7.00444 11.7586 7.1304C11.8533 7.25637 11.9223 7.39977 11.9616 7.5524ZM19.8048 0.6524C20.0238 0.743215 20.2111 0.896884 20.3428 1.09401C20.4746 1.29114 20.545 1.52289 20.5452 1.76C20.5452 2.97216 21.5278 3.956 22.74 3.956C22.9773 3.95605 23.2093 4.02646 23.4066 4.15832C23.6038 4.29018 23.7576 4.47757 23.8484 4.69681C23.9392 4.91605 23.963 5.15729 23.9167 5.39004C23.8704 5.62278 23.7562 5.83658 23.5884 6.0044L19.344 10.244C19.119 10.4691 18.8138 10.5955 18.4956 10.5956C16.6416 10.5956 14.8637 11.3323 13.5531 12.6437L13.4064 12.7904C13.1812 13.0156 12.8758 13.1421 12.5574 13.1421C12.239 13.1421 11.9336 13.0156 11.7084 12.7904C11.4832 12.5652 11.3567 12.2598 11.3567 11.9414C11.3567 11.623 11.4832 11.3176 11.7084 11.0924L11.8537 10.9472C13.1659 9.63649 13.9032 7.85788 13.9032 6.0032C13.9033 5.68497 14.0297 5.37979 14.2548 5.1548L18.4968 0.9116C18.6646 0.743681 18.8785 0.62931 19.1113 0.582958C19.3441 0.536605 19.5855 0.560354 19.8048 0.6512M18.1452 5.1548C18.1452 4.97069 17.9225 4.87855 17.7924 5.00882L16.5725 6.23032C16.4001 6.40301 16.3032 6.63708 16.3032 6.88114V6.99682C16.3032 7.65955 16.8405 8.1968 17.5032 8.1968H17.6187C17.8628 8.1968 18.097 8.09985 18.2697 7.92726L19.4909 6.70682C19.6209 6.57696 19.5289 6.3548 19.3452 6.3548C19.0269 6.3548 18.7217 6.22837 18.4967 6.00333C18.2716 5.77828 18.1452 5.47306 18.1452 5.1548Z"
-              fill="#006B5F"
-            />
-          </svg>
-
+          {/* Icon and Progress Text */}
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "9px",
-              flex: "1 0 0",
+              alignItems: "center",
+              gap: "12px",
+              alignSelf: "stretch",
               position: "relative",
             }}
           >
-            <div
+            <svg
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
               style={{
-                alignSelf: "stretch",
-                color: "#006B5F",
-                fontFamily:
-                  "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                fontSize: "16px",
-                fontWeight: "600",
-                lineHeight: "140%",
+                width: "24px",
+                height: "24px",
+                fill: "#006B5F",
                 position: "relative",
               }}
             >
-              You're just getting started – Let's kick off your Wellness
-              Journey!
-            </div>
+              <path
+                d="M12 0.5C12.4504 0.5 12.8944 0.5244 13.332 0.5732C13.4886 0.590535 13.6403 0.638552 13.7784 0.714511C13.9165 0.790469 14.0383 0.892882 14.1368 1.0159C14.2353 1.13892 14.3086 1.28014 14.3525 1.43149C14.3964 1.58284 14.4101 1.74136 14.3928 1.898C14.3755 2.05464 14.3274 2.20633 14.2515 2.34442C14.1755 2.4825 14.0731 2.60427 13.9501 2.70278C13.8271 2.80128 13.6859 2.87459 13.5345 2.91852C13.3832 2.96245 13.2246 2.97613 13.068 2.9588C11.0905 2.73757 9.09303 3.13633 7.35201 4.09991C5.61099 5.06349 4.21243 6.54427 3.34976 8.33744C2.48709 10.1306 2.20296 12.1475 2.53667 14.1092C2.87038 16.0709 3.80543 17.8805 5.21249 19.2875C6.61955 20.6946 8.42907 21.6296 10.3908 21.9633C12.3525 22.297 14.3694 22.0129 16.1626 21.1502C17.9557 20.2876 19.4365 18.889 20.4001 17.148C21.3637 15.407 21.7624 13.4095 21.5412 11.432C21.5239 11.2754 21.5376 11.1168 21.5815 10.9655C21.6254 10.8141 21.6987 10.6729 21.7972 10.5499C21.9962 10.3015 22.2857 10.1422 22.602 10.1072C22.9184 10.0722 23.2357 10.1643 23.4841 10.3632C23.6071 10.4617 23.7095 10.5835 23.7855 10.7216C23.8615 10.8597 23.9095 11.0114 23.9268 11.168C23.9748 11.6056 23.9992 12.0496 24 12.5C24 19.1276 18.6276 24.5 12 24.5C5.3724 24.5 0 19.1276 0 12.5C0 5.8724 5.3724 0.5 12 0.5ZM11.9616 7.5524C12.0407 7.86047 11.9942 8.18733 11.8325 8.46117C11.6707 8.73501 11.4068 8.93342 11.0988 9.0128C10.2526 9.23445 9.51604 9.7564 9.02645 10.4813C8.53685 11.2061 8.3277 12.0843 8.43804 12.952C8.54838 13.8198 8.97066 14.6177 9.62609 15.1969C10.2815 15.7762 11.1253 16.0972 12 16.1C12.7984 16.1003 13.5742 15.8353 14.2055 15.3465C14.8367 14.8578 15.2876 14.173 15.4872 13.4C15.5723 13.098 15.7722 12.8414 16.0442 12.685C16.3162 12.5287 16.6386 12.485 16.9423 12.5635C17.2461 12.6419 17.507 12.8362 17.6693 13.1047C17.8316 13.3732 17.8822 13.6946 17.8104 14C17.4423 15.4111 16.573 16.6399 15.365 17.4569C14.157 18.2739 12.6928 18.6231 11.2461 18.4394C9.79939 18.2557 8.46904 17.5515 7.50361 16.4585C6.53817 15.3655 6.00368 13.9583 6 12.5C5.99979 11.1697 6.44172 9.87699 7.2563 8.82521C8.07088 7.77342 9.21191 7.02218 10.5 6.6896C10.6526 6.65026 10.8115 6.64138 10.9676 6.66345C11.1236 6.68552 11.2738 6.73812 11.4095 6.81824C11.5452 6.89836 11.6639 7.00444 11.7586 7.1304C11.8533 7.25637 11.9223 7.39977 11.9616 7.5524ZM19.8048 0.6524C20.0238 0.743215 20.2111 0.896884 20.3428 1.09401C20.4746 1.29114 20.545 1.52289 20.5452 1.76C20.5452 2.97216 21.5278 3.956 22.74 3.956C22.9773 3.95605 23.2093 4.02646 23.4066 4.15832C23.6038 4.29018 23.7576 4.47757 23.8484 4.69681C23.9392 4.91605 23.963 5.15729 23.9167 5.39004C23.8704 5.62278 23.7562 5.83658 23.5884 6.0044L19.344 10.244C19.119 10.4691 18.8138 10.5955 18.4956 10.5956C16.6416 10.5956 14.8637 11.3323 13.5531 12.6437L13.4064 12.7904C13.1812 13.0156 12.8758 13.1421 12.5574 13.1421C12.239 13.1421 11.9336 13.0156 11.7084 12.7904C11.4832 12.5652 11.3567 12.2598 11.3567 11.9414C11.3567 11.623 11.4832 11.3176 11.7084 11.0924L11.8537 10.9472C13.1659 9.63649 13.9032 7.85788 13.9032 6.0032C13.9033 5.68497 14.0297 5.37979 14.2548 5.1548L18.4968 0.9116C18.6646 0.743681 18.8785 0.62931 19.1113 0.582958C19.3441 0.536605 19.5855 0.560354 19.8048 0.6512M18.1452 5.1548C18.1452 4.97069 17.9225 4.87855 17.7924 5.00882L16.5725 6.23032C16.4001 6.40301 16.3032 6.63708 16.3032 6.88114V6.99682C16.3032 7.65955 16.8405 8.1968 17.5032 8.1968H17.6187C17.8628 8.1968 18.097 8.09985 18.2697 7.92726L19.4909 6.70682C19.6209 6.57696 19.5289 6.3548 19.3452 6.3548C19.0269 6.3548 18.7217 6.22837 18.4967 6.00333C18.2716 5.77828 18.1452 5.47306 18.1452 5.1548Z"
+                fill="#006B5F"
+              />
+            </svg>
 
-            {/* Progress Indicator */}
             <div
               style={{
                 display: "flex",
-                height: "16px",
-                paddingRight: "252px",
-                alignItems: "center",
-                gap: "8px",
-                alignSelf: "stretch",
-                borderRadius: "64px",
-                background: "#E0E0E0",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "9px",
+                flex: "1 0 0",
                 position: "relative",
               }}
             >
               <div
                 style={{
-                  width: "48px",
-                  height: "16px",
-                  borderRadius: "8px",
-                  background: "#DA1E28",
+                  alignSelf: "stretch",
+                  color: "#006B5F",
+                  fontFamily:
+                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  lineHeight: "140%",
                   position: "relative",
                 }}
-              ></div>
+              >
+                You're just getting started – Let's kick off your Wellness
+                Journey!
+              </div>
+
+              {/* Progress Indicator */}
               <div
                 style={{
-                  position: "absolute",
-                  left: "31px",
-                  top: "6px",
-                  width: "4px",
-                  height: "4px",
-                  borderRadius: "50%",
-                  background: "#EDF5FF",
+                  display: "flex",
+                  height: "16px",
+                  paddingRight: "252px",
+                  alignItems: "center",
+                  gap: "8px",
+                  alignSelf: "stretch",
+                  borderRadius: "64px",
+                  background: "#E0E0E0",
+                  position: "relative",
                 }}
-              ></div>
-              <div
-                style={{
-                  position: "absolute",
-                  left: "171px",
-                  top: "6px",
-                  width: "4px",
-                  height: "4px",
-                  borderRadius: "50%",
-                  background: "#A8A8A8",
-                }}
-              ></div>
-              <div
-                style={{
-                  position: "absolute",
-                  left: "337px",
-                  top: "6px",
-                  width: "4px",
-                  height: "4px",
-                  borderRadius: "50%",
-                  background: "#A8A8A8",
-                }}
-              ></div>
-              <div
-                style={{
-                  position: "absolute",
-                  left: "580px",
-                  top: "6px",
-                  width: "4px",
-                  height: "4px",
-                  borderRadius: "50%",
-                  background: "#A8A8A8",
-                }}
-              ></div>
+              >
+                <div
+                  style={{
+                    width: "48px",
+                    height: "16px",
+                    borderRadius: "8px",
+                    background: "#DA1E28",
+                    position: "relative",
+                  }}
+                ></div>
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "31px",
+                    top: "6px",
+                    width: "4px",
+                    height: "4px",
+                    borderRadius: "50%",
+                    background: "#EDF5FF",
+                  }}
+                ></div>
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "171px",
+                    top: "6px",
+                    width: "4px",
+                    height: "4px",
+                    borderRadius: "50%",
+                    background: "#A8A8A8",
+                  }}
+                ></div>
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "337px",
+                    top: "6px",
+                    width: "4px",
+                    height: "4px",
+                    borderRadius: "50%",
+                    background: "#A8A8A8",
+                  }}
+                ></div>
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "580px",
+                    top: "6px",
+                    width: "4px",
+                    height: "4px",
+                    borderRadius: "50%",
+                    background: "#A8A8A8",
+                  }}
+                ></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Divider */}
-        <div
-          style={{
-            width: "287.002px",
-            height: "1px",
-            background: "rgba(255, 255, 255, 0.24)",
-            position: "relative",
-          }}
-        ></div>
+          {/* Divider */}
+          <div
+            style={{
+              width: "287.002px",
+              height: "1px",
+              background: "rgba(255, 255, 255, 0.24)",
+              position: "relative",
+            }}
+          ></div>
 
-        {/* Bottom Actions */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            alignSelf: "stretch",
-            position: "relative",
-          }}
-        >
+          {/* Bottom Actions */}
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "1px",
+              justifyContent: "space-between",
+              alignItems: "center",
+              alignSelf: "stretch",
               position: "relative",
             }}
           >
             <div
               style={{
-                color: "#006B5F",
-                fontFamily:
-                  "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                fontSize: "16px",
-                fontWeight: "600",
-                lineHeight: "140%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "1px",
                 position: "relative",
               }}
             >
-              Take me to FAQ
+              <div
+                style={{
+                  color: "#006B5F",
+                  fontFamily:
+                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  lineHeight: "140%",
+                  position: "relative",
+                }}
+              >
+                Take me to FAQ
+              </div>
             </div>
-          </div>
 
-          {/* Complete Assessment Button */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              position: "relative",
-            }}
-          >
+            {/* Complete Assessment Button */}
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                borderRadius: "12px",
-                background: "#EFF5F3",
-                boxShadow:
-                  "0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
                 position: "relative",
               }}
             >
               <div
                 style={{
                   display: "flex",
-                  padding: "10px 16px",
                   justifyContent: "center",
                   alignItems: "center",
-                  gap: "8px",
+                  borderRadius: "12px",
+                  background: "#EFF5F3",
+                  boxShadow:
+                    "0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
                   position: "relative",
                 }}
               >
                 <div
                   style={{
-                    color: "#006A63",
-                    fontFamily:
-                      "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "14px",
-                    fontWeight: "500",
-                    lineHeight: "20px",
-                    letterSpacing: "0.1px",
+                    display: "flex",
+                    padding: "10px 16px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "8px",
                     position: "relative",
-                    cursor: "pointer"
                   }}
-                  onClick={() => onSectionChange?.("goals-assessment")}
                 >
-                  Complete your Assessment
+                  <div
+                    style={{
+                      color: "#006A63",
+                      fontFamily:
+                        "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "14px",
+                      fontWeight: "500",
+                      lineHeight: "20px",
+                      letterSpacing: "0.1px",
+                      position: "relative",
+                      cursor: "pointer"
+                    }}
+                    onClick={() => onSectionChange?.("goals-assessment")}
+                  >
+                    Complete your Assessment
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* <button
+              {/* <button
                 style={{
                   marginTop: 12,
                   background: '#006B5F',
@@ -490,352 +2437,352 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
               >
                 Complete your Assessment
               </button> */}
-          </div>
-        </div>
-      </div>
-
-      {/* TherapistCoach Section */}
-      <div className="main-content-section">
-        <SearchAndFilters />
-        <TherapistGrid />
-      </div>
-
-      {/* My Goals Section */}
-      <div className="goals-section">
-        <div className="section-header">
-          <div className="tabs">
-            <div
-              className={`tab ${activeTab === "recommendation" ? "active" : ""}`}
-              onClick={() => handleTabClick("recommendation")}
-            >
-              Recommendation
-            </div>
-            <div className="tab-separator">|</div>
-            <div
-              className={`tab ${activeTab === "my-progress" ? "active" : ""}`}
-              onClick={() => handleTabClick("my-progress")}
-            >
-              My Progress
-            </div>
-            <div className="tab-separator">|</div>
-            <div
-              className={`tab ${activeTab === "my-goals" ? "active" : ""}`}
-              onClick={() => handleTabClick("my-goals")}
-            >
-              My Goals
             </div>
           </div>
         </div>
 
-        {activeTab === "recommendation" && (
-          <div className="progress-content">
-            <div className="recommendation-tab-header">
-            <img
-                src="/assets/images/recommendation_gif.gif"
-                alt="Recommendation GIF"
-                className="recomm-gif"
-              />              
-              <h3>Kindly Take the Assessment</h3>
-              <p>By taking the assessment we can customize and set up things for you</p>
-            </div>
-            <div className="recommendation-tab-button">
-              <button className="figma-button">
-                <span className="figma-button-text">Take Assessment</span>
-              </button>
+        {/* TherapistCoach Section */}
+        <div className="main-content-section">
+          <SearchAndFilters />
+          <TherapistGrid />
+        </div>
+
+        {/* My Goals Section */}
+        <div className="goals-section">
+          <div className="section-header">
+            <div className="tabs">
+              <div
+                className={`tab ${activeTab === "recommendation" ? "active" : ""}`}
+                onClick={() => handleTabClick("recommendation")}
+              >
+                Recommendation
+              </div>
+              <div className="tab-separator">|</div>
+              <div
+                className={`tab ${activeTab === "my-progress" ? "active" : ""}`}
+                onClick={() => handleTabClick("my-progress")}
+              >
+                My Progress
+              </div>
+              <div className="tab-separator">|</div>
+              <div
+                className={`tab ${activeTab === "my-goals" ? "active" : ""}`}
+                onClick={() => handleTabClick("my-goals")}
+              >
+                My Goals
+              </div>
             </div>
           </div>
 
-        )}
+          {activeTab === "recommendation" && (
+            <div className="progress-content">
+              <div className="recommendation-tab-header">
+                <img
+                  src="/assets/images/recommendation_gif.gif"
+                  alt="Recommendation GIF"
+                  className="recomm-gif"
+                />
+                <h3>Kindly Take the Assessment</h3>
+                <p>By taking the assessment we can customize and set up things for you</p>
+              </div>
+              <div className="recommendation-tab-button">
+                <button className="figma-button">
+                  <span className="figma-button-text">Take Assessment</span>
+                </button>
+              </div>
+            </div>
 
-        {activeTab === "my-progress" && (
-          <div className="main-progress-content-tab">
-            <ProgressInsightsCard />
-            <AssessmentWarning />
+          )}
 
-          </div>
-        )}
+          {activeTab === "my-progress" && (
+            <div className="main-progress-content-tab">
+              <ProgressInsightsCard />
+              <AssessmentWarning />
 
-        {activeTab === "my-goals" && (
-          <div className="goals-content">
-            <div className="goals-header">
-              <h3>Select up to 3 goals</h3>
-              <div className="goals-actions">
-                <div className="search-box">
-                  <svg
-                    className="search-icon"
-                    width="24"
-                    height="25"
-                    viewBox="0 0 24 25"
-                    fill="none"
-                  >
+            </div>
+          )}
+
+          {activeTab === "my-goals" && (
+            <div className="goals-content">
+              <div className="goals-header">
+                <h3>Select up to 3 goals</h3>
+                <div className="goals-actions">
+                  <div className="search-box">
+                    <svg
+                      className="search-icon"
+                      width="24"
+                      height="25"
+                      viewBox="0 0 24 25"
+                      fill="none"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M11.0998 5.29996C7.62052 5.29996 4.79996 8.12052 4.79996 11.5998C4.79996 15.0792 7.62052 17.8997 11.0998 17.8997C14.5792 17.8997 17.3997 15.0792 17.3997 11.5998C17.3997 8.12052 14.5792 5.29996 11.0998 5.29996ZM3 11.5998C3 7.12642 6.62642 3.5 11.0998 3.5C15.5733 3.5 19.1997 7.12642 19.1997 11.5998C19.1997 16.0733 15.5733 19.6997 11.0998 19.6997C6.62642 19.6997 3 16.0733 3 11.5998Z"
+                        fill="#CCCCCC"
+                      />
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M15.5488 16.0488C15.9002 15.6973 16.4701 15.6973 16.8215 16.0488L20.7364 19.9637C21.0879 20.3151 21.0879 20.885 20.7364 21.2364C20.385 21.5879 19.8151 21.5879 19.4637 21.2364L15.5488 17.3215C15.1973 16.9701 15.1973 16.4002 15.5488 16.0488Z"
+                        fill="#CCCCCC"
+                      />
+                    </svg>
+                    <span>Search</span>
+                  </div>
+                  <button className="done-btn">Done</button>
+                </div>
+              </div>
+
+              <div className="goals-grid">
+                {visibleGoals.map((goal: { emoji: string, title: string }, idx: number) => (
+                  <div className="goal-chip" key={goal.title + idx}>
+                    <div className="goal-emoji">{goal.emoji}</div>
+                    <span>{goal.title}</span>
+                  </div>
+                ))}
+                <div className="goal-chip more" onClick={() => setShowAllGoals((prev) => !prev)} style={{ cursor: 'pointer' }}>
+                  <svg width="17" height="5" viewBox="0 0 17 5" fill="none">
                     <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M11.0998 5.29996C7.62052 5.29996 4.79996 8.12052 4.79996 11.5998C4.79996 15.0792 7.62052 17.8997 11.0998 17.8997C14.5792 17.8997 17.3997 15.0792 17.3997 11.5998C17.3997 8.12052 14.5792 5.29996 11.0998 5.29996ZM3 11.5998C3 7.12642 6.62642 3.5 11.0998 3.5C15.5733 3.5 19.1997 7.12642 19.1997 11.5998C19.1997 16.0733 15.5733 19.6997 11.0998 19.6997C6.62642 19.6997 3 16.0733 3 11.5998Z"
-                      fill="#CCCCCC"
-                    />
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M15.5488 16.0488C15.9002 15.6973 16.4701 15.6973 16.8215 16.0488L20.7364 19.9637C21.0879 20.3151 21.0879 20.885 20.7364 21.2364C20.385 21.5879 19.8151 21.5879 19.4637 21.2364L15.5488 17.3215C15.1973 16.9701 15.1973 16.4002 15.5488 16.0488Z"
-                      fill="#CCCCCC"
+                      d="M2.06641 4.5C1.51641 4.5 1.04557 4.30417 0.653906 3.9125C0.26224 3.52083 0.0664062 3.05 0.0664062 2.5C0.0664062 1.95 0.26224 1.47917 0.653906 1.0875C1.04557 0.695833 1.51641 0.5 2.06641 0.5C2.61641 0.5 3.08724 0.695833 3.47891 1.0875C3.87057 1.47917 4.06641 1.95 4.06641 2.5C4.06641 3.05 3.87057 3.52083 3.47891 3.9125C3.08724 4.30417 2.61641 4.5 2.06641 4.5ZM8.06641 4.5C7.51641 4.5 7.04557 4.30417 6.65391 3.9125C6.26224 3.52083 6.06641 3.05 6.06641 2.5C6.06641 1.95 6.26224 1.47917 6.65391 1.0875C7.04557 0.695833 7.51641 0.5 8.06641 0.5C8.61641 0.5 9.08724 0.695833 9.47891 1.0875C9.87057 1.47917 10.0664 1.95 10.0664 2.5C10.0664 3.05 9.87057 3.52083 9.47891 3.9125C9.08724 4.30417 8.61641 4.5 8.06641 4.5ZM14.0664 4.5C13.5164 4.5 13.0456 4.30417 12.6539 3.9125C12.2622 3.52083 12.0664 3.05 12.0664 2.5C12.0664 1.95 12.2622 1.47917 12.6539 1.0875C13.0456 0.695833 13.5164 0.5 14.0664 0.5C14.6164 0.5 15.0872 0.695833 15.4789 1.0875C15.8706 1.47917 16.0664 1.95 16.0664 2.5C16.0664 3.05 15.8706 3.52083 15.4789 3.9125C15.0872 4.30417 14.6164 4.5 14.0664 4.5Z"
+                      fill="#00201C"
                     />
                   </svg>
-                  <span>Search</span>
+                  <span>{showAllGoals ? 'See less' : 'More'}</span>
                 </div>
-                <button className="done-btn">Done</button>
               </div>
-            </div>
 
-            <div className="goals-grid">
-              {visibleGoals.map((goal: { emoji: string, title: string }, idx: number) => (
-                <div className="goal-chip" key={goal.title + idx}>
-                  <div className="goal-emoji">{goal.emoji}</div>
-                  <span>{goal.title}</span>
-                </div>
-              ))}
-              <div className="goal-chip more" onClick={() => setShowAllGoals((prev) => !prev)} style={{ cursor: 'pointer' }}>
-                <svg width="17" height="5" viewBox="0 0 17 5" fill="none">
+              <div className="assessment-warning">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
-                    d="M2.06641 4.5C1.51641 4.5 1.04557 4.30417 0.653906 3.9125C0.26224 3.52083 0.0664062 3.05 0.0664062 2.5C0.0664062 1.95 0.26224 1.47917 0.653906 1.0875C1.04557 0.695833 1.51641 0.5 2.06641 0.5C2.61641 0.5 3.08724 0.695833 3.47891 1.0875C3.87057 1.47917 4.06641 1.95 4.06641 2.5C4.06641 3.05 3.87057 3.52083 3.47891 3.9125C3.08724 4.30417 2.61641 4.5 2.06641 4.5ZM8.06641 4.5C7.51641 4.5 7.04557 4.30417 6.65391 3.9125C6.26224 3.52083 6.06641 3.05 6.06641 2.5C6.06641 1.95 6.26224 1.47917 6.65391 1.0875C7.04557 0.695833 7.51641 0.5 8.06641 0.5C8.61641 0.5 9.08724 0.695833 9.47891 1.0875C9.87057 1.47917 10.0664 1.95 10.0664 2.5C10.0664 3.05 9.87057 3.52083 9.47891 3.9125C9.08724 4.30417 8.61641 4.5 8.06641 4.5ZM14.0664 4.5C13.5164 4.5 13.0456 4.30417 12.6539 3.9125C12.2622 3.52083 12.0664 3.05 12.0664 2.5C12.0664 1.95 12.2622 1.47917 12.6539 1.0875C13.0456 0.695833 13.5164 0.5 14.0664 0.5C14.6164 0.5 15.0872 0.695833 15.4789 1.0875C15.8706 1.47917 16.0664 1.95 16.0664 2.5C16.0664 3.05 15.8706 3.52083 15.4789 3.9125C15.0872 4.30417 14.6164 4.5 14.0664 4.5Z"
-                    fill="#00201C"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M10.8429 4.30333C11.1961 4.10447 11.5947 4 12 4C12.4053 4 12.8039 4.10447 13.1571 4.30333C13.5103 4.5022 13.8063 4.78874 14.0165 5.13531L14.0188 5.13904L20.684 16.2662C20.89 16.6228 20.9988 17.0272 21 17.439C21.0011 17.8508 20.8944 18.2558 20.6905 18.6136C20.4866 18.9713 20.1925 19.2695 19.8376 19.4783C19.4827 19.6872 19.0792 19.7994 18.6674 19.804L18.6588 19.8041L5.33257 19.804C4.92077 19.7995 4.51734 19.6872 4.16241 19.4783C3.80748 19.2695 3.51342 18.9713 3.30949 18.6136C3.10555 18.2558 2.99886 17.8508 3.00001 17.439C3.00116 17.0272 3.11013 16.6229 3.31606 16.2662L3.32236 16.2553L9.98348 5.1353C10.1937 4.78873 10.4897 4.5022 10.8429 4.30333Z"
+                    fill="#E94545"
                   />
                 </svg>
-                <span>{showAllGoals ? 'See less' : 'More'}</span>
+                <span>Kindly Take the Assessment to track your process</span>
+                <svg
+                  className="close-icon"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                >
+                  <path
+                    d="M15 5L5 15"
+                    stroke="black"
+                    strokeOpacity="0.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M5 5L15 15"
+                    stroke="black"
+                    strokeOpacity="0.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </div>
             </div>
-
-            <div className="assessment-warning">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M10.8429 4.30333C11.1961 4.10447 11.5947 4 12 4C12.4053 4 12.8039 4.10447 13.1571 4.30333C13.5103 4.5022 13.8063 4.78874 14.0165 5.13531L14.0188 5.13904L20.684 16.2662C20.89 16.6228 20.9988 17.0272 21 17.439C21.0011 17.8508 20.8944 18.2558 20.6905 18.6136C20.4866 18.9713 20.1925 19.2695 19.8376 19.4783C19.4827 19.6872 19.0792 19.7994 18.6674 19.804L18.6588 19.8041L5.33257 19.804C4.92077 19.7995 4.51734 19.6872 4.16241 19.4783C3.80748 19.2695 3.51342 18.9713 3.30949 18.6136C3.10555 18.2558 2.99886 17.8508 3.00001 17.439C3.00116 17.0272 3.11013 16.6229 3.31606 16.2662L3.32236 16.2553L9.98348 5.1353C10.1937 4.78873 10.4897 4.5022 10.8429 4.30333Z"
-                  fill="#E94545"
-                />
-              </svg>
-              <span>Kindly Take the Assessment to track your process</span>
-              <svg
-                className="close-icon"
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-              >
-                <path
-                  d="M15 5L5 15"
-                  stroke="black"
-                  strokeOpacity="0.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M5 5L15 15"
-                  stroke="black"
-                  strokeOpacity="0.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Care Plan Section */}
-      {/* <div className="main-content-section">         */}
-      <div className="care-plan">
-        <CarePlanSection />
-      </div>
-
-
-      {/* Micro Learnings Section */}
-      <div className="micro-learnings-main-section">
-        <div className="section-header">
-          <div className="section-title">Micro Learnings</div>
-          <div className="section-description">
-            short reads designed to support your well-being. Complete your
-            assessment to get personalized suggestions.
-          </div>
+          )}
         </div>
 
-        <div className="learning-cards-container">
-          {/* Card 1: What is Microlearning? */}
-          <div className="learning-card">
-            <div className="card-container">
-              <div className="card-sub-container">
-                <div className="card-content-wrapper">
-                  <div className="card-content-section">
-                    <div className="card-title-wrapper">
-                      <div className="card-title-row">
-                        <div className="card-name">
-                          What is Microlearning?
+        {/* Care Plan Section */}
+        {/* <div className="main-content-section">         */}
+        <div className="care-plan">
+          <CarePlanSection />
+        </div>
+
+
+        {/* Micro Learnings Section */}
+        <div className="micro-learnings-main-section">
+          <div className="section-header">
+            <div className="section-title">Micro Learnings</div>
+            <div className="section-description">
+              short reads designed to support your well-being. Complete your
+              assessment to get personalized suggestions.
+            </div>
+          </div>
+
+          <div className="learning-cards-container">
+            {/* Card 1: What is Microlearning? */}
+            <div className="learning-card">
+              <div className="card-container">
+                <div className="card-sub-container">
+                  <div className="card-content-wrapper">
+                    <div className="card-content-section">
+                      <div className="card-title-wrapper">
+                        <div className="card-title-row">
+                          <div className="card-name">
+                            What is Microlearning?
+                          </div>
+                          <div className="card-button">
+                            <svg
+                              className="card-arrow-icon"
+                              width="26"
+                              height="26"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
+                                fill="#00C7B2"
+                              />
+                            </svg>
+                          </div>
                         </div>
-                        <div className="card-button">
-                          <svg
-                            className="card-arrow-icon"
-                            width="26"
-                            height="26"
-                            viewBox="0 0 26 26"
-                            fill="none"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
-                              d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
-                              fill="#00C7B2"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                      <div className="card-tags-container">
-                        <div className="card-tags-sub-container">
-                          <div className="card-tag">Beginner</div>
-                          <div className="card-tag-group">
-                            <div className="card-tag">Overview</div>
-                            <div className="card-tag-read">2-min read</div>
+                        <div className="card-tags-container">
+                          <div className="card-tags-sub-container">
+                            <div className="card-tag">Beginner</div>
+                            <div className="card-tag-group">
+                              <div className="card-tag">Overview</div>
+                              <div className="card-tag-read">2-min read</div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="card-name-description">
-                      Microlearning offers quick, focused reads to help you
-                      manage mental health one step at a time.
+                      <div className="card-name-description">
+                        Microlearning offers quick, focused reads to help you
+                        manage mental health one step at a time.
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="card-actions-section">
-                  <div className="card-actions-wrapper">
-                    <button className="take-look-button">Take a Look</button>
-                    <button className="take-assessment-button">
-                      Take assessment to Personalize
-                    </button>
+                  <div className="card-actions-section">
+                    <div className="card-actions-wrapper">
+                      <button className="take-look-button">Take a Look</button>
+                      <button className="take-assessment-button">
+                        Take assessment to Personalize
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Card 2: Why Short Reads Help */}
-          <div className="learning-card">
-            <div className="card-container">
-              <div className="card-sub-container">
-                <div className="card-content-wrapper">
-                  <div className="card-content-section">
-                    <div className="card-title-wrapper">
-                      <div className="card-title-row">
-                        <div className="card-name">Why Short Reads Help</div>
-                        <div className="card-button">
-                          <svg
-                            className="card-arrow-icon"
-                            width="26"
-                            height="26"
-                            viewBox="0 0 26 26"
-                            fill="none"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
-                              d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
-                              fill="#00C7B2"
-                            />
-                          </svg>
+            {/* Card 2: Why Short Reads Help */}
+            <div className="learning-card">
+              <div className="card-container">
+                <div className="card-sub-container">
+                  <div className="card-content-wrapper">
+                    <div className="card-content-section">
+                      <div className="card-title-wrapper">
+                        <div className="card-title-row">
+                          <div className="card-name">Why Short Reads Help</div>
+                          <div className="card-button">
+                            <svg
+                              className="card-arrow-icon"
+                              width="26"
+                              height="26"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
+                                fill="#00C7B2"
+                              />
+                            </svg>
+                          </div>
                         </div>
-                      </div>
-                      <div className="card-tags-container">
-                        <div className="card-tags-sub-container">
-                          <div className="card-tag">Beginner</div>
-                          <div className="card-tag-group">
-                            <div className="card-tag">Motivation</div>
-                            <div className="card-tag-read">2-min read</div>
+                        <div className="card-tags-container">
+                          <div className="card-tags-sub-container">
+                            <div className="card-tag">Beginner</div>
+                            <div className="card-tag-group">
+                              <div className="card-tag">Motivation</div>
+                              <div className="card-tag-read">2-min read</div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="card-name-description">
-                      Learn how bite-sized articles reduce overwhelm and help
-                      you make steady progress.
+                      <div className="card-name-description">
+                        Learn how bite-sized articles reduce overwhelm and help
+                        you make steady progress.
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="card-actions-section">
-                  <div className="card-actions-wrapper">
-                    <button className="take-look-button">Take a Look</button>
-                    <button className="take-assessment-button">
-                      Take assessment to Personalize
-                    </button>
+                  <div className="card-actions-section">
+                    <div className="card-actions-wrapper">
+                      <button className="take-look-button">Take a Look</button>
+                      <button className="take-assessment-button">
+                        Take assessment to Personalize
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Card 3: Personalize Your Learning */}
-          <div className="learning-card">
-            <div className="card-container">
-              <div className="card-sub-container">
-                <div className="card-content-wrapper">
-                  <div className="card-content-section">
-                    <div className="card-title-wrapper">
-                      <div className="card-title-row">
-                        <div className="card-name">
-                          Personalize Your Learning
+            {/* Card 3: Personalize Your Learning */}
+            <div className="learning-card">
+              <div className="card-container">
+                <div className="card-sub-container">
+                  <div className="card-content-wrapper">
+                    <div className="card-content-section">
+                      <div className="card-title-wrapper">
+                        <div className="card-title-row">
+                          <div className="card-name">
+                            Personalize Your Learning
+                          </div>
+                          <div className="card-button">
+                            <svg
+                              className="card-arrow-icon"
+                              width="26"
+                              height="26"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
+                                fill="#00C7B2"
+                              />
+                            </svg>
+                          </div>
                         </div>
-                        <div className="card-button">
-                          <svg
-                            className="card-arrow-icon"
-                            width="26"
-                            height="26"
-                            viewBox="0 0 26 26"
-                            fill="none"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
-                              d="M6.78557 19.2144C7.16633 19.5952 7.78367 19.5952 8.16443 19.2144L17.55 9.82886V17.225C17.55 17.7635 17.9865 18.2 18.525 18.2C19.0635 18.2 19.5 17.7635 19.5 17.225V7.475C19.5 6.93652 19.0635 6.5 18.525 6.5H8.775C8.23652 6.5 7.8 6.93652 7.8 7.475C7.8 8.01348 8.23652 8.45 8.775 8.45H16.1711L6.78557 17.8356C6.40481 18.2163 6.40481 18.8337 6.78557 19.2144Z"
-                              fill="#00C7B2"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                      <div className="card-tags-container">
-                        <div className="card-tags-sub-container">
-                          <div className="card-tag">Interactive</div>
-                          <div className="card-tag-group">
-                            <div className="card-tag">Overview</div>
-                            <div className="card-tag-read">2-min read</div>
+                        <div className="card-tags-container">
+                          <div className="card-tags-sub-container">
+                            <div className="card-tag">Interactive</div>
+                            <div className="card-tag-group">
+                              <div className="card-tag">Overview</div>
+                              <div className="card-tag-read">2-min read</div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="card-name-description">
-                      Get tailored recommendations by taking a short
-                      assessment.
+                      <div className="card-name-description">
+                        Get tailored recommendations by taking a short
+                        assessment.
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="card-actions-section">
-                  <div className="card-actions-wrapper">
-                    <button className="take-look-button">Take a Look</button>
-                    <button className="take-assessment-button">
-                      Take assessment to Personalize
-                    </button>
+                  <div className="card-actions-section">
+                    <div className="card-actions-wrapper">
+                      <button className="take-look-button">Take a Look</button>
+                      <button className="take-assessment-button">
+                        Take assessment to Personalize
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* New Platform Section */}
-      <div className="platform-section">
-        <NewPlatformSection />
-      </div>
+        {/* New Platform Section */}
+        <div className="platform-section">
+          <NewPlatformSection />
+        </div>
 
 
-      {/* Care Plan Section */}
-      {/* <div className="care-plan">
+        {/* Care Plan Section */}
+        {/* <div className="care-plan">
         <h2>Care Plan</h2>
 
         <div className="care-plan-grid">
@@ -1039,8 +2986,9 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
         </div>
       </div> */}
 
-      <AssessmentModal open={modalOpen} onClose={() => setModalOpen(false)} />
-    </main>
+        <AssessmentModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      </main>
+    </>
   );
 }
 

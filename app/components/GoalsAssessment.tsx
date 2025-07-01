@@ -33,22 +33,34 @@ export default function GoalsAssessment({ onSectionChange }: GoalsAssessmentProp
   };
 
   return (
-    <div className="goals-assessment-page">
-      <AssessmentSection
-        question={questions[currentIndex].question}
-        options={questions[currentIndex].options}
-        questionNumber={currentIndex + 1}
-        totalQuestions={questions.length}
-        selectedOption={selectedOptions[currentIndex]}
-        setSelectedOption={handleOptionChange}
-        onNext={handleNext}
-        onPrevious={handlePrevious}
-        isFirst={currentIndex === 0}
-        isLast={currentIndex === questions.length - 1}
-        onSectionChange={onSectionChange}
-      />
-      <MyGoalsSection />
-      <PreferencesSection />
-    </div>
+    <>
+      <style>{`
+        .goals-assessment-page {
+          flex: 1;
+          padding: 30px 40px;
+          max-width: 100%;
+          transition: max-width 0.3s ease;
+          overflow-y: auto;
+          width: 100%;
+        }
+      `}</style>
+      <div className="goals-assessment-page">
+        <AssessmentSection
+          question={questions[currentIndex].question}
+          options={questions[currentIndex].options}
+          questionNumber={currentIndex + 1}
+          totalQuestions={questions.length}
+          selectedOption={selectedOptions[currentIndex]}
+          setSelectedOption={handleOptionChange}
+          onNext={handleNext}
+          onPrevious={handlePrevious}
+          isFirst={currentIndex === 0}
+          isLast={currentIndex === questions.length - 1}
+          onSectionChange={onSectionChange}
+        />
+        <MyGoalsSection />
+        <PreferencesSection />
+      </div>
+    </>
   );
 }

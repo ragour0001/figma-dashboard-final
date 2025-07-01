@@ -2,7 +2,447 @@
 
 export default function MicroLearnings() {
   return (
-    <div className="microlearning-page">
+    <>
+      <style>{`
+        .microlearning-page {
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          background: #fff;
+          min-height: 100vh;
+          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+        }
+
+        .microlearning-main-content {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          max-width: 100%;
+          padding: 40px;
+          gap: 32px;
+          flex: 1;
+        }
+
+        .microlearning-header {
+          display: flex;
+          width: 510px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 11px;
+        }
+
+        .welcome-section {
+          display: flex;
+          width: 500px;
+          padding: 10px 10px 0px 0px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .welcome-title {
+          color: #003a5d;
+          font-family: Roboto, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 32px;
+          letter-spacing: 0px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          align-self: stretch;
+        }
+
+        .wellness-journey-banner {
+          display: flex;
+          height: 216px;
+          flex-direction: column;
+          align-items: center;
+          gap: 25px;
+          align-self: stretch;
+          border-radius: 16px;
+        }
+
+        .wellness-banner-content {
+          display: flex;
+          padding: 26px 16px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 22px;
+          align-self: stretch;
+          border-radius: 8px;
+          border: 1px solid #e94545;
+          background: #fff6f6;
+        }
+
+        .wellness-header {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          align-self: stretch;
+        }
+
+        .progress-icon {
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+          fill: #006b5f;
+        }
+
+        .wellness-title {
+          align-self: stretch;
+          color: #006b5f;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 140%;
+          display: flex;
+          height: 22px;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex: 1 0 0;
+        }
+
+        .progress-section {
+          display: flex;
+          height: 56px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 14px;
+          align-self: stretch;
+        }
+
+        .progress-indicator {
+          display: flex;
+          padding-right: 252px;
+          align-items: center;
+          gap: 8px;
+          flex: 1 0 0;
+          align-self: stretch;
+          border-radius: 64px;
+          background: #e0e0e0;
+        }
+
+        .progress-bar-svg {
+          width: 100%;
+          height: 20px;
+        }
+
+        .completion-status {
+          align-self: stretch;
+          color: #232323;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 110%;
+          letter-spacing: -0.5px;
+        }
+
+        .banner-actions {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .faq-link {
+          color: #006b5f;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 140%;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+
+        .assessment-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 12px;
+          background: #eff5f3;
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+          color: #006a63;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+          display: flex;
+          padding: 10px 16px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border: none;
+          cursor: pointer;
+        }
+
+        .micro-learnings-main-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+          align-self: stretch;
+        }
+
+        .section-header {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .section-title {
+          color: #003a5d;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 135%;
+          letter-spacing: -0.44px;
+        }
+
+        .section-description {
+          color: #999;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: 0.5px;
+        }
+
+        .learning-cards-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+          align-self: stretch;
+        }
+
+        .learning-card {
+          display: flex;
+          padding: 18px 16px;
+          align-items: flex-start;
+          gap: 10px;
+          align-self: stretch;
+          border-radius: 16px;
+          border: 1px solid #e6e6e6;
+          background: #fff;
+        }
+
+        .card-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          flex: 1 0 0;
+        }
+
+        .card-sub-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          align-self: stretch;
+        }
+
+        .card-content-wrapper {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          align-self: stretch;
+        }
+
+        .card-content-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+          flex: 1 0 0;
+        }
+
+        .card-title-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          align-self: stretch;
+        }
+
+        .card-title-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .card-name {
+          color: #003a5d;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 140%;
+          flex: 1 0 0;
+        }
+
+        .card-button {
+          display: flex;
+          width: 26px;
+          height: 26px;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+
+        .card-arrow-icon {
+          width: 26px;
+          height: 26px;
+        }
+
+        .card-tags-container {
+          display: flex;
+          align-items: flex-start;
+          gap: 8px;
+          align-self: stretch;
+        }
+
+        .card-tags-sub-container {
+          display: flex;
+          align-items: flex-start;
+          gap: 8px;
+          flex: 1 0 0;
+        }
+
+        .card-tag {
+          display: flex;
+          padding: 4px 8px;
+          align-items: center;
+          gap: 4px;
+          border-radius: 4px;
+          border: 1px solid #e6e6e6;
+          background: #fff;
+          color: #666;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+        }
+
+        .card-tag-group {
+          display: flex;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        .card-tag-read {
+          display: flex;
+          padding: 4px 8px;
+          align-items: center;
+          gap: 4px;
+          border-radius: 4px;
+          background: #f4f4f4;
+          color: #666;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+        }
+
+        .card-name-description {
+          color: #999;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: 0.5px;
+          align-self: stretch;
+        }
+
+        .card-actions-section {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          align-self: stretch;
+        }
+
+        .card-actions-wrapper {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          flex: 1 0 0;
+        }
+
+        .take-look-button {
+          display: flex;
+          padding: 8px 16px;
+          align-items: center;
+          gap: 8px;
+          border-radius: 8px;
+          border: 1px solid #006b5f;
+          background: #fff;
+          color: #006b5f;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+          cursor: pointer;
+        }
+
+        .take-assessment-button {
+          display: flex;
+          padding: 8px 16px;
+          align-items: center;
+          gap: 8px;
+          border-radius: 8px;
+          background: #006b5f;
+          border: none;
+          color: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+          cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+          .microlearning-main-content {
+            padding: 20px;
+          }
+
+          .microlearning-header,
+          .welcome-section {
+            width: 100%;
+          }
+
+          .card-title-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+          }
+
+          .card-actions-wrapper {
+            flex-direction: column;
+          }
+        }
+      `}</style>
+      <div className="microlearning-page">
       <div className="microlearning-main-content">
         {/* Welcome Header */}
         <div className="microlearning-header">
@@ -427,8 +867,9 @@ export default function MicroLearnings() {
               </div>
             </div>
           </div>
+                  </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

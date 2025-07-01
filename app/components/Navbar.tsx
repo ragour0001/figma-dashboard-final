@@ -1,6 +1,204 @@
 export default function Navbar() {
   return (
-    <nav className="navbar">
+    <>
+      <style>{`
+        .navbar {
+          display: flex;
+          width: 100%;
+          height: 100px;
+          padding: 18px 40px;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          background: #fff;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1000;
+        }
+
+        .nav-left {
+          display: flex;
+          padding: 0px 16px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .logo-container {
+          display: flex;
+          align-items: center;
+        }
+
+        .logo-image {
+          width: 119px;
+          height: 42px;
+          aspect-ratio: 17/6;
+          object-fit: contain;
+          position: relative;
+        }
+
+        .nav-right {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+        }
+
+        .resources-search-field-header {
+          display: flex;
+          height: 44px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 10px;
+          flex: 1 0 0;
+          position: relative;
+          max-width: 40%;
+        }
+
+        .resources-search-field-inner-header {
+          display: flex;
+          padding: 8px 16px 8px 12px;
+          align-items: center;
+          gap: 12px;
+          flex: 1 0 0;
+          align-self: stretch;
+          border-radius: 8px;
+          border: 1px solid #ccd8df;
+          background: #fefefe;
+          position: relative;
+        }
+
+        .resources-search-content-header {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          position: relative;
+        }
+
+        .resources-search-icon-header {
+          width: 24px;
+          height: 24px;
+          position: relative;
+          color: #222;
+        }
+
+        .resources-search-icon-header path {
+          stroke: #222 !important;
+          stroke-width: 1.2 !important;
+          fill: #222 !important;
+        }
+
+        .resources-search-input {
+          color: #999;
+          font-family: "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+          border: none;
+          outline: none;
+          background: transparent;
+          flex: 1;
+          min-width: 300px;
+        }
+
+        .resources-search-input::placeholder {
+          color: #999;
+        }
+
+        .nav-icons {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+        }
+
+        .notification-icon,
+        .bell-icon {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .profile-section {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          cursor: pointer;
+        }
+
+        .avatar {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: #006b5f;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          font-weight: 600;
+          font-size: 16px;
+        }
+
+        .profile-info {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .user-details {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .user-name {
+          color: #1f1f1f;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 20px;
+        }
+
+        .user-role {
+          color: #666;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 16px;
+        }
+
+        .dropdown-icon {
+          width: 20px;
+          height: 20px;
+        }
+
+        @media (max-width: 768px) {
+          .navbar {
+            padding: 12px 20px;
+            height: 80px;
+          }
+
+          .nav-left {
+            padding: 0;
+          }
+
+          .resources-search-field-header {
+            display: none;
+          }
+
+          .nav-icons {
+            gap: 12px;
+          }
+
+          .profile-info {
+            display: none;
+          }
+        }
+      `}</style>
+      <nav className="navbar">
       <div className="nav-left">
         <div className="logo-container">
           <img
@@ -136,7 +334,8 @@ export default function Navbar() {
             </svg>
           </div>
         </div>
-      </div>
-    </nav>
+              </div>
+      </nav>
+    </>
   );
 }
