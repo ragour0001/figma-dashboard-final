@@ -22,9 +22,16 @@ export default function AssessmentWarningBanner() {
           gap: 8px;
         }
 
+        .warning-icon-text {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
         .warning-icon {
           width: 24px;
           height: 24px;
+          flex-shrink: 0;
         }
 
         .warning-text {
@@ -35,6 +42,7 @@ export default function AssessmentWarningBanner() {
           font-style: normal;
           font-weight: 500;
           line-height: 150%;
+          margin: 0;
         }
 
         .warning-action {
@@ -78,6 +86,12 @@ export default function AssessmentWarningBanner() {
           .warning-content {
             flex-direction: column;
             text-align: center;
+          }
+
+          .warning-icon-text {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
           }
 
           .warning-text {

@@ -106,6 +106,11 @@ export default function UpcomingSessionCard() {
           letter-spacing: 0.8px;
           text-transform: capitalize;
           cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .reschedule-btn:hover {
+          background: rgba(255, 255, 255, 0.1);
         }
 
         .join-now-btn {
@@ -127,6 +132,11 @@ export default function UpcomingSessionCard() {
           letter-spacing: 0.8px;
           text-transform: capitalize;
           cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .join-now-btn:hover {
+          background: #f0f0f0;
         }
 
         .session-divider {

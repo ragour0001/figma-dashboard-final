@@ -74,7 +74,7 @@ export default function LearningCard({
 
         .card-title {
           color: #232323;
-          font-family: "Be Vietnam Pro", -apple-system, Helvetica, sans-serif;
+          font-family: Be Vietnam Pro, -apple-system, Helvetica, sans-serif;
           font-size: 18px;
           font-style: normal;
           font-weight: 600;
@@ -123,7 +123,7 @@ export default function LearningCard({
 
         .card-tag span {
           color: #4c4c4d;
-          font-family: "Be Vietnam Pro", -apple-system, Helvetica, sans-serif;
+          font-family: Be Vietnam Pro, -apple-system, Helvetica, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 400;
@@ -139,7 +139,7 @@ export default function LearningCard({
         .card-description {
           width: 279px;
           color: #456179;
-          font-family: "Be Vietnam Pro", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          font-family: Be Vietnam Pro, Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
           font-weight: 400;
           font-size: 14px;
           line-height: 20px;

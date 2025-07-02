@@ -516,7 +516,7 @@ export default function Progress() {
         .wellness-title {
           flex: 1;
           color: #006b5f;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 20px;
           font-style: normal;
           font-weight: 600;
@@ -583,7 +583,7 @@ export default function Progress() {
 
         .progress-percentage {
           color: #232323;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 20px;
           font-style: normal;
           font-weight: 600;
@@ -600,7 +600,7 @@ export default function Progress() {
 
         .faq-link-btn {
           color: #006b5f;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 600;
@@ -626,7 +626,7 @@ export default function Progress() {
           border-radius: 12px;
           background: #fff;
           color: #00201c;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 12px;
           font-style: normal;
           font-weight: 600;
@@ -915,7 +915,7 @@ export default function Progress() {
 
         .platform-label {
           color: #5742a9;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 600;
@@ -925,7 +925,7 @@ export default function Progress() {
 
         .platform-title {
           color: #000;
-          font-family: "Lato", sans-serif;
+          font-family: Lato, sans-serif;
           font-size: 24px;
           font-style: normal;
           font-weight: 600;
@@ -943,7 +943,7 @@ export default function Progress() {
 
         .download-title {
           color: #003a5d;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 600;
@@ -983,7 +983,7 @@ export default function Progress() {
 
         .store-line1 {
           color: #fff;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 10px;
           font-style: normal;
           font-weight: 400;
@@ -992,7 +992,7 @@ export default function Progress() {
 
         .store-line2 {
           color: #fff;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 600;

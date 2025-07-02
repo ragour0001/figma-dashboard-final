@@ -18,6 +18,222 @@ export default function GoalCard({
   return (
     <>
       <style>{`
+        .my-goals-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+          align-self: stretch;
+          margin-bottom: 50px;
+        }
+
+        .goals-section-header {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          align-self: stretch;
+        }
+
+        .goals-section-title {
+          color: #003a5d;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 135%;
+          margin: 0;
+        }
+
+        .goals-status-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          align-self: stretch;
+          margin-bottom: 5vh;
+        }
+
+        .goals-status-header {
+          display: flex;
+          height: 74px;
+          min-width: 200px;
+          padding: 24px 0px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          align-self: stretch;
+          border-radius: 16px;
+        }
+
+        .goals-status-header > div {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .goals-status-info {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .goals-status-title {
+          color: #003a5d;
+          font-feature-settings: "ss01" on, "cv01" on, "cv11" on;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 18px;
+          margin: 0;
+        }
+
+        .reset-goals-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 5px;
+        }
+
+        .reset-goals-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          align-self: stretch;
+          border-radius: 100px;
+          background: rgba(29, 27, 32, 0.1);
+          border: none;
+          cursor: not-allowed;
+          opacity: 0.38;
+        }
+
+        .reset-goals-btn .btn-content {
+          display: flex;
+          padding: 6px 12px;
+          justify-content: center;
+          align-items: center;
+          gap: 4px;
+        }
+
+        .reset-goals-btn .btn-text {
+          color: #161d1c;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+        }
+
+        .reset-goals-text {
+          color: #4a635e;
+          text-align: center;
+          font-feature-settings: "ss01" on, "cv01" on, "cv11" on;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18px;
+          margin: 0;
+        }
+
+        .goals-cards-container {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 16px;
+          flex: 1 0;
+          align-self: stretch;
+        }
+
+        .goals-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          margin-bottom: 29px;
+        }
+
+        .goals-content {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          flex: 1 0 0;
+          align-self: stretch;
+        }
+
+        .goals-header {
+          display: flex;
+          height: 39px;
+          min-width: 200px;
+          padding: 24px;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
+          align-self: stretch;
+          border-radius: 16px;
+        }
+
+        .goals-header h3 {
+          color: #003a5d;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 18px;
+        }
+
+        .goals-actions {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .goals-grid {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          align-content: center;
+          gap: 10px;
+          align-self: stretch;
+          flex-wrap: wrap;
+          margin-top: 30px;
+        }
+
+        .goal-chip {
+          display: flex;
+          height: 53px;
+          padding: 10px 20px;
+          align-items: flex-start;
+          gap: 10px;
+          border-radius: 48px;
+          background: #fff;
+          box-shadow: 0px 2px 7px 0px rgba(65, 65, 65, 0.08);
+          cursor: pointer;
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .goal-chip:hover {
+          transform: translateY(-2px);
+          box-shadow: 0px 4px 12px 0px rgba(65, 65, 65, 0.12);
+        }
+
+        .goal-chip span {
+          color: #494949;
+          font-feature-settings: "liga" off, "clig" off;
+          font-family: Poppins;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          display: flex;
+          align-items: center;
+          margin-top: 8px;
+        }
+
         .goal-card {
           display: flex;
           padding: 24px;

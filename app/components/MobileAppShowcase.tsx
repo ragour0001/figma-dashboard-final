@@ -278,6 +278,227 @@ export default function MobileAppShowcase() {
           color: #006b5f;
         }
 
+        .schedule-section {
+          height: 100%;
+        }
+
+        .today-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 15px;
+        }
+
+        .today-indicator {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .blue-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #006b5f;
+        }
+
+        .today-indicator span {
+          font-size: 12px;
+          font-weight: 600;
+          color: #000;
+        }
+
+        .expand-icon {
+          width: 12px;
+          height: 12px;
+          background: #ccc;
+          border-radius: 2px;
+        }
+
+        .appointment-card {
+          display: flex;
+          gap: 12px;
+          padding: 12px;
+          border: 1px solid #eee;
+          border-radius: 8px;
+          margin-bottom: 10px;
+          background: #fff;
+        }
+
+        .date-sidebar {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          min-width: 40px;
+        }
+
+        .month {
+          font-size: 8px;
+          color: #666;
+          text-transform: uppercase;
+          margin-bottom: 2px;
+        }
+
+        .date-circle {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: #006b5f;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .date-circle span {
+          color: #fff;
+          font-size: 10px;
+          font-weight: 600;
+        }
+
+        .appointment-details {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .time-and-action {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .time {
+          font-size: 10px;
+          font-weight: 600;
+          color: #000;
+        }
+
+        .join-btn {
+          background: #006b5f;
+          color: #fff;
+          border: none;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-size: 8px;
+          cursor: pointer;
+        }
+
+        .duration {
+          font-size: 8px;
+          color: #666;
+        }
+
+        .therapist-info {
+          display: flex;
+          gap: 6px;
+          align-items: center;
+        }
+
+        .therapist-avatar {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background: #ddd;
+        }
+
+        .therapist-details {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .therapist-role {
+          font-size: 7px;
+          color: #666;
+        }
+
+        .therapist-name {
+          font-size: 8px;
+          font-weight: 600;
+          color: #000;
+        }
+
+        .therapist-profile-card {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          border: 1px solid #eee;
+          border-radius: 8px;
+          margin-bottom: 10px;
+          background: #f9f9f9;
+        }
+
+        .profile-info {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+        }
+
+        .profile-avatar {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #ddd;
+        }
+
+        .profile-details {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .profile-role {
+          font-size: 8px;
+          color: #666;
+        }
+
+        .profile-name {
+          font-size: 9px;
+          font-weight: 600;
+          color: #000;
+        }
+
+        .sessions-progress {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+        }
+
+        .sessions-text {
+          font-size: 7px;
+          color: #666;
+        }
+
+        .schedule-next {
+          font-size: 8px;
+          color: #006b5f;
+          font-weight: 600;
+        }
+
+        .confirmation-banner {
+          padding: 8px;
+          background: #e8f5e8;
+          border-radius: 6px;
+          border-left: 3px solid #4caf50;
+        }
+
+        .confirmation-text {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+
+        .confirmation-title {
+          font-size: 8px;
+          font-weight: 600;
+          color: #2e7d32;
+        }
+
+        .confirmation-subtitle {
+          font-size: 7px;
+          color: #666;
+        }
+
         @media (max-width: 768px) {
           .mobile-app-showcase {
             height: 250px;

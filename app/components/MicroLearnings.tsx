@@ -10,7 +10,7 @@ export default function MicroLearnings() {
           flex-direction: column;
           background: #fff;
           min-height: 100vh;
-          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
         }
 
         .microlearning-main-content {
@@ -421,6 +421,440 @@ export default function MicroLearnings() {
           cursor: pointer;
         }
 
+        .new-platform-section {
+          height: 350px;
+          align-self: stretch;
+          position: relative;
+          border-radius: 10px;
+          background: #f6f6f6;
+        }
+
+        .platform-background {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 350px;
+        }
+
+        .app-bg-layer {
+          position: absolute;
+          width: 403px;
+          height: 350px;
+          border-radius: 10px;
+        }
+
+        .app-bg-1 {
+          left: 0px;
+          background: linear-gradient(180deg, #e3e3e3 0%, rgba(237, 237, 237, 0) 100%);
+        }
+
+        .app-bg-2 {
+          left: 97px;
+          background: linear-gradient(180deg, #d1d1d1 0%, rgba(237, 237, 237, 0) 100%);
+        }
+
+        .app-bg-3 {
+          left: 225px;
+          background: linear-gradient(180deg, #cac7c7 0%, rgba(237, 237, 237, 0) 100%);
+        }
+
+        .app-bg-4 {
+          left: 379px;
+          background: linear-gradient(180deg, #bfbfbf 0%, rgba(237, 237, 237, 0) 100%);
+        }
+
+        .platform-text-content {
+          display: flex;
+          width: 415px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 8px;
+          padding: 56px 28px;
+        }
+
+        .new-platform-label {
+          color: #5742a9;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: normal;
+        }
+
+        .platform-content-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+        }
+
+        .platform-main-title {
+          width: 427px;
+          color: #232323;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 130%;
+          margin: 0;
+        }
+
+        .download-apps-label {
+          color: #232323;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+
+        .app-store-button {
+          height: 39px;
+          flex-shrink: 0;
+        }
+
+        .google-play-button {
+          height: 39px;
+          flex-shrink: 0;
+        }
+
+        .store-button-image {
+          height: 39px;
+          width: auto;
+        }
+
+        .phone-mockups {
+          display: flex;
+          gap: 20px;
+          position: relative;
+        }
+
+        .phone-left {
+          z-index: 2;
+        }
+
+        .phone-right {
+          z-index: 1;
+        }
+
+        .phone-mockup {
+          width: 226px;
+          height: 483px;
+          border-radius: 10px;
+          background: linear-gradient(135deg, #333 0%, #000 100%);
+          padding: 4px;
+          position: relative;
+        }
+
+        .phone-frame {
+          width: 226px;
+          height: 483px;
+          border-radius: 10px;
+          background: #1a1a1a;
+          position: relative;
+        }
+
+        .phone-screen {
+          position: absolute;
+          left: 15px;
+          top: 59px;
+          width: 194px;
+          height: 406px;
+          border-radius: 10px;
+          background: #fff;
+          padding: 20px 15px;
+          overflow: hidden;
+        }
+
+        .phone-content {
+          padding: 15px;
+          height: calc(100% - 80px);
+          overflow: hidden;
+        }
+
+        .my-care-header {
+          margin-bottom: 20px;
+        }
+
+        .my-care-title {
+          color: #242e49;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 15px;
+          letter-spacing: -0.12px;
+        }
+
+        .my-care-subtitle {
+          color: #6c5ce7;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 8px;
+          font-style: italic;
+          font-weight: 400;
+          line-height: 15px;
+          letter-spacing: -0.08px;
+        }
+
+        .refill-logo {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          margin-bottom: 15px;
+        }
+
+        .logo-image {
+          height: 28px;
+          width: auto;
+        }
+
+        .schedule-content {
+          height: calc(100% - 80px);
+          overflow: hidden;
+        }
+
+        .today-section {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .today-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 15px;
+        }
+
+        .today-indicator {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .blue-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #006b5f;
+        }
+
+        .today-text {
+          font-size: 12px;
+          font-weight: 600;
+          color: #000;
+        }
+
+        .dropdown-arrow {
+          width: 12px;
+          height: 12px;
+          background: #ccc;
+          border-radius: 2px;
+        }
+
+        .calendar-session {
+          display: flex;
+          gap: 15px;
+          margin-bottom: 15px;
+        }
+
+        .calendar-sidebar {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 40px;
+        }
+
+        .month-text {
+          font-size: 10px;
+          font-weight: 600;
+          color: #666;
+          margin-bottom: 5px;
+        }
+
+        .date-circle {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: #006b5f;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .date-number {
+          color: #fff;
+          font-size: 14px;
+          font-weight: 600;
+        }
+
+        .session-details {
+          flex: 1;
+        }
+
+        .session-time-action {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 5px;
+        }
+
+        .session-time {
+          font-size: 12px;
+          font-weight: 600;
+          color: #000;
+        }
+
+        .join-now-btn {
+          background: #006b5f;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          padding: 4px 8px;
+          font-size: 10px;
+          font-weight: 500;
+          cursor: pointer;
+        }
+
+        .session-duration {
+          font-size: 10px;
+          color: #666;
+          margin-bottom: 8px;
+        }
+
+        .therapist-info {
+          display: flex;
+          align-items: center;
+        }
+
+        .therapist-avatar {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          overflow: hidden;
+          margin-right: 8px;
+        }
+
+        .avatar-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .therapist-details {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .therapist-role {
+          font-size: 9px;
+          color: #666;
+          margin-bottom: 2px;
+        }
+
+        .therapist-name {
+          font-size: 11px;
+          font-weight: 600;
+          color: #000;
+        }
+
+        .additional-therapist {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 0;
+          border-top: 1px solid #eee;
+          margin-top: 10px;
+        }
+
+        .therapist-profile {
+          display: flex;
+          align-items: center;
+        }
+
+        .profile-avatar {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          overflow: hidden;
+          margin-right: 8px;
+        }
+
+        .profile-details {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .profile-role {
+          font-size: 9px;
+          color: #666;
+        }
+
+        .profile-name {
+          font-size: 11px;
+          font-weight: 600;
+          color: #000;
+        }
+
+        .sessions-progress {
+          text-align: right;
+        }
+
+        .sessions-text {
+          font-size: 9px;
+          color: #666;
+          margin-bottom: 3px;
+        }
+
+        .schedule-next {
+          font-size: 10px;
+          color: #006b5f;
+          font-weight: 500;
+          cursor: pointer;
+        }
+
+        .confirmation-message {
+          background: #f0f9ff;
+          border: 1px solid #0ea5e9;
+          border-radius: 6px;
+          padding: 8px;
+          margin-top: 10px;
+        }
+
+        .confirmation-title {
+          font-size: 10px;
+          font-weight: 600;
+          color: #0369a1;
+          margin-bottom: 2px;
+        }
+
+        .confirmation-subtitle {
+          font-size: 9px;
+          color: #0369a1;
+        }
+
+        .refill-health-content {
+          padding: 15px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .refill-logo-large {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .app-preview {
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+        }
+
         @media (max-width: 768px) {
           .microlearning-main-content {
             padding: 20px;
@@ -439,6 +873,31 @@ export default function MicroLearnings() {
 
           .card-actions-wrapper {
             flex-direction: column;
+          }
+
+          .new-platform-section {
+            height: auto;
+            padding: 20px;
+          }
+
+          .platform-text-content {
+            width: 100%;
+            padding: 20px;
+          }
+
+          .platform-main-title {
+            width: 100%;
+            font-size: 24px;
+          }
+
+          .phone-mockups {
+            flex-direction: column;
+            gap: 10px;
+          }
+
+          .phone-mockup {
+            width: 180px;
+            height: 380px;
           }
         }
       `}</style>

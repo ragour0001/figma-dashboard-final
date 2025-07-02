@@ -36,6 +36,13 @@ export default function ContactCard({
   return (
     <>
       <style>{`
+        .contact-cards-section {
+          display: flex;
+          align-items: flex-start;
+          gap: 32px;
+          align-self: stretch;
+        }
+
         .contact-card {
           display: flex;
           padding-top: 24px;

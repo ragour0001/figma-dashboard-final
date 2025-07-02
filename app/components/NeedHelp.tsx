@@ -120,7 +120,7 @@ export default function NeedHelp() {
 
         .ai-button-content span {
           color: #00201c;
-          font-family: "Source Sans 3", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Source Sans 3, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 500;

@@ -33,6 +33,63 @@ export default function FeedbackModal({ onClose }: FeedbackModalProps) {
   return (
     <>
       <style>{`
+        .feedback-section {
+          display: flex;
+          width: 1070px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 32px;
+        }
+
+        .feedback-banner {
+          display: flex;
+          width: 1070px;
+          height: 160px;
+          padding: 38px 18px;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 12px;
+          background: #e9ebff;
+          position: relative;
+        }
+
+        .feedback-content {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+          flex: 1;
+        }
+
+        .feedback-text h2 {
+          align-self: stretch;
+          color: #181f30;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 32px;
+          margin: 0;
+        }
+
+        .feedback-text p {
+          align-self: stretch;
+          color: #374652;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: 0.5px;
+          margin: 0;
+        }
+
+        .feedback-illustration {
+          position: absolute;
+          right: 41px;
+          top: -3px;
+        }
+
         .feedback-modal-container {
           width: 1034px;
           height: 480px;
@@ -60,7 +117,7 @@ export default function FeedbackModal({ onClose }: FeedbackModalProps) {
 
         .feedback-modal-header h3 {
           color: #242e49;
-          font-family: "Plus Jakarta Sans", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 24px;
           font-style: normal;
           font-weight: 600;
@@ -93,7 +150,7 @@ export default function FeedbackModal({ onClose }: FeedbackModalProps) {
           border: 1px solid #e7ecf2;
           background: #fff;
           color: #242e49;
-          font-family: "Plus Jakarta Sans", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 500;
@@ -120,7 +177,7 @@ export default function FeedbackModal({ onClose }: FeedbackModalProps) {
         .comment-label {
           display: block;
           color: #242e49;
-          font-family: "Plus Jakarta Sans", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 500;
@@ -136,7 +193,7 @@ export default function FeedbackModal({ onClose }: FeedbackModalProps) {
           border: none;
           padding: 14px;
           color: #687188;
-          font-family: "Plus Jakarta Sans", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 500;

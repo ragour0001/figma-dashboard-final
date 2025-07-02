@@ -9,7 +9,7 @@ export default function TherapistGrid() {
         .therapist-grid {
           display: flex;
           flex-direction: column;
-          gap: 28px;
+          gap: 32px;
           align-self: stretch;
         }
 
@@ -19,6 +19,7 @@ export default function TherapistGrid() {
           justify-content: space-between;
           align-items: center;
           align-self: stretch;
+          gap: 24px;
         }
 
         @media (max-width: 1200px) {
@@ -28,11 +29,21 @@ export default function TherapistGrid() {
             height: auto;
             gap: 20px;
           }
+
+          .therapist-card {
+            width: calc(50% - 10px);
+            max-width: 283px;
+          }
         }
 
         @media (max-width: 768px) {
           .therapist-row {
             flex-direction: column;
+          }
+
+          .therapist-card {
+            width: 100%;
+            max-width: none;
           }
         }
       `}</style>

@@ -358,7 +358,7 @@ export default function ResourceCard({
             border-radius: 31px;
             background: #f7f7f8;
             color: #878b8c;
-            font-family: "Work Sans", -apple-system, Roboto, Helvetica, sans-serif;
+            font-family: Work Sans, -apple-system, Roboto, Helvetica, sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 500;
@@ -382,7 +382,7 @@ export default function ResourceCard({
 
           .duration {
             color: #0f3443;
-            font-family: "Work Sans", -apple-system, Roboto, Helvetica, sans-serif;
+            font-family: Work Sans, -apple-system, Roboto, Helvetica, sans-serif;
             font-size: 14px;
             font-style: normal;
             font-weight: 500;

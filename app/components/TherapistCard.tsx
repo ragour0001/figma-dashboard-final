@@ -220,6 +220,11 @@ export default function TherapistCard() {
           font-weight: 500;
           line-height: 20px;
           letter-spacing: 0.1px;
+          transition: all 0.2s ease;
+        }
+
+        .book-now-btn:hover {
+          background: #005a54;
         }
 
         @media (max-width: 1200px) {

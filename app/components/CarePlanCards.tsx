@@ -323,6 +323,85 @@ export default function CarePlanCards() {
           font-weight: 500;
           line-height: 20px;
         }
+
+        .share-invite-btn:hover {
+          background: #333;
+          transform: translateY(-1px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+          .care-plan-cards-grid {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .care-plan-card {
+            width: 100%;
+            max-width: 500px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .care-plan-header h2 {
+            font-size: 20px;
+          }
+
+          .care-plan-header p {
+            font-size: 14px;
+          }
+
+          .referral-header {
+            flex-direction: column;
+            gap: 16px;
+          }
+
+          .referral-text h3 {
+            width: 100%;
+            font-size: 18px;
+          }
+
+          .referral-code-section {
+            flex-direction: column;
+            gap: 12px;
+            align-items: stretch;
+          }
+
+          .share-invite-btn {
+            align-self: stretch;
+            text-align: center;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .care-plan-card {
+            height: auto;
+            min-height: 200px;
+          }
+
+          .locked-content h3 {
+            font-size: 18px;
+          }
+
+          .locked-content p {
+            font-size: 14px;
+            width: 100%;
+          }
+
+          .complete-assessment-card-btn {
+            width: 100%;
+            max-width: 200px;
+          }
+
+          .referral-header {
+            flex-direction: column;
+            gap: 12px;
+          }
+
+          .referral-text h3 {
+            font-size: 16px;
+          }
+        }
       `}</style>
       <div className="care-plan-section">
         <div className="care-plan-header">

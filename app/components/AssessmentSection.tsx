@@ -228,6 +228,60 @@ export default function AssessmentSection({
           cursor: pointer;
         }
 
+        .radio-button-container {
+          display: flex;
+          width: 48px;
+          height: 48px;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+
+        .radio-button-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 100px;
+        }
+
+        .radio-button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 100px;
+        }
+
+        .radio-container {
+          display: flex;
+          padding: 8px;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .radio-state-layer {
+          display: flex;
+          padding: 8px;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .radio-icon {
+          width: 24px;
+          height: 24px;
+          position: relative;
+        }
+
+        .radio-inner-circle {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
         .assessment-actions {
           display: flex;
           justify-content: space-around;

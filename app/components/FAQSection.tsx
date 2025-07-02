@@ -35,6 +35,23 @@ export default function FAQSection() {
   return (
     <>
       <style>{`
+        .faq-link {
+          color: #006b5f;
+          font-family: Inter, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 140%;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+        }
+
+        .faq-link:hover {
+          text-decoration: underline;
+        }
+
         .faq-section {
           display: flex;
           flex-direction: column;

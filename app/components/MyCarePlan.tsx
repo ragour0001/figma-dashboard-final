@@ -341,7 +341,8 @@ export default function MyCarePlan() {
         .wellness-title {
           flex: 1;
           color: #006b5f;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
+          
           font-size: 20px;
           font-style: normal;
           font-weight: 600;
@@ -369,7 +370,7 @@ export default function MyCarePlan() {
 
         .completion-status {
           color: #232323;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 20px;
           font-style: normal;
           font-weight: 600;
@@ -386,7 +387,7 @@ export default function MyCarePlan() {
 
         .faq-link {
           color: #006b5f;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 600;
@@ -411,7 +412,7 @@ export default function MyCarePlan() {
           background: #eff5f3;
           box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 3px 0px 0px rgba(0, 0, 0, 0.15);
           color: #006a63;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 500;
@@ -468,7 +469,7 @@ export default function MyCarePlan() {
 
         .matching-title {
           color: #006b5f;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 20px;
           font-style: normal;
           font-weight: 600;
@@ -478,7 +479,7 @@ export default function MyCarePlan() {
 
         .matching-subtitle {
           color: #171d1b;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 500;
@@ -503,7 +504,7 @@ export default function MyCarePlan() {
           background: #eff5f3;
           box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
           color: #006a63;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 500;

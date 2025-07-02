@@ -113,7 +113,7 @@ export default function PreferencesSection() {
           border-radius: 12px;
           background: #006b5f;
           color: #fff;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 500;

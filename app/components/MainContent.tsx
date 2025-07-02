@@ -226,7 +226,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
           background: #2c2663;
           border: none;
           color: #fff;
-          font-family: "DM Sans";
+          font-family: DM Sans;
           font-size: 15px;
           font-weight: 500;
           cursor: pointer;
@@ -395,7 +395,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
         .goal-chip span {
           color: #494949;
           font-feature-settings: "liga" off, "clig" off;
-          font-family: "Poppins";
+          font-family: Poppins;
           font-size: 16px;
           font-style: normal;
           font-weight: 500;
@@ -632,7 +632,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .figma-button-text {
           color: #fff;
-          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 12px;
           font-weight: 700;
           line-height: 20px;
@@ -660,7 +660,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .assessment-warning span {
           color: #00201c;
-          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-weight: 500;
           line-height: 150%;
@@ -691,7 +691,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .care-plan-title {
           color: #003a5d;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 24px;
           font-style: normal;
           font-weight: 600;
@@ -701,7 +701,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .care-plan-description {
           color: #171d1b;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 500;
@@ -761,7 +761,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .unlock-title {
           color: #f4fbf8;
-          font-family: "Roboto", sans-serif;
+          font-family: Roboto, sans-serif;
           font-size: 22px;
           font-style: normal;
           font-weight: 500;
@@ -773,7 +773,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
         .unlock-subtitle {
           color: #f4fbf8;
           text-align: center;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 500;
@@ -793,7 +793,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
           border-radius: 12px;
           background: #fff;
           color: #00201c;
-          font-family: "Inter", sans-serif;
+          font-family: Inter, sans-serif;
           font-size: 12px;
           font-style: normal;
           font-weight: 600;
@@ -846,7 +846,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .referral-label {
           color: #fff;
-          font-family: "Lato", sans-serif;
+          font-family: Lato, sans-serif;
           font-size: 12px;
           font-style: normal;
           font-weight: 600;
@@ -856,7 +856,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
         .referral-title {
           width: 268px;
           color: #fff;
-          font-family: "Lato", sans-serif;
+          font-family: Lato, sans-serif;
           font-size: 20px;
           font-style: normal;
           font-weight: 600;
@@ -892,7 +892,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .code-label {
           color: #000;
-          font-family: "Lato", sans-serif;
+          font-family: Lato, sans-serif;
           font-size: 12px;
           font-style: normal;
           font-weight: 600;
@@ -913,7 +913,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .code-text {
           color: #000;
-          font-family: "Lato", sans-serif;
+          font-family: Lato, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 600;
@@ -929,7 +929,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
           background: #404040;
           color: #fff;
           text-align: center;
-          font-family: "Lato", sans-serif;
+          font-family: Lato, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 500;
@@ -1039,7 +1039,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .card-name {
           color: #232323;
-          font-family: "Be Vietnam Pro", -apple-system, Helvetica, sans-serif;
+          font-family: Be Vietnam Pro, -apple-system, Helvetica, sans-serif;
           font-size: 18px;
           font-style: normal;
           font-weight: 600;
@@ -1083,7 +1083,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .card-tag {
           color: #4c4c4d;
-          font-family: "Be Vietnam Pro", -apple-system, Helvetica, sans-serif;
+          font-family: Be Vietnam Pro, -apple-system, Helvetica, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 400;
@@ -1104,7 +1104,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .card-tag-read {
           color: #4c4c4d;
-          font-family: "Be Vietnam Pro", -apple-system, Helvetica, sans-serif;
+          font-family: Be Vietnam Pro, -apple-system, Helvetica, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 400;
@@ -1119,7 +1119,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
         .card-name-description {
           width: 279px;
           color: #456179;
-          font-family: "Be Vietnam Pro", -apple-system, Helvetica, sans-serif;
+          font-family: Be Vietnam Pro, -apple-system, Helvetica, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 400;
@@ -1249,7 +1249,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .filter-button-therapist span {
           color: #00201c;
-          font-family: "Source Sans 3", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Source Sans 3, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 500;
@@ -1360,7 +1360,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
         .availability-badge span {
           color: #277b53;
           text-align: center;
-          font-family: "Plus Jakarta Sans", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 12px;
           font-style: normal;
           font-weight: 300;
@@ -1395,7 +1395,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .therapist-name {
           color: #292d32;
-          font-family: "Plus Jakarta Sans", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 18px;
           font-style: normal;
           font-weight: 700;
@@ -1424,7 +1424,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .rating-value {
           color: #ffb063;
-          font-family: "Plus Jakarta Sans", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 700;
@@ -1480,7 +1480,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
 
         .session-label {
           color: #242e49;
-          font-family: "Source Sans 3", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Source Sans 3, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 15px;
           font-style: normal;
           font-weight: 500;

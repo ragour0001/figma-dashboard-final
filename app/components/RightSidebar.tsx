@@ -27,7 +27,7 @@ export default function RightSidebar() {
 
         .figma-profile-title {
           color: #1f1f1f;
-          font-family: "DM Sans", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: DM Sans, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 20px;
           font-style: normal;
           font-weight: 700;
@@ -67,7 +67,7 @@ export default function RightSidebar() {
           width: 280px;
           color: #636363;
           text-align: center;
-          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-weight: 700;
           line-height: 20px;
@@ -116,7 +116,7 @@ export default function RightSidebar() {
           flex-direction: column;
           justify-content: center;
           color: #003a5d;
-          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-weight: 700;
           line-height: 135%;
@@ -131,7 +131,7 @@ export default function RightSidebar() {
 
         .figma-streak-title {
           color: #000;
-          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-weight: 400;
           line-height: normal;
@@ -139,7 +139,7 @@ export default function RightSidebar() {
 
         .figma-see-more {
           color: #006b5f;
-          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 12px;
           font-weight: 700;
           line-height: normal;
@@ -169,7 +169,7 @@ export default function RightSidebar() {
           align-self: stretch;
           color: #232323;
           text-align: center;
-          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 18px;
           font-weight: 700;
           line-height: 26px;
@@ -179,7 +179,7 @@ export default function RightSidebar() {
           align-self: stretch;
           color: rgba(35, 35, 35, 0.7);
           text-align: center;
-          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-weight: 400;
           line-height: 20px;
@@ -202,7 +202,7 @@ export default function RightSidebar() {
 
         .figma-button-text {
           color: #fff;
-          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 12px;
           font-weight: 700;
           line-height: 20px;
@@ -213,7 +213,7 @@ export default function RightSidebar() {
           align-self: stretch;
           color: #232323;
           text-align: center;
-          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 20px;
           font-weight: 700;
           line-height: 26px;
@@ -223,7 +223,7 @@ export default function RightSidebar() {
           width: 210px;
           color: rgba(35, 35, 35, 0.7);
           text-align: center;
-          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-weight: 400;
           line-height: 20px;
@@ -288,7 +288,7 @@ export default function RightSidebar() {
         .figma-claim-text {
           color: #fff;
           text-align: center;
-          font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 15px;
           font-weight: 400;
           line-height: 20px;

@@ -71,7 +71,7 @@ export default function Resources() {
 
         .resources-welcome-title {
           color: #003a5d;
-          font-family: "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 24px;
           font-style: normal;
           font-weight: 700;
@@ -98,7 +98,7 @@ export default function Resources() {
           transform: rotate(0.11deg);
           color: #11263c;
           font-feature-settings: "liga" off, "clig" off;
-          font-family: "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 400;
@@ -161,7 +161,7 @@ export default function Resources() {
 
         .resources-search-input {
           color: #999;
-          font-family: "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 400;
@@ -187,7 +187,7 @@ export default function Resources() {
           background: #006b5f;
           border: none;
           cursor: pointer;
-          font-family: "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 700;
@@ -216,7 +216,7 @@ export default function Resources() {
 
         .resources-search-button-text {
           color: #fff;
-          font-family: "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 700;
@@ -316,7 +316,7 @@ export default function Resources() {
         .resources-segment-label {
           color: #171d1b;
           text-align: center;
-          font-family: "Roboto", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-family: Roboto, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 400;
@@ -345,7 +345,7 @@ export default function Resources() {
           overflow: hidden;
           color: #006b5f;
           text-overflow: ellipsis;
-          font-family: "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 12px;
           font-style: normal;
           font-weight: 400;
@@ -424,7 +424,7 @@ export default function Resources() {
 
         .resources-content-type {
           color: #003a5d;
-          font-family: "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 700;
@@ -452,7 +452,7 @@ export default function Resources() {
         .resources-article-title {
           flex: 1 0 0;
           color: #181d27;
-          font-family: "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 24px;
           font-style: normal;
           font-weight: 700;
@@ -478,7 +478,7 @@ export default function Resources() {
         .resources-article-description {
           align-self: stretch;
           color: #535862;
-          font-family: "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 16px;
           font-style: normal;
           font-weight: 400;
@@ -523,7 +523,7 @@ export default function Resources() {
 
         .resources-author-name {
           color: #181d27;
-          font-family: "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 700;
@@ -533,7 +533,7 @@ export default function Resources() {
 
         .resources-publish-date {
           color: #535862;
-          font-family: "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 400;
@@ -551,6 +551,14 @@ export default function Resources() {
         .resources-bookmark-icon {
           width: 26px;
           height: 29px;
+          position: relative;
+        }
+
+        .resources-video-image {
+          width: 100%;
+          align-self: stretch;
+          border-radius: 8px;
+          object-fit: cover;
           position: relative;
         }
       `}</style>

@@ -92,7 +92,7 @@ export default function Navbar() {
 
         .resources-search-input {
           color: #999;
-          font-family: "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 14px;
           font-style: normal;
           font-weight: 400;
@@ -120,6 +120,12 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           justify-content: center;
+          transition: transform 0.2s ease;
+        }
+
+        .notification-icon:hover,
+        .bell-icon:hover {
+          transform: scale(1.1);
         }
 
         .profile-section {
@@ -127,6 +133,11 @@ export default function Navbar() {
           align-items: center;
           gap: 12px;
           cursor: pointer;
+          transition: opacity 0.2s ease;
+        }
+
+        .profile-section:hover {
+          opacity: 0.8;
         }
 
         .avatar {

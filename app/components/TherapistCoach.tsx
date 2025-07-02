@@ -9,17 +9,54 @@ interface FilterChipProps {
 
 function FilterChip({ label, onRemove }: FilterChipProps) {
   return (
-    <div className="filter-chip">
-      <span className="filter-chip-label">{label}</span>
-      <button className="filter-chip-remove" onClick={onRemove}>
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-          <path
-            d="M1.8 11.248L0.75 10.198L4.95 5.99805L0.75 1.79805L1.8 0.748047L6 4.94805L10.2 0.748047L11.25 1.79805L7.05 5.99805L11.25 10.198L10.2 11.248L6 7.04805L1.8 11.248Z"
-            fill="#3F4947"
-          />
-        </svg>
-      </button>
-    </div>
+    <>
+      <style>{`
+        .filter-chip {
+          display: flex;
+          height: 48px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 8px;
+          border: 1px solid #bec9c6;
+          background: #fff;
+        }
+
+        .filter-chip-label {
+          color: #3f4947;
+          text-align: center;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+          padding: 6px 8px 6px 12px;
+        }
+
+        .filter-chip-remove {
+          width: 18px;
+          height: 18px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 6px 8px 6px 0px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      `}</style>
+      <div className="filter-chip">
+        <span className="filter-chip-label">{label}</span>
+        <button className="filter-chip-remove" onClick={onRemove}>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path
+              d="M1.8 11.248L0.75 10.198L4.95 5.99805L0.75 1.79805L1.8 0.748047L6 4.94805L10.2 0.748047L11.25 1.79805L7.05 5.99805L11.25 10.198L10.2 11.248L6 7.04805L1.8 11.248Z"
+              fill="#3F4947"
+            />
+          </svg>
+        </button>
+      </div>
+    </>
   );
 }
 
@@ -112,7 +149,229 @@ function TherapistCard({
   const bookingUrl = getBookingUrl(name);
   // const bookingUrl = "https://bookings.refillhealth.com/refilladmin/30min?name=Sudheer+Reddy&email=sudheer%40refillhealth.com";
   return (
-    <div className="therapist-card">
+    <>
+      <style>{`
+        .therapist-card {
+          display: flex;
+          width: 283px;
+          flex-direction: column;
+          align-items: flex-start;
+          border-radius: 8px;
+          border: 1px solid #f1f1f1;
+          position: relative;
+          background: #fff;
+        }
+
+        .therapist-card-image {
+          height: 180px;
+          align-self: stretch;
+          position: relative;
+          background: #f0f0f0;
+        }
+
+        .therapist-card-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 8px 8px 0 0;
+        }
+
+        .availability-badge {
+          display: flex;
+          padding: 4px 8px;
+          align-items: center;
+          gap: 4px;
+          position: absolute;
+          left: 16px;
+          top: 16px;
+          border-radius: 12px;
+          background: rgba(39, 123, 83, 0.09);
+          backdrop-filter: blur(6px);
+        }
+
+        .availability-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #277b53;
+        }
+
+        .availability-badge span {
+          color: #277b53;
+          text-align: center;
+          font-family: Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: normal;
+        }
+
+        .therapist-card-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          min-height: 200px;
+          width: 100%;
+          padding: 20px;
+        }
+
+        .therapist-profile-section {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          align-self: stretch;
+        }
+
+        .therapist-info {
+          display: flex;
+          width: fit-content;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 4px;
+          flex: 1 0 0;
+        }
+
+        .therapist-name {
+          color: #292d32;
+          font-family: Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          margin: 0;
+        }
+
+        .therapist-title {
+          color: #54577a;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          letter-spacing: -0.12px;
+          margin: 0;
+        }
+
+        .therapist-rating {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 2px;
+          border-radius: 8px;
+        }
+
+        .rating-value {
+          color: #ffb063;
+          font-family: Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+
+        .therapist-details {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+          align-self: stretch;
+        }
+
+        .specializations {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+          gap: 8px;
+          flex-wrap: wrap;
+        }
+
+        .specialization-tag {
+          display: flex;
+          padding: 8px;
+          justify-content: center;
+          align-items: center;
+          gap: 13.206px;
+          border-radius: 38px;
+          background: #cde8e1;
+          color: #00201c;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 128.447%;
+        }
+
+        .session-booking {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .session-info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        .session-label {
+          color: #242e49;
+          font-family: Source Sans 3, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 15px;
+          font-weight: 500;
+          line-height: 15.085px;
+          letter-spacing: -0.54px;
+          margin: 0;
+        }
+
+        .session-time-info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        .session-time {
+          color: #54577a;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 132.199%;
+        }
+
+        .session-day {
+          color: #54577a;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 132.199%;
+        }
+
+        .book-now-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 100px;
+          background: #006a63;
+          padding: 6px 12px;
+          border: none;
+          cursor: pointer;
+          color: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.1px;
+          transition: all 0.2s ease;
+        }
+
+        .book-now-btn:hover {
+          background: #005a54;
+        }
+      `}</style>
+      <div className="therapist-card">
       <div className="therapist-card-image">
         {/* <img src={imageUrl} alt={name} /> */}
         <img src="/assets/images/dr-image.png" alt={name} />
@@ -169,12 +428,243 @@ function TherapistCard({
       </div>
       <BookingModal open={modalOpen} onClose={() => setModalOpen(false)} url={bookingUrl} />
     </div>
+    </>
   );
 }
 
 function UpcomingSessionDetails() {
   return (
-    <div className="upcoming-session-card">
+    <>
+      <style>{`
+        .upcoming-session-card {
+          display: flex;
+          padding: 26px 34px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          align-self: stretch;
+          border-radius: 10px;
+          background: linear-gradient(94deg, #006b5f -2.3%, #11b5a3 98.42%);
+        }
+
+        .session-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .therapist-session-info {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+        }
+
+        .session-therapist-avatar {
+          width: 78px;
+          height: 78px;
+          border-radius: 12px;
+          object-fit: cover;
+        }
+
+        .session-therapist-details {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        .session-therapist-name {
+          color: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 150%;
+          letter-spacing: -0.32px;
+          margin: 0;
+        }
+
+        .session-description {
+          color: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          letter-spacing: -0.16px;
+          margin: 0;
+        }
+
+        .session-actions {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .reschedule-btn {
+          display: flex;
+          height: 44px;
+          padding: 12px 24px;
+          justify-content: center;
+          align-items: center;
+          gap: 4px;
+          border-radius: 8px;
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: #fff;
+          text-align: center;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 135%;
+          letter-spacing: 0.8px;
+          text-transform: capitalize;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .reschedule-btn:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+
+        .join-now-btn {
+          display: flex;
+          height: 44px;
+          padding: 12px 24px;
+          justify-content: center;
+          align-items: center;
+          gap: 4px;
+          border-radius: 8px;
+          background: #fff;
+          border: none;
+          color: #006b5f;
+          text-align: center;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 135%;
+          letter-spacing: 0.8px;
+          text-transform: capitalize;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .join-now-btn:hover {
+          background: #f0f0f0;
+        }
+
+        .session-separator {
+          width: 100%;
+          height: 1px;
+          background: #e9eff2;
+          margin: 12px 0;
+        }
+
+        .session-details {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 45px;
+          width: 100%;
+        }
+
+        .session-time-section {
+          display: flex;
+          align-items: flex-start;
+          gap: 45px;
+          color: #54577a;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 132.199%;
+          width: 100%;
+        }
+
+        .session-time-header {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .time-label {
+          color: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 132.199%;
+        }
+
+        .session-time-info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        .session-date {
+          color: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 132.199%;
+          display: inline;
+        }
+
+        .session-time {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          color: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 132.199%;
+          width: 100%;
+        }
+
+        .session-remarks {
+          display: flex;
+          padding: 0px 623px 14px 0px;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .remarks-header {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 6px;
+          margin-right: 23px;
+        }
+
+        .remarks-label {
+          color: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 132.199%;
+        }
+
+        .remarks-text {
+          color: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 132.199%;
+          margin: 0;
+        }
+      `}</style>
+      <div className="upcoming-session-card">
       <div className="session-header">
         <div className="therapist-session-info">
           <img
@@ -229,6 +719,7 @@ function UpcomingSessionDetails() {
         <p className="remarks-text">I am going thhrouughh a heartbrake</p>
       </div>
     </div>
+    </>
   );
 }
 
@@ -245,7 +736,82 @@ function SearchAndFilters() {
   };
 
   return (
-    <div className="search-filters-section-therapist">
+    <>
+      <style>{`
+        .search-filters-section-therapist {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 13px;
+          align-self: stretch;
+        }
+
+        .search-container-therapist {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          align-self: stretch;
+        }
+
+        .search-field-therapist {
+          display: flex;
+          height: 44px;
+          padding: 8px 16px 8px 12px;
+          align-items: center;
+          gap: 12px;
+          align-self: stretch;
+          flex: 1 0 0;
+          border-radius: 8px;
+          border: 1px solid #ccd8df;
+          background: #fefefe;
+          max-width: 100%;
+        }
+
+        .search-input-therapist {
+          color: #999;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+          border: none;
+          outline: none;
+          background: transparent;
+          flex: 1;
+        }
+
+        .search-input-therapist::placeholder {
+          color: #999;
+        }
+
+        .filter-button-therapist {
+          display: flex;
+          padding: 8px;
+          align-items: center;
+          gap: 13px;
+          border-radius: 38px;
+          background: #e9e9e9;
+          border: none;
+          cursor: pointer;
+        }
+
+        .filter-button-therapist span {
+          color: #00201c;
+          font-family: Source Sans 3, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 128.447%;
+        }
+
+        .active-filters {
+          display: flex;
+          align-items: flex-start;
+          gap: 13px;
+        }
+      `}</style>
+      <div className="search-filters-section-therapist">
       <div className="search-container-therapist">
         <div className="search-field-therapist">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -291,6 +857,7 @@ function SearchAndFilters() {
         </div>
       )}
     </div>
+    </>
   );
 }
 
@@ -353,18 +920,36 @@ function TherapistGrid() {
   ];
 
   return (
-    <div className="therapist-grid">
-      <div className="therapist-row">
-        {therapists.slice(0, 3).map((therapist, index) => (
-          <TherapistCard key={index} {...therapist} />
-        ))}
+    <>
+      <style>{`
+        .therapist-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+          align-self: stretch;
+        }
+
+        .therapist-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+          gap: 24px;
+        }
+      `}</style>
+      <div className="therapist-grid">
+        <div className="therapist-row">
+          {therapists.slice(0, 3).map((therapist: TherapistCardProps, index: number) => (
+            <TherapistCard key={index} {...therapist} />
+          ))}
+        </div>
+        <div className="therapist-row">
+          {therapists.slice(3, 6).map((therapist: TherapistCardProps, index: number) => (
+            <TherapistCard key={index + 3} {...therapist} />
+          ))}
+        </div>
       </div>
-      <div className="therapist-row">
-        {therapists.slice(3, 6).map((therapist, index) => (
-          <TherapistCard key={index + 3} {...therapist} />
-        ))}
-      </div>
-    </div>
+    </>
   );
 }
 
