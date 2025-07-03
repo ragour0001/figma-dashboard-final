@@ -111,17 +111,24 @@ export default function Home() {
       <div className="dashboard-layout">
         <Navbar />
         <div
-          className={`dashboard-content ${isSidebarExpanded ? "sidebar-expanded-layout" : ""}`}
+          className={`user-dashboard-content ${isSidebarExpanded ? "sidebar-expanded-layout" : ""}`}
+          // className={`dashboard-content ${isSidebarExpanded ? "sidebar-expanded-layout" : ""}`}
         >
           <Sidebar
             onToggle={handleSidebarToggle}
             activeSection={activeSection}
             onSectionChange={handleSectionChange}
           />
-          <div className="content-wrapper">
+          {/* <div className="content-wrapper">
             {renderContent()}
             {activeSection === "home" && <RightSidebar />}
+          </div> */}
+          <div className="content-wrapper">
+          <div className="main-content">
+            {renderContent()}
           </div>
+          {activeSection === "home" && <RightSidebar />}
+        </div>
         </div>
       </div>
     </>
