@@ -2201,63 +2201,54 @@ export default function MainContent({
           </div>
         )}
 
-        {/* Purple Section - Still Unsure */}
-        <div className="purple-section">
-          <div className="purple-content">
-            <div className="purple-text">
-              <h2>Still unsure about what you need?</h2>
-              <p>
-                Take 3 small steps to help us match you with the right care plan
-                and support.
-              </p>
+        {/* Still Unsure Section - Figma Design */}
+        <div className="unsure-section">
+          <div className="unsure-content">
+            <h2 className="unsure-title">Still unsure about what you need?</h2>
 
-              <div className="steps-container">
-                <div className="steps-visual">
-                  <div className="step-indicator active">
-                    <div className="step-circle filled"></div>
-                  </div>
-                  <div className="step-line"></div>
-                  <div className="step-indicator">
-                    <div className="step-circle"></div>
-                  </div>
-                  <div className="step-line"></div>
-                  <div className="step-indicator">
-                    <div className="step-circle"></div>
-                  </div>
-                </div>
+            <div className="steps-list">
+              <div className="step-item">
+                <div className="step-circle filled"></div>
+                <span className="step-text">Set 3 wellness goals</span>
+                <div className="step-connector"></div>
+              </div>
 
-                <div className="steps-text">
-                  <div className="step-item">Set 1–3 wellness goals</div>
-                  <div className="step-item">Take a short assessment</div>
-                  <div className="step-item">
-                    Tell us your therapist preferences
-                  </div>
-                </div>
+              <div className="step-item">
+                <div className="step-circle"></div>
+                <span className="step-text">Take a short assessment</span>
+                <div className="step-connector"></div>
+              </div>
+
+              <div className="step-item">
+                <div className="step-circle"></div>
+                <span className="step-text">
+                  Tell us your therapist preferences
+                </span>
               </div>
             </div>
 
             <button className="discover-btn">
-              <span>Discover Yourself</span>
-              <div className="arrow-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <circle cx="10" cy="10" r="10" fill="white" />
+              <span className="discover-btn-text">Discover Yourself</span>
+              <div className="discover-btn-arrow">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path
-                    d="M10.6669 10.0001L7.55566 6.8889L8.44457 6L12.4446 10.0001L8.44457 14.0001L7.55566 13.1112L10.6669 10.0001Z"
-                    fill="black"
+                    d="M6.00002 1L11 6L6.00002 11M10.3334 6H1"
+                    stroke="#4A148C"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
             </button>
           </div>
 
-          <div className="purple-image">
-            {/* <div className="illustration-placeholder"> */}
+          <div className="unsure-illustration">
             <img
-              src="/assets/images/Positive_thinking-rafiki.png"
-              alt="Download on App Store"
-              className="positive-img"
+              src="https://cdn.builder.io/api/v1/image/assets%2F0b98a89a93654f278f5daf1894060cd7%2Fda6a3a76525347a3929827fecef7930b?format=webp&width=800"
+              alt="Person with wellness illustration"
+              className="illustration-img"
             />
-            {/* </div> */}
           </div>
         </div>
 
