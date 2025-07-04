@@ -2,7 +2,11 @@ import { useState } from "react";
 import AssessmentModal from "./AssessmentModal";
 import GoalCard from "./GoalCard";
 
-export default function MainContent({ onSectionChange }: { onSectionChange?: (section: string) => void }) {
+export default function MainContent({
+  onSectionChange,
+}: {
+  onSectionChange?: (section: string) => void;
+}) {
   const [activeTab, setActiveTab] = useState("recommendation");
   const [modalOpen, setModalOpen] = useState(false);
   const [goalSet, setGoalSet] = useState(false);
@@ -46,7 +50,9 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
     { emoji: "🧘", title: "Build resilience" },
     { emoji: "🧘", title: "Navigate life transitions" },
   ];
-  const visibleGoals = showAllGoals ? allGoals : allGoals.slice(0, allGoals.length - 4);
+  const visibleGoals = showAllGoals
+    ? allGoals
+    : allGoals.slice(0, allGoals.length - 4);
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
@@ -116,85 +122,151 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
           margin: 0;
         }
 
-        .purple-section {
+        .unsure-section {
           display: flex;
-          padding: 35px 20px;
+          padding: 40px 60px;
           justify-content: space-between;
           align-items: center;
           border-radius: 16px;
-          background: #6e62e5;
+          background: linear-gradient(135deg, #FDD835 0%, #FFEB3B 50%, #FFC107 100%);
           margin-bottom: 29px;
+          position: relative;
+          overflow: hidden;
         }
 
-        .purple-content {
+        .unsure-section::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 60px;
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+          border-radius: 0 0 16px 16px;
+        }
+
+        .unsure-content {
           display: flex;
-          width: 596px;
           flex-direction: column;
           align-items: flex-start;
-          gap: 20px;
+          gap: 24px;
+          flex: 1;
+          max-width: 400px;
         }
 
-        .purple-text h2 {
-          color: #fff;
-          font-size: 32px;
-          font-weight: 600;
-          line-height: 40px;
-          letter-spacing: 0.16px;
-          margin-bottom: 10px;
-        }
-
-        .purple-text p {
-          width: 596px;
-          color: #fff;
-          font-size: 16px;
-          font-weight: 500;
-          line-height: 20px;
-          letter-spacing: 0.08px;
-          padding-bottom: 10px;
+        .unsure-title {
+          color: #1A1A1A;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 28px;
+          font-weight: 700;
+          line-height: 36px;
           margin: 0;
         }
 
-        .steps-container {
-          display: flex;
-          width: 588px;
-          flex-direction: row;
-          align-items: center;
-          gap: 14px;
-          margin-top: 8px;
-        }
-
-        .steps-visual {
+        .steps-list {
           display: flex;
           flex-direction: column;
-          align-items: center;
-          gap: 6px;
-          height: 100%;
+          gap: 16px;
+          width: 100%;
         }
 
-        .step-indicator {
+        .step-item {
           display: flex;
           align-items: center;
-          justify-content: center;
-          height: 20px;
+          gap: 12px;
+          position: relative;
         }
 
         .step-circle {
-          width: 20px;
-          height: 20px;
+          width: 24px;
+          height: 24px;
           border-radius: 50%;
-          border: 1px solid #b8b1ff;
+          border: 2px solid #1A1A1A;
           background: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
         }
 
         .step-circle.filled {
-          background: #b8b1ff;
+          background: #FF5722;
+          border-color: #FF5722;
         }
 
-        .step-line {
+        .step-circle.filled::after {
+          content: '';
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #fff;
+        }
+
+        .step-text {
+          color: #1A1A1A;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+        }
+
+        .step-connector {
+          position: absolute;
+          left: 11px;
+          top: 24px;
           width: 2px;
-          height: 24px;
-          background: #b8b1ff;
-          margin: 3px 0;
+          height: 16px;
+          background: #E0E0E0;
+        }
+
+        .step-item:last-child .step-connector {
+          display: none;
+        }
+
+        .discover-btn {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 12px 24px;
+          border-radius: 24px;
+          background: #4A148C;
+          border: none;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .discover-btn:hover {
+          background: #6A1B9A;
+          transform: translateY(-1px);
+        }
+
+        .discover-btn-text {
+          color: #fff;
+          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 20px;
+        }
+
+        .discover-btn-arrow {
+          width: 20px;
+          height: 20px;
+          background: #fff;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .unsure-illustration {
+          flex-shrink: 0;
+          position: relative;
+        }
+
+        .unsure-illustration img {
+          width: 300px;
+          height: auto;
+          object-fit: contain;
         }
 
         .steps-text {
@@ -591,7 +663,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
           justify-content: space-between;
           align-items: center;
           align-self: stretch;
-          border-radius: 16px;  
+          border-radius: 16px;
           margin-top: 8vh;
           margin-bottom: 20vh;
         }
@@ -2027,9 +2099,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
           </h1>
         </div>
         {/*  */}
-        <h1 className="goal-set-title">
-          Start your journey, Set Your Goals.
-        </h1>
+        <h1 className="goal-set-title">Start your journey, Set Your Goals.</h1>
         {/* Initial My Goals Section */}
         {!goalSet && (
           <div className="goals-section">
@@ -2060,7 +2130,9 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
                     </svg>
                     <span>Search</span>
                   </div>
-                  <button className="done-btn" onClick={() => setGoalSet(true)}>Done</button>
+                  <button className="done-btn" onClick={() => setGoalSet(true)}>
+                    Done
+                  </button>
                 </div>
               </div>
               <div className="goals-grid">
@@ -2070,14 +2142,18 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
                     <span>{goal.title}</span>
                   </div>
                 ))}
-                <div className="goal-chip more" onClick={() => setShowAllGoals((prev) => !prev)} style={{ cursor: 'pointer' }}>
+                <div
+                  className="goal-chip more"
+                  onClick={() => setShowAllGoals((prev) => !prev)}
+                  style={{ cursor: "pointer" }}
+                >
                   <svg width="17" height="5" viewBox="0 0 17 5" fill="none">
                     <path
                       d="M2.06641 4.5C1.51641 4.5 1.04557 4.30417 0.653906 3.9125C0.26224 3.52083 0.0664062 3.05 0.0664062 2.5C0.0664062 1.95 0.26224 1.47917 0.653906 1.0875C1.04557 0.695833 1.51641 0.5 2.06641 0.5C2.61641 0.5 3.08724 0.695833 3.47891 1.0875C3.87057 1.47917 4.06641 1.95 4.06641 2.5C4.06641 3.05 3.87057 3.52083 3.47891 3.9125C3.08724 4.30417 2.61641 4.5 2.06641 4.5ZM8.06641 4.5C7.51641 4.5 7.04557 4.30417 6.65391 3.9125C6.26224 3.52083 6.06641 3.05 6.06641 2.5C6.06641 1.95 6.26224 1.47917 6.65391 1.0875C7.04557 0.695833 7.51641 0.5 8.06641 0.5C8.61641 0.5 9.08724 0.695833 9.47891 1.0875C9.87057 1.47917 10.0664 1.95 10.0664 2.5C10.0664 3.05 9.87057 3.52083 9.47891 3.9125C9.08724 4.30417 8.61641 4.5 8.06641 4.5ZM14.0664 4.5C13.5164 4.5 13.0456 4.30417 12.6539 3.9125C12.2622 3.52083 12.0664 3.05 12.0664 2.5C12.0664 1.95 12.2622 1.47917 12.6539 1.0875C13.0456 0.695833 13.5164 0.5 14.0664 0.5C14.6164 0.5 15.0872 0.695833 15.4789 1.0875C15.8706 1.47917 16.0664 1.95 16.0664 2.5C16.0664 3.05 15.8706 3.52083 15.4789 3.9125C15.0872 4.30417 14.6164 4.5 14.0664 4.5Z"
                       fill="#00201C"
                     />
                   </svg>
-                  <span>{showAllGoals ? 'See less' : 'More'}</span>
+                  <span>{showAllGoals ? "See less" : "More"}</span>
                 </div>
               </div>
             </div>
@@ -2095,7 +2171,10 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
                   </h3>
                 </div>
                 <div className="reset-goals-container">
-                  <button className="reset-goals-btn" onClick={() => setGoalSet(false)}>
+                  <button
+                    className="reset-goals-btn"
+                    onClick={() => setGoalSet(false)}
+                  >
                     <div className="btn-content">
                       <span className="btn-text">Reset Goals</span>
                     </div>
@@ -2412,7 +2491,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
                       lineHeight: "20px",
                       letterSpacing: "0.1px",
                       position: "relative",
-                      cursor: "pointer"
+                      cursor: "pointer",
                     }}
                     onClick={() => onSectionChange?.("goals-assessment")}
                   >
@@ -2483,7 +2562,10 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
                   className="recomm-gif"
                 />
                 <h3>Kindly Take the Assessment</h3>
-                <p>By taking the assessment we can customize and set up things for you</p>
+                <p>
+                  By taking the assessment we can customize and set up things
+                  for you
+                </p>
               </div>
               <div className="recommendation-tab-button">
                 <button className="figma-button">
@@ -2491,14 +2573,12 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
                 </button>
               </div>
             </div>
-
           )}
 
           {activeTab === "my-progress" && (
             <div className="main-progress-content-tab">
               <ProgressInsightsCard />
               <AssessmentWarning />
-
             </div>
           )}
 
@@ -2535,20 +2615,26 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
               </div>
 
               <div className="goals-grid">
-                {visibleGoals.map((goal: { emoji: string, title: string }, idx: number) => (
-                  <div className="goal-chip" key={goal.title + idx}>
-                    <div className="goal-emoji">{goal.emoji}</div>
-                    <span>{goal.title}</span>
-                  </div>
-                ))}
-                <div className="goal-chip more" onClick={() => setShowAllGoals((prev) => !prev)} style={{ cursor: 'pointer' }}>
+                {visibleGoals.map(
+                  (goal: { emoji: string; title: string }, idx: number) => (
+                    <div className="goal-chip" key={goal.title + idx}>
+                      <div className="goal-emoji">{goal.emoji}</div>
+                      <span>{goal.title}</span>
+                    </div>
+                  ),
+                )}
+                <div
+                  className="goal-chip more"
+                  onClick={() => setShowAllGoals((prev) => !prev)}
+                  style={{ cursor: "pointer" }}
+                >
                   <svg width="17" height="5" viewBox="0 0 17 5" fill="none">
                     <path
                       d="M2.06641 4.5C1.51641 4.5 1.04557 4.30417 0.653906 3.9125C0.26224 3.52083 0.0664062 3.05 0.0664062 2.5C0.0664062 1.95 0.26224 1.47917 0.653906 1.0875C1.04557 0.695833 1.51641 0.5 2.06641 0.5C2.61641 0.5 3.08724 0.695833 3.47891 1.0875C3.87057 1.47917 4.06641 1.95 4.06641 2.5C4.06641 3.05 3.87057 3.52083 3.47891 3.9125C3.08724 4.30417 2.61641 4.5 2.06641 4.5ZM8.06641 4.5C7.51641 4.5 7.04557 4.30417 6.65391 3.9125C6.26224 3.52083 6.06641 3.05 6.06641 2.5C6.06641 1.95 6.26224 1.47917 6.65391 1.0875C7.04557 0.695833 7.51641 0.5 8.06641 0.5C8.61641 0.5 9.08724 0.695833 9.47891 1.0875C9.87057 1.47917 10.0664 1.95 10.0664 2.5C10.0664 3.05 9.87057 3.52083 9.47891 3.9125C9.08724 4.30417 8.61641 4.5 8.06641 4.5ZM14.0664 4.5C13.5164 4.5 13.0456 4.30417 12.6539 3.9125C12.2622 3.52083 12.0664 3.05 12.0664 2.5C12.0664 1.95 12.2622 1.47917 12.6539 1.0875C13.0456 0.695833 13.5164 0.5 14.0664 0.5C14.6164 0.5 15.0872 0.695833 15.4789 1.0875C15.8706 1.47917 16.0664 1.95 16.0664 2.5C16.0664 3.05 15.8706 3.52083 15.4789 3.9125C15.0872 4.30417 14.6164 4.5 14.0664 4.5Z"
                       fill="#00201C"
                     />
                   </svg>
-                  <span>{showAllGoals ? 'See less' : 'More'}</span>
+                  <span>{showAllGoals ? "See less" : "More"}</span>
                 </div>
               </div>
 
@@ -2594,7 +2680,6 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
         <div className="care-plan">
           <CarePlanSection />
         </div>
-
 
         {/* Micro Learnings Section */}
         <div className="micro-learnings-main-section">
@@ -2780,7 +2865,6 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
           <NewPlatformSection />
         </div>
 
-
         {/* Care Plan Section */}
         {/* <div className="care-plan">
         <h2>Care Plan</h2>
@@ -2963,7 +3047,7 @@ export default function MainContent({ onSectionChange }: { onSectionChange?: (se
             </div>
           </div>
 
-          
+
           <div className="view-all">
             <button className="view-all-btn">
               VIEW ALL
@@ -3206,7 +3290,9 @@ function TherapistCard({
               </div>
             </div>
             {/* Pop up button */}
-            <button className="book-now-btn" onClick={() => setModalOpen(true)}>Book Now</button>
+            <button className="book-now-btn" onClick={() => setModalOpen(true)}>
+              Book Now
+            </button>
             {/* Redirect to new tab button */}
             {/* <button
               className="book-now-btn"
@@ -3217,7 +3303,11 @@ function TherapistCard({
           </div>
         </div>
       </div>
-      <BookingModal open={modalOpen} onClose={() => setModalOpen(false)} url={bookingUrl} />
+      <BookingModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        url={bookingUrl}
+      />
     </div>
   );
 }
@@ -3232,47 +3322,70 @@ interface TherapistCardProps {
   imageUrl: string;
 }
 
-function BookingModal({ open, onClose, url }: { open: boolean; onClose: () => void; url: string }) {
+function BookingModal({
+  open,
+  onClose,
+  url,
+}: {
+  open: boolean;
+  onClose: () => void;
+  url: string;
+}) {
   if (!open) return null;
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100vw',
-      height: '100vh',
-      background: 'rgba(0,0,0,0.5)',
-      zIndex: 1000,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}>
-      <div style={{
-        background: '#fff',
-        borderRadius: '12px',
-        maxWidth: '90vw',
-        maxHeight: '90vh',
-        width: '800px',
-        height: '80vh',
-        boxShadow: '0 2px 16px rgba(0,0,0,0.2)',
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'column',
-      }}>
-        <button onClick={onClose} style={{
-          position: 'absolute',
-          top: 12,
-          right: 16,
-          background: 'transparent',
-          border: 'none',
-          fontSize: 24,
-          cursor: 'pointer',
-          zIndex: 2,
-        }}>&times;</button>
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        background: "rgba(0,0,0,0.5)",
+        zIndex: 1000,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div
+        style={{
+          background: "#fff",
+          borderRadius: "12px",
+          maxWidth: "90vw",
+          maxHeight: "90vh",
+          width: "800px",
+          height: "80vh",
+          boxShadow: "0 2px 16px rgba(0,0,0,0.2)",
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <button
+          onClick={onClose}
+          style={{
+            position: "absolute",
+            top: 12,
+            right: 16,
+            background: "transparent",
+            border: "none",
+            fontSize: 24,
+            cursor: "pointer",
+            zIndex: 2,
+          }}
+        >
+          &times;
+        </button>
         <iframe
           src={url}
           title="Book Now"
-          style={{ flex: 1, width: '100%', height: '100%', border: 'none', borderRadius: '12px' }}
+          style={{
+            flex: 1,
+            width: "100%",
+            height: "100%",
+            border: "none",
+            borderRadius: "12px",
+          }}
         />
       </div>
     </div>
@@ -3298,7 +3411,7 @@ function getBookingUrl(name: string) {
   // return `https://bookings.refillhealth.com/refilladmin/30min?name=${urlName}&email=${encodeURIComponent(email)}`;
 }
 
-interface CarePlanSectionProps { }
+interface CarePlanSectionProps {}
 
 const CarePlanSection: React.FC<CarePlanSectionProps> = () => {
   return (
@@ -3308,7 +3421,8 @@ const CarePlanSection: React.FC<CarePlanSectionProps> = () => {
         <p className="care-plan-description">
           To get personalized self-care actions, complete your first assessment.
           <br />
-          Your plan will be generated based on your mental health goals and responses.
+          Your plan will be generated based on your mental health goals and
+          responses.
         </p>
       </div>
 
@@ -3354,7 +3468,7 @@ const CarePlanSection: React.FC<CarePlanSectionProps> = () => {
                 <img
                   src="/assets/images/hand_shake_image.png"
                   alt="Handshake"
-                // className="positive-img"
+                  // className="positive-img"
                 />
 
                 {/* <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -3609,7 +3723,6 @@ function AssessmentWarning() {
     </div>
   );
 }
-
 
 function NewPlatformSection() {
   return (
