@@ -269,75 +269,7 @@ export default function MainContent({
           object-fit: contain;
         }
 
-        .steps-text {
-          display: flex;
-          flex-direction: column;
-          gap: 42px;
-          margin-left: 8px;
-          padding-top: 0;
-        }
 
-        .step-item {
-          color: #fff;
-          font-size: 16px;
-          font-weight: 500;
-          line-height: 20px;
-          letter-spacing: 0.09px;
-          white-space: nowrap;
-          display: flex;
-          align-items: center;
-          height: 20px;
-        }
-
-        .discover-btn {
-          display: flex;
-          padding: 10px 14px;
-          align-items: center;
-          gap: 16px;
-          border-radius: 9999px;
-          background: #2c2663;
-          border: none;
-          color: #fff;
-          font-family: DM Sans;
-          font-size: 15px;
-          font-weight: 500;
-          cursor: pointer;
-        }
-
-        .arrow-icon {
-          display: flex;
-          width: 20px;
-          height: 20px;
-          justify-content: center;
-          align-items: center;
-          border-radius: 50%;
-          background: #fff;
-        }
-
-        .purple-image {
-          width: 221px;
-          height: 196px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .positive-img {
-          height: 140px;
-          flex-shrink: 0;
-        }
-
-        .illustration-placeholder {
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(135deg, #9b59b6, #e74c3c);
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          font-size: 14px;
-        }
 
         .goals-section {
           display: flex;
