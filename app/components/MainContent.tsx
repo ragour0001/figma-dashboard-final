@@ -135,7 +135,7 @@ export default function MainContent({
         }
 
         .unsure-section::before {
-          content: '';
+          content: "";
           position: absolute;
           bottom: 0;
           left: 0;
@@ -195,7 +195,7 @@ export default function MainContent({
         }
 
         .step-circle.filled::after {
-          content: '';
+          content: "";
           width: 8px;
           height: 8px;
           border-radius: 50%;
@@ -398,7 +398,7 @@ export default function MainContent({
 
         .goal-chip span {
           color: #494949;
-          font-feature-settings: "liga" off, "clig" off;
+          font-feature-settings: 'liga' off, 'clig' off;
           font-family: Poppins;
           font-size: 16px;
           font-style: normal;
@@ -446,7 +446,7 @@ export default function MainContent({
 
         .goals-status-title {
           color: #003a5d;
-          font-feature-settings: "ss01" on, "cv01" on, "cv11" on;
+          font-feature-settings: 'ss01' on, 'cv01' on, 'cv11' on;
           font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 16px;
           font-style: normal;
@@ -496,7 +496,7 @@ export default function MainContent({
         .reset-goals-text {
           color: #4a635e;
           text-align: center;
-          font-feature-settings: "ss01" on, "cv01" on, "cv11" on;
+          font-feature-settings: 'ss01' on, 'cv01' on, 'cv11' on;
           font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
           font-size: 12px;
           font-style: normal;
